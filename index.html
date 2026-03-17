@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop | Maison Chai · UK & Worldwide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest: #1B4332;
+  --forest-deep: #0f2a1f;
+  --gold: #c5a459;
+  --gold-light: #d4c87a;
+  --cream: #fdf8e1;
+  --cream-dark: #efeade;
+  --sage: #52796F;
+  --sage-light: #6b9e92;
+  --charcoal: #2D2D2D;
+  --white: #ffffff;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--cream-dark); color:var(--charcoal); font-family:'Jost',sans-serif; font-weight:300; overflow-x:hidden; }
+
+/* NAV */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  background:rgba(15,42,31,0.96); backdrop-filter:blur(16px);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 64px; height:56px;
+  border-bottom:1px solid rgba(197,164,89,0.15);
+}
+.nav-brand { font-family:'Cormorant Garamond',serif; font-size:13px; letter-spacing:5px; text-transform:uppercase; color:var(--gold); text-decoration:none; }
+.nav-links { display:flex; gap:36px; list-style:none; align-items:center; }
+.nav-links a { font-size:9px; letter-spacing:2.5px; text-transform:uppercase; color:rgba(245,240,232,0.5); text-decoration:none; transition:color .2s; }
+.nav-links a:hover { color:var(--gold); }
+.nav-basket {
+  background:var(--gold); color:var(--forest-deep);
+  font-size:9px; letter-spacing:2px; text-transform:uppercase; font-weight:600;
+  padding:9px 20px; border:none; cursor:pointer; transition:background .2s;
+  display:flex; align-items:center; gap:8px;
+}
+.nav-basket:hover { background:var(--gold-light); }
+.basket-count {
+  background:var(--forest-deep); color:var(--gold);
+  border-radius:50%; width:18px; height:18px;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:9px; font-weight:600;
+}
+
+/* HERO */
+.hero {
+  background:var(--forest); min-height:100vh;
+  display:grid; grid-template-columns:1.1fr 0.9fr;
+  position:relative; overflow:hidden;
+}
+.hero::before {
+  content:''; position:absolute; top:-180px; right:-100px;
+  width:600px; height:600px; border-radius:50%;
+  background:radial-gradient(circle,rgba(197,164,89,.12) 0%,transparent 65%);
+  pointer-events:none;
+}
+.hero::after {
+  content:''; position:absolute; bottom:-120px; left:30%;
+  width:420px; height:420px; border-radius:50%;
+  background:radial-gradient(circle,rgba(82,121,111,.18) 0%,transparent 65%);
+  pointer-events:none;
+}
+.hero-left {
+  display:flex; flex-direction:column; justify-content:center;
+  padding:120px 64px 80px 80px; position:relative; z-index:2;
+}
+.hero-eyebrow {
+  font-size:9px; letter-spacing:4px; text-transform:uppercase; color:var(--gold);
+  margin-bottom:28px; display:flex; align-items:center; gap:12px;
+}
+.hero-eyebrow::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
+.hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(58px,6.5vw,90px); font-weight:300; line-height:0.95; color:var(--white); margin-bottom:28px; }
+.hero-title em { font-style:italic; color:var(--gold); display:block; }
+.hero-sub { font-size:14px; line-height:1.85; color:rgba(245,240,232,.68); max-width:400px; margin-bottom:40px; }
+.dispatch-tag {
+  display:inline-flex; align-items:center; gap:10px;
+  border:1px solid rgba(197,164,89,.3); padding:11px 20px;
+  font-size:11px; color:var(--gold-light); letter-spacing:1.5px;
+  margin-bottom:44px; width:fit-content;
+}
+.dispatch-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); animation:blink 2s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+.hero-btn {
+  display:inline-flex; align-items:center; gap:12px;
+  background:var(--gold); color:var(--forest-deep);
+  font-size:10px; font-weight:600; letter-spacing:3px; text-transform:uppercase;
+  text-decoration:none; padding:17px 36px; width:fit-content; transition:background .25s, transform .2s;
+}
+.hero-btn:hover { background:var(--gold-light); transform:translateY(-2px); }
+
+.hero-right {
+  display:flex; flex-direction:column; justify-content:center;
+  padding:120px 64px 80px 48px; position:relative; z-index:2;
+  border-left:1px solid rgba(197,164,89,.1);
+}
+.impact-main { border:1px solid rgba(197,164,89,.2); padding:36px; margin-bottom:16px; }
+.impact-eyebrow { font-size:8px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:18px; }
+.impact-num { font-family:'Cormorant Garamond',serif; font-size:64px; font-weight:300; color:var(--white); line-height:1; margin-bottom:8px; }
+.impact-text { font-size:12px; line-height:1.75; color:rgba(245,240,232,.6); }
+.impact-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.impact-cell { background:rgba(82,121,111,.18); border:1px solid rgba(82,121,111,.25); padding:22px 18px; }
+.impact-cell-num { font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; color:var(--gold); line-height:1; margin-bottom:6px; }
+.impact-cell-label { font-size:10px; color:rgba(245,240,232,.5); line-height:1.5; }
+
+/* PULL QUOTE */
+.pull-quote {
+  background:var(--gold); padding:28px 80px;
+  display:flex; align-items:center; justify-content:space-between; gap:32px;
+}
+.pull-quote blockquote { font-family:'Cormorant Garamond',serif; font-size:20px; font-style:italic; color:var(--forest-deep); line-height:1.5; flex:1; }
+.pull-quote cite { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--forest); opacity:.7; white-space:nowrap; font-style:normal; }
+
+/* PRODUCTS */
+.products-section { padding:96px 80px; background:var(--cream-dark); }
+.section-eyebrow { font-size:9px; letter-spacing:4px; text-transform:uppercase; color:var(--sage); margin-bottom:14px; }
+.section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(36px,4vw,52px); font-weight:300; color:var(--forest); line-height:1.1; }
+.section-title em { font-style:italic; color:var(--gold); }
+.section-intro { font-size:13px; line-height:1.9; color:#666; max-width:560px; margin-top:16px; margin-bottom:56px; }
+
+.category { margin-bottom:68px; }
+.cat-header { display:flex; align-items:baseline; gap:20px; padding-bottom:14px; border-bottom:1px solid rgba(27,67,50,.12); margin-bottom:24px; }
+.cat-name { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:400; color:var(--forest); }
+.cat-sub { font-size:11px; color:var(--sage); letter-spacing:.5px; }
+.products-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:3px; }
+
+.p-card { background:var(--white); cursor:pointer; position:relative; overflow:hidden; transition:transform .25s, box-shadow .25s; display:flex; flex-direction:column; }
+.p-card:hover { transform:translateY(-3px); box-shadow:0 12px 40px rgba(27,67,50,.1); }
+.p-card.selected { outline:2px solid var(--gold); }
+.p-card.selected .p-card-footer { background:var(--gold); }
+.p-card.selected .p-select-text { color:var(--forest-deep); }
+.p-card.selected .p-select-icon { background:var(--forest-deep); color:var(--gold); transform:rotate(45deg); }
+
+.p-accent { height:3px; background:var(--cream-dark); transition:background .25s; }
+.p-card:hover .p-accent { background:var(--sage-light); }
+.p-card.selected .p-accent { background:var(--gold); }
+
+.p-body { padding:28px 24px 20px; flex:1; }
+.p-tag { font-size:8px; letter-spacing:2.5px; text-transform:uppercase; color:var(--sage); margin-bottom:10px; }
+.p-name { font-family:'Cormorant Garamond',serif; font-size:21px; font-weight:400; color:var(--forest); line-height:1.2; margin-bottom:10px; }
+.p-desc { font-size:11.5px; line-height:1.75; color:#888; margin-bottom:16px; }
+
+.qty-row { display:flex; align-items:center; gap:0; opacity:0; pointer-events:none; transition:opacity .25s; }
+.p-card.selected .qty-row { opacity:1; pointer-events:all; }
+.qty-label { font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:var(--sage); margin-right:12px; }
+.qty-btn { width:28px; height:28px; border:1px solid rgba(27,67,50,.2); background:var(--cream); color:var(--forest); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .15s; user-select:none; }
+.qty-btn:hover { background:var(--gold); border-color:var(--gold); color:var(--forest-deep); }
+.qty-num { width:36px; text-align:center; font-size:14px; font-weight:500; color:var(--forest); border-top:1px solid rgba(27,67,50,.2); border-bottom:1px solid rgba(27,67,50,.2); height:28px; display:flex; align-items:center; justify-content:center; }
+
+.p-card-footer { display:flex; align-items:center; justify-content:space-between; padding:14px 24px; background:var(--cream); transition:background .25s; }
+.p-size { font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:var(--sage); }
+.p-select { display:flex; align-items:center; gap:8px; background:none; border:none; cursor:pointer; }
+.p-select-icon { width:20px; height:20px; border-radius:50%; background:rgba(27,67,50,.1); display:inline-flex; align-items:center; justify-content:center; font-size:13px; transition:all .2s; color:var(--forest); font-weight:400; line-height:1; }
+.p-select-text { font-size:9px; letter-spacing:2px; text-transform:uppercase; font-weight:500; color:var(--forest); transition:color .2s; }
+
+/* ORDER SECTION */
+.order-section { background:var(--forest-deep); padding:96px 80px; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
+
+.basket-eyebrow { font-size:9px; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:16px; }
+.basket-title { font-family:'Cormorant Garamond',serif; font-size:42px; font-weight:300; color:var(--white); line-height:1.1; margin-bottom:28px; }
+.basket-title em { font-style:italic; color:var(--gold); }
+
+.basket-empty { border:1px dashed rgba(197,164,89,.25); padding:40px 32px; text-align:center; color:rgba(245,240,232,.35); font-size:13px; line-height:1.8; }
+.basket-empty a { color:var(--gold); text-decoration:none; }
+.basket-items { display:flex; flex-direction:column; gap:2px; }
+.basket-item { display:flex; align-items:center; background:rgba(255,255,255,.05); padding:14px 18px; border-left:2px solid var(--gold); }
+.b-name { font-size:13px; color:var(--cream); flex:1; line-height:1.4; }
+.b-qty { font-family:'Cormorant Garamond',serif; font-size:22px; color:var(--gold); font-weight:300; margin:0 16px; white-space:nowrap; }
+.b-qty span { font-size:10px; color:rgba(245,240,232,.4); font-family:'Jost',sans-serif; }
+.b-remove { background:none; border:none; cursor:pointer; color:rgba(245,240,232,.3); font-size:18px; padding:4px 6px; transition:color .15s; }
+.b-remove:hover { color:var(--gold); }
+
+.basket-total { background:rgba(197,164,89,.1); border:1px solid rgba(197,164,89,.2); padding:16px 18px; margin-top:3px; display:flex; align-items:center; justify-content:space-between; }
+.bt-label { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); }
+.bt-count { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:var(--white); }
+.bt-count span { font-size:11px; font-family:'Jost',sans-serif; color:rgba(245,240,232,.5); }
+
+.form-note { font-size:13px; line-height:1.85; color:rgba(245,240,232,.6); margin-bottom:32px; }
+.form-group { display:flex; flex-direction:column; gap:8px; margin-bottom:18px; }
+.form-label { font-size:9px; letter-spacing:2.5px; text-transform:uppercase; color:var(--gold); }
+.form-input, .form-select, .form-textarea { background:rgba(255,255,255,.06); border:1px solid rgba(197,164,89,.18); color:var(--white); font-family:'Jost',sans-serif; font-weight:300; font-size:14px; padding:14px 16px; outline:none; transition:border-color .2s; width:100%; }
+.form-input::placeholder, .form-textarea::placeholder { color:rgba(255,255,255,.22); }
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color:rgba(197,164,89,.6); }
+.form-select option { background:var(--forest-deep); color:var(--white); }
+.form-textarea { resize:vertical; min-height:120px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+
+.order-summary-field { background:rgba(197,164,89,.07); border:1px solid rgba(197,164,89,.18); padding:16px; font-size:12px; color:rgba(245,240,232,.5); line-height:1.9; min-height:80px; font-style:italic; white-space:pre-line; }
+.order-summary-field.populated { color:rgba(245,240,232,.8); font-style:normal; }
+
+.form-submit { width:100%; background:var(--gold); color:var(--forest-deep); font-family:'Jost',sans-serif; font-weight:600; font-size:11px; letter-spacing:3px; text-transform:uppercase; padding:19px 32px; border:none; cursor:pointer; transition:background .2s, transform .15s; margin-top:8px; display:flex; align-items:center; justify-content:center; gap:12px; }
+.form-submit:hover { background:var(--gold-light); transform:translateY(-1px); }
+.form-submit:disabled { background:var(--sage); cursor:not-allowed; transform:none; }
+.form-fine { font-size:10px; color:rgba(245,240,232,.3); line-height:1.7; margin-top:10px; }
+
+.success-msg { display:none; background:rgba(82,121,111,.25); border:1px solid var(--sage); padding:28px; text-align:center; margin-top:20px; }
+.success-msg h4 { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:400; color:var(--gold); margin-bottom:10px; }
+.success-msg p { font-size:12px; color:rgba(245,240,232,.65); line-height:1.9; }
+
+/* TRADE */
+.trade-section { background:var(--cream-dark); padding:96px 80px; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
+.trade-eyebrow { font-size:9px; letter-spacing:4px; text-transform:uppercase; color:var(--sage); margin-bottom:16px; }
+.trade-title { font-family:'Cormorant Garamond',serif; font-size:clamp(32px,3.5vw,46px); font-weight:300; color:var(--forest); line-height:1.1; margin-bottom:18px; }
+.trade-title em { font-style:italic; color:var(--gold); }
+.trade-desc { font-size:13px; line-height:1.9; color:#666; margin-bottom:32px; }
+.trade-team { display:flex; flex-direction:column; gap:10px; }
+.trade-person { display:flex; align-items:center; gap:16px; background:var(--white); padding:16px 20px; border-left:3px solid var(--gold); }
+.t-icon { font-size:18px; width:36px; text-align:center; flex-shrink:0; }
+.t-name { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:400; color:var(--forest); margin-bottom:4px; }
+.t-role { font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:var(--sage); }
+
+.trade-form .form-input, .trade-form .form-select, .trade-form .form-textarea { background:var(--white); border:1px solid rgba(27,67,50,.18); color:var(--charcoal); }
+.trade-form .form-input::placeholder, .trade-form .form-textarea::placeholder { color:#bbb; }
+.trade-form .form-input:focus, .trade-form .form-select:focus, .trade-form .form-textarea:focus { border-color:var(--gold); }
+.trade-form .form-select option { background:var(--white); color:var(--charcoal); }
+.trade-form .form-label { color:var(--forest); }
+.trade-submit { width:100%; background:var(--forest); color:var(--white); font-family:'Jost',sans-serif; font-weight:600; font-size:11px; letter-spacing:3px; text-transform:uppercase; padding:19px 32px; border:none; cursor:pointer; transition:background .2s; }
+.trade-submit:hover { background:var(--sage); }
+.trade-success { display:none; background:rgba(27,67,50,.08); border:1px solid var(--sage); padding:20px; text-align:center; margin-top:16px; font-size:12px; color:var(--forest); line-height:1.8; }
+
+/* FOOTER */
+footer { background:var(--forest-deep); padding:44px 80px; display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(197,164,89,.1); }
+.footer-brand { font-family:'Cormorant Garamond',serif; font-size:12px; letter-spacing:5px; text-transform:uppercase; color:var(--gold); }
+.footer-social { font-size:10px; color:rgba(245,240,232,.35); letter-spacing:1px; }
+.footer-copy { font-size:10px; color:rgba(245,240,232,.2); letter-spacing:1px; }
+
+/* STICKY BAR */
+.sticky-bar { position:fixed; bottom:0; left:0; right:0; z-index:150; background:var(--gold); padding:0 64px; display:flex; align-items:center; justify-content:space-between; height:52px; transform:translateY(100%); transition:transform .3s ease; }
+.sticky-bar.visible { transform:translateY(0); }
+.sticky-bar-text { font-size:11px; font-weight:500; letter-spacing:1.5px; color:var(--forest-deep); }
+.sticky-bar-text strong { font-weight:700; }
+.sticky-bar-btn { background:var(--forest-deep); color:var(--gold); font-size:9px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; padding:10px 24px; border:none; cursor:pointer; text-decoration:none; display:inline-block; transition:background .2s; }
+.sticky-bar-btn:hover { background:var(--forest); }
+
+/* RESPONSIVE */
+@media (max-width:960px) {
+  nav { padding:0 24px; }
+  .nav-links { display:none; }
+  .hero { grid-template-columns:1fr; min-height:auto; }
+  .hero-left { padding:100px 32px 60px; }
+  .hero-right { display:none; }
+  .pull-quote { padding:24px 32px; flex-direction:column; align-items:flex-start; gap:12px; }
+  .products-section, .order-section, .trade-section { padding:60px 32px; }
+  .order-section, .trade-section { grid-template-columns:1fr; gap:48px; }
+  .form-row { grid-template-columns:1fr; }
+  footer { flex-direction:column; gap:14px; text-align:center; padding:36px 32px; }
+  .sticky-bar { padding:0 24px; }
+  .products-grid { grid-template-columns:1fr; }
+}
+
+.p-method { font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:var(--sage); margin-bottom:12px; font-style:italic; }
+
+
+
+
+
+.price-alt { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:300; color:var(--sage); line-height:1; }
+.price-sep { color:rgba(27,67,50,.2); font-size:12px; }
+
+.p-card.selected 
+
+
+
+/* Origin selector */
+.origin-row { display:flex; align-items:center; gap:8px; margin-bottom:14px; opacity:0; pointer-events:none; transition:opacity .25s; flex-wrap:wrap; }
+.p-card.selected .origin-row { opacity:1; pointer-events:all; }
+.origin-label { font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:var(--sage); margin-right:4px; }
+.origin-btn {
+  font-family:'Jost',sans-serif; font-size:9px; letter-spacing:1.5px; text-transform:uppercase;
+  font-weight:500; padding:6px 12px; border:1px solid rgba(27,67,50,.25);
+  background:transparent; color:var(--sage); cursor:pointer; transition:all .18s;
+}
+.origin-btn:hover { border-color:var(--forest); color:var(--forest); }
+.origin-btn.active { background:var(--forest); color:var(--white); border-color:var(--forest); }
+.p-card.selected .origin-btn.active { background:var(--forest-deep); border-color:var(--forest-deep); }
+
+/* Fixed origin badge */
+.origin-fixed { font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:var(--sage); margin-bottom:14px; }
+
+/* Price */
+.price-row { display:flex; align-items:baseline; gap:8px; margin-bottom:14px; }
+.price-main { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:400; color:var(--forest); line-height:1; }
+.price-rare { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:400; color:var(--gold); line-height:1; }
+.price-size { font-family:'Jost',sans-serif; font-size:10px; font-weight:300; opacity:.6; }
+
+/* Mama Rachel note */
+.mama-rachel-note { font-size:10px; line-height:1.7; color:var(--sage); font-style:italic; margin-bottom:12px; display:none; }
+.p-card.selected .mama-rachel-note { display:block; }
+
+/* Cat intro */
+.cat-intro { font-size:12px; line-height:1.8; color:#777; margin:-8px 0 20px; max-width:640px; }
+
+
+/* Hero origin cards */
+.hero-origins { display:flex; flex-direction:column; gap:14px; margin-top:32px; }
+.hero-origin-card { border-left:2px solid rgba(197,164,89,.35); padding:14px 18px; background:rgba(255,255,255,.04); }
+.hero-origin-card--witeva { border-left-color:var(--gold); background:rgba(197,164,89,.07); }
+.origin-card-title { font-size:9px; letter-spacing:2.5px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+.origin-card-text { font-size:11.5px; line-height:1.8; color:rgba(245,240,232,.65); }
+@media (max-width:960px) { .hero-origins { margin-top:24px; } }
+
+</style>
+</head>
+<body>
+
+<div style="background:var(--forest-deep);color:rgba(245,240,232,.7);text-align:center;padding:10px 32px;font-size:10px;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid rgba(197,164,89,.2);">This is the official Maison Chai e-commerce page · Not an International Women's Day promotion</div>
+<nav>
+  <a href="#" class="nav-brand"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0idGV4dCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjk4LjI3IDMzOS41NyI+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogI2M1YTQ1OTsKICAgICAgfQoKICAgICAgLmNscy0yIHsKICAgICAgICBmaWxsOiBub25lOwogICAgICAgIHN0cm9rZTogI2M1YTQ1OTsKICAgICAgICBzdHJva2UtbWl0ZXJsaW1pdDogMTA7CiAgICAgICAgc3Ryb2tlLXdpZHRoOiAyLjYycHg7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxnPgogICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDUuMjYsMjM5LjQzYzEuMDUsMCw0LjUzLC4yOCw1LjQyLC4yOCwxLjExLDAsMy43Ni0uNDQsNC40OC0uNDQsLjY2LDAsLjg4LC4yMiwuODgsMS4wNSwwLC41NS0uNDQsLjgzLTEuMzMsLjgzLS4yOCwwLTEuNDksLjQ0LTEuODgsLjgzLS4zOSwuNjEtLjY2LDEuMzMtLjY2LDIuMjEsMCwxLjMzLC4zOSw0Ljg2LC42Niw3LjYzLDAsLjk0LS40NCwxLjY2LS40NCwyLjYsMCwxLjI3LC43MiwxLjkzLC45NCwyLjY1LC4xNywuNjEsLjIyLDEuMjcsLjIyLDEuNzFsLS4xMSwxLjc3YzAsMS4xMSwuNjEsMS45OSwuNjEsMy4xNSwwLC42MS0uMDUsMS4yNy0uMDUsMS43N3YuMzNjMCwuNzIsLjM5LDMuOTIsLjU1LDUuMzZ2Mi40M2MwLC44MywuMDUsMS42LC4zMywyLjQzLC40NCwxLjMzLC4zOSwxLjY2LDEuMDUsMi40OSwuNSwuNSwyLjMyLDEsMi43MSwxLC42NiwwLC43MiwuMTEsLjc3LC45NCwwLC41NS0uMzMsLjgzLTEsLjgzLS43NywwLTUuNjktLjI4LTcuNDYtLjI4LS44OCwwLTUuMjUsLjExLTYuMDIsLjI4LS4xNywwLS4zMywuMDUtLjU1LC4wNS0uNjEsMC0xLjI3LS4yMi0xLjI3LTEuMDUsMC0uNjEsMS4wNS0uNjEsMS40NC0uNjEsLjYxLDAsLjk0LS41LDEuNTUtLjk0LC42MS0uMzksLjc3LTEuMjIsLjc3LTEuOTMsMC0uMjgtLjA2LS41NS0uMDYtLjgzLS4yOC0zLjIxLS44My00LjA5LS44My01LjMxbC4xMS0yLjgyYzAtLjE3LC41LS44OCwuNS0xLjA1LS4xNy0uODMtLjc3LTEuMjctLjc3LTEuODgtLjE3LTMuNy0uMjItMy40OC0uMjItNS4yNSwwLS4zOSwwLS44My0uMDUtMS4yMi0uMTctLjYxLS4zOS0zLjgxLS4zOS00LjkyLDAtLjc3LS41NS02LjI1LS44My02LjQxLS4yOCwuODgtLjUsMS43MS0uNzcsMi40My0uNDQsMS4yNy0uODgsMi43MS0xLjI3LDMuMzItLjgzLDEuMzMtMS4xMSwyLjgyLTEuNTUsMy44Ny0uNjEsLjk0LTEuNDksMi4yNy0xLjk5LDMuMjEtLjM5LC44My0uNSwxLjk5LTEuMzMsMi43MS0uODMsLjgzLS44MywyLjEtMS41NSwzLjgxLTEuMDUsMi4zOC0yLjQ5LDYuOTYtMy4wNCw3LjY4LS41LC42Ni0uODMsMS44OC0xLjQ0LDMuMzctLjc3LDEuNjYtLjI4LDEuMjItMS4zMywyLjYtLjYxLC44My0xLjYsMS4yNy0zLjEsMS4yNy0xLjcxLDAtMi40My0uNjYtMi42NS0xLjA1LS4zOS0uNS0xLTEuNjYtMS4yNy0yLjYtLjYxLTEuNzctMi44Mi00LjgxLTMuNTQtNi41OC0uNDQtMS4yNy0xLjQ0LTIuODctMS42LTQuMDMtLjE3LTEuMTEtLjA2LTEuODgtLjY2LTIuNzEtLjcyLS45NC0uNTUtMS4wNS0xLTIuMS0uNDQtMS4xNi0xLjQ0LTIuMTYtMS44Mi0zLjQzLS43Mi0yLjE2LTEuODgtMi45OC0yLjMyLTQuODEtLjUtMS42LTEuMTYtMy4yMS0xLjYtNC4wMy0uMTctLjY2LS41LTEuODItLjc3LTEuODItLjIyLDAtLjY2LDIuMS0uNjYsMi4zOC0uMTcsMS45My0uNTUsMy40My0uNTUsNS40Ny0uMTcsLjg4LS4wNiwxLjY2LS4yMiwzLjcsMCwyLjM4LS43MiwyLjc2LS43MiwzLjU0LS4wNiwuNjEtLjA2LDEuMDUtLjA2LDEuNDQsMCwxLjcxLC4zMywyLjMyLC4zMywzLjU5LDAsLjIyLDAsLjUtLjA2LC43Mi0uMTcsMS4zOC0uNjYsMy44MS0uNjYsNS44NiwwLC42NiwwLDEuMjIsLjIyLDIuMDQsLjM5LDEuMTEsLjk5LDIuMTYsMi41NCwyLjU0LC44MywuMTcsMS4xNiwuMzksMS4xNiwxLjIyLDAsLjMzLS4yOCwuNS0uODgsLjVzLTIuODctLjE3LTMuNzYtLjE3SDIuNmMtMS4yNywwLTIuNTQtLjE3LTIuNi0uNjYsMC0uNjEsLjExLTEuMTYsLjcyLTEuMTYsMS4wNSwwLDEuNzEtLjQ0LDIuMzItLjgzLDEuNDktMS4wNSwxLjYtMi45MywxLjYtNS4yLC4xNy0xLjkzLC41LTMuODEsLjcyLTUuMzFsLjE3LTQuNjRjMC0xLjgyLC43Mi01LjQ3LC43Mi03LjEzLDAtMi44MiwuMzktNC43NSwuNTUtNi45NiwuMTctMS4xNiwuMTctMi43NiwuMzktNC4wNHYtLjMzYzAtMS4wNS0uNS0xLjIyLTEuMTEtMS45My0uMjgtLjUtMS44OC0xLjI3LTIuNzEtMS40NC0uNjYtLjExLTEtLjMzLTEtLjcyLC4wNi0uNjEsLjE3LTEuMjcsLjc3LTEuMjdoLjY2Yy42NiwwLDEuNjYtLjA1LDIuNDktLjA1LC41LDAsLjk0LC4wNSwxLjMzLC4xMSwuNzIsLjE3LDEuMzgsLjExLDIuMSwuMTEsMS43MSwwLDMuMTUtLjE3LDQuMzEtLjE3LC45NCwwLDEuNzEsLjA2LDEuODgsLjQ0LC4xMSwuMTEsLjUsMi45OCwuNjYsMy4xNSwuMjgsMS43NywxLjA1LDEuOTksMS41NSwzLjA5LC44MywxLjQ5LDEuNjYsMy41OSwyLjMyLDUuNTMsLjQ0LDEuNDQsMi4wNCwzLjgxLDIuMjEsNS4xNCwwLC44OCwuOTQsMS43MSwxLjM4LDIuNjUsLjMzLC43NywuODgsMi44NywxLjMzLDMuNDMsLjUsLjYxLDIuMSwzLjc2LDIuMSw0LjY0LDAsLjYxLC44MywxLjQ5LDEuMTEsMi4yMSwuMzksMS43MSwxLjEsMi42NSwxLjMzLDIuNjUsLjI4LDAsLjcyLTEuMzMsMS4zOC0yLjgyLC42MS0xLjMzLDEuODItMS4zMywxLjgyLTIuNzYsMC0uODMsMS4xNi0zLjMyLDEuNi00LjIsLjY2LTEuMzgsMS4yNy0zLjIxLDEuNjYtNC4yNiwuMDYtLjE3LC4wNi0uMjIsLjExLS4yOCwuMzMtLjk5LDEuNjYtLjYxLDEuODItMi4yNywuMDYtMS41NSwuNDQtMi42NSwxLjExLTMuOTIsLjgzLTEuMTEsMS4wNS0xLjkzLDEuNzctMy42NSwuNjYtMS42LC45NC0yLjI3LDEuMzMtMy44MSwuNDQtMS4zOCwuODgtNC44MSwyLjU0LTQuOTdoLjIyWiIvPgogICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNOTYuMzgsMjQ2LjczYy42MSwxLjQ5LC44MywyLjY1LDEuNzcsMy45OCwuODgsMS4zMywxLjI3LDMuMjEsMS44OCw0LjcsLjYxLDEuNzEsLjcyLDIuNzYsMS44Miw0LjUzLC41NSwuNzIsMS42NiwzLjc2LDEuOTMsNC4zMSwxLjA1LDEuNDksMS4zMywyLjgyLDEuOTMsNC4xNCwuNjYsMS4zOCwxLjU1LDIuNjUsMS44MiwzLjkyLC40NCwxLjYsMS42NiwzLjIxLDIuNTQsNC43LC4zOSwuODMsLjcyLDEuNDksMi40OSwyLjEsLjgzLC4yMiwxLjQ5LC4xMSwxLjg4LC41LC4wNiwuMDUsLjExLC4zMywuMTEsLjc3LS4wNSwuMzktLjUsLjYxLS43MiwuNjYtLjIyLC4xNy0xLC4xNy0xLjkzLC4xNy0uODMsMC0xLjY2LS4xMS0yLjMyLS4xNy0uNjEtLjA1LTEuMTYtLjA1LTEuODgtLjA1LTEuMzgsMC0yLjk4LC4wNS00LjUzLC4wNS0uNSwwLTEuOTksMC0yLjE2LS4xNy0uNjEsMC0xLjE2LC4xMS0yLjIxLC4xMS0uNzIsMC0xLjMzLS4xMS0xLjMzLS41LDAtLjYxLC4xMS0uOTQsLjk0LS45NCwuNTUsMCwxLjk5LS42NiwxLjk5LTEuMTEsLjA2LS4xMSwuMDYtLjI4LC4wNi0uNSwwLTEuMDUtLjUtMS42Ni0uODgtMi44Mi0uNDQtMS4wNS0xLjU1LTQuNzUtMi41NC01LjQ3LS4yMi0uMTctLjUtLjI4LS44My0uMjgtLjM5LDAtLjY2LC4xMS0xLjA1LC4xMS0xLjQ5LDAtNC40Mi0uMTctNS4wOC0uMTctLjM5LS4wNS0uNjEtLjA1LTEuMjItLjA1LTEuMjcsMC0zLjA0LC4yMi00Ljk3LC4yMi0xLjA1LDAtMS41NS0uMTEtMi4yNy0uMTEtLjgzLDAtLjg4LS4yOC0xLjI3LS4yOC0uMTcsMC0uNDQsLjExLS44MywuMzktLjQ0LC4yOC0xLjM4LDIuMjctMS44MiwzLjkyLS4xNywuNjYtLjM5LDIuNDktLjM5LDMuMzcsMCwxLjA1LC41NSwxLjM4LDEsMS45OSwuMjgsLjIyLDEuMTYsLjcyLDEuMzMsLjcyLC40NCwwLC44MywuMTEsMS4xMSwuMTcsLjQ0LC4xNywuNSwuNSwuNSwuODgtLjA1LC4yMi0uMjIsLjU1LS43MiwuNTUtLjI4LDAtLjUsLjA1LTEsLjA1LS4yOCwwLS41NSwwLTEtLjA1LS45NCwwLTQuOTctLjE3LTcuNjgtLjE3LTIuOTgsMC0xLjk5LC4xMS0zLjI2LC4xMS0uNzIsMC0xLjA1LS4xNy0xLjA1LS41LDAtLjUsLjExLTEuMTEsLjk0LTEuMTEsMS41NSwwLDMuMTUtLjcyLDMuODEtMi40MywuODgtMi4yMSwxLjYtMi40OSwyLjA0LTMuODEsLjE3LS41LDIuMzItNS4wMywyLjc2LTUuODYsLjQ0LS41NSwxLjY2LTMuMjYsMi4xLTQuMzcsLjgzLTIuNDMsMi4yNy00LjUzLDMuMzctNy4xMywuNDQtMS4wNSwxLjMzLS42NiwxLjYtMi4yNywuMjgtMS4yNywuMDYtMS44MiwuNjYtMi45OGwxLjgyLTQuMDNjLjE3LS40NCwxLjIyLTEuNiwxLjgyLTMuMzIsLjQ0LTEuNiwuOTQtMy4zMiwxLjYtNC4xNCwuNjEtLjg4LC45NC0xLjU1LDIuMS0xLjU1LC45NCwwLDEuNzcsMS4zMywyLjkzLDMuNTksLjU1LDEsMS44Miw0LjI2LDIuMjcsNS41OFptLTEwLjYxLDYuOTFjLS4zOSwuMzktLjU1LC42Ni0uNTUsLjgzcy4wNiwuMjIsLjA2LC4zOWMwLC4yOC0uMTEsLjU1LS4yOCwuODMtMS4xNiwxLjkzLTEuOTksNC4xNC0zLjA0LDYuMy0uNzIsMS40OS0xLjI3LDMuMjEtMS4zMyw0LjM3LDAsLjI4LC4yMiwuMzksLjY2LC4zOSwuMzksMCwuODMtLjA1LDEuNDktLjA1LC40NCwwLDEuMDUsLjIyLDEuODgsLjIyLDEuNDksMCwyLjM4LS4zMywzLjctLjMzLDEuOTMsMCwyLjkzLC4yOCw0LjY0LC4yOCwuMjgsMCwyLjI3LS4xNywyLjU0LS42MSwuMTEtLjE3LC4xNy0uMzMsLjE3LS41LDAtLjQ0LS4zMy0uODgtLjU1LTEuNi0uMzktLjg4LTEuNDktMi45My0xLjc3LTQuNjQtLjIyLTEuMjctMS43MS0zLjU0LTIuNTQtNi4xOS0uNjEtMS43Ny0xLjc3LTQuMjYtMi41NC00LjI2LS44MywwLTEuNDksMy41NC0yLjU0LDQuNTlaIi8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xMzUuMDcsMjM5LjIxYzEuMjcsMCwyLjQ5LS4xMSwzLjk4LS4xMSwuMzksMCwuNzIsLjExLDEuMjIsLjExLC4zOSwwLC4zMy0uMTEsLjk0LS4xMSwuMjIsMCwuMzksLjI4LC4zOSwuNjYsMCwuNDQtLjE3LC43Mi0uNDQsLjgzLS41LC4yMi0yLjA0LC4yOC0yLjg3LC43Ny0uNDQsLjM5LS41LDEuMzgtLjc3LDIuNjUsMCwuMjgtLjA1LDIuNi0uMjIsMy44NywwLDEuMzMsLjE3LDIuMzIsLjE3LDMuNDMsMCwuNDQtLjQ0LC44My0uNDQsMS41NSwuMjgsMS4xMSwuMzksMi40MywuMzksMy41OSwwLC44OC0uMjIsMS41NS0uMjIsMi4xNiwwLC44OCwuNDQsMS45OSwuNDQsMy4wOSwwLDEuNzctLjYxLDIuOTMtLjYxLDMuOTgsMCwxLjMzLC40NCwxLjY2LC40NCw0LjMxLDAsNS43NSwwLDcuMDIsLjE3LDcuOSwuMTEsLjY2LC41NSwxLjExLDEuMzgsMS4zMywuODMsLjI4LDEuODgsLjI4LDIuMzIsLjUsLjExLC4xMSwuMTcsLjI4LC4xNywuNDQsMCwuMjgtLjExLC41LS4xNywuNjYtLjIyLC4xNy0uOTQsLjMzLTEuMzMsLjM5LS40NCwuMDYtLjg4LC4wNi0xLjMzLC4wNi0uOTQsMC0xLjkzLS4wNi0yLjk4LS4wNi0uMzksMC0xLjg4LS4xMS01Ljg2LS4xMS0uMjgsMC0xLjc3LC4xMS0yLjkzLC4xMS0uODMsMC0xLjI3LS4wNi0xLjM4LS4xNy0uMTEtLjExLS4xNy0uMzMtLjE3LS42NiwwLS4yOCwuMDUtLjUsLjE3LS42MSwuMTctLjA2LDEuMS0uMTcsMS42LS4yMiwuNjYtLjA1LDEuMjctLjYxLDEuNDktLjg4LC41LS41LC43Mi0xLjgyLC43Ny0yLjIxLC4xNy0uNDQsLjExLTIuMjcsLjExLTQuNDIsMC00LjQ4LS4xMS01LjQyLS4xMS0xMS4yMiwwLS45NCwuNS0xLjQ5LC41LTEuOTktLjI4LS44OC0uMzktMS4xNi0uNTUtMy45OC0uMDYtMi4yNy0uMTctMy44MS0uMTctNS4zMSwwLTMuNy0uMTEtNS41OC0uMTctNS45Ny0uMzktMS4xNi0uMzMtMS44OC0uNzItMi4xNi0uMjgtLjIyLTEuMTYtLjQ0LTEuNi0uNDQtLjUsMC0xLjIyLS4xMS0xLjM4LS4xNy0uMjItLjA2LS4zMy0uMzMtLjMzLS43MnMuMTctLjY2LC40NC0uODNjLjE3LS4xNywuNzItLjExLDEuNTUtLjExLDEuMTEsMCwyLjQ5LC4wNiwyLjcxLC4wNmg1LjQyWiIvPgogICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTYyLjg3LDI0Mi4zNmMtMS4zMywuODMtMS44OCwxLjY2LTIuMSwzLjU5LS4wNiwuMzktLjExLC43Mi0uMTEsMS4xNiwwLDEuNDQsMS4zOCwzLjY1LDIuNTQsNC4yLDEuMTYsLjY2LDMuMDksMS4zOCw0LjI2LDIuMjEsMS4zOCwuODgsMS44OCwxLjIyLDIuOTMsMS4yMiwxLjYsMCwyLjU0LDEuMSwzLjcsMS41NSwxLjU1LC40NCwzLjU0LDIuMjEsNS4xNCwyLjkzLDEuODIsLjg4LDUuMzYsNC44Niw1LjM2LDcuMzV2Mi44MmMwLDEuNzctLjcyLDMuNDgtLjk0LDQuMzctMS4wNSwyLjM4LTIuMjEsMy4zNy0zLjc2LDQuNjQtMS4yMiwuOTQtMy43LDEuNzctNC40MiwxLjc3LTEuNDksMC0xLjg4LDAtMi4yNywuNDQtLjY2LC43Ny0yLjc2LC43Mi00LjAzLC44OC0uMTcsLjA2LS41NSwuMDYtMS4xNiwuMDYtMS4wNSwwLTIuNDktLjExLTQuMzEtLjUtMi42NS0uNjEtNS4yNS0yLjU0LTcuNzktMi41NC0xLjcxLDAtMi4zOCwwLTIuNTQtMS40OSwwLTEuMzgsLjM5LTIuNzEsLjM5LTQuODYsMC0xLjkzLS40NC0zLjQzLS40NC00LjI2cy4yOC0xLjU1LDEuMS0xLjU1Yy4zOSwwLC43NywuMTEsLjk0LC43MiwuNDQsMS4xNiwuNjYsMi42LDEuNzEsNC43NSwxLDIuMTYsMi4xLDIuODIsMy4yMSwzLjgxLDEuMDUsMS4xNiwyLjYsMS43MSw0LjE1LDIuMTYsMS4xNiwuMzksMy4wOSwuOTQsNC40MiwuOTQsLjgzLDAsMS42LS4yMiwyLjQ5LS4yMiwuNDQsMCwyLjE2LS4yMiwyLjQ5LS4zOSwxLjE2LS43MiwxLjg4LS45NCwyLjcxLTEuOTksMS4wNS0xLjM4LDEuNzctMi4yNywxLjc3LTQuMjUsMC0zLjU0LTIuODctNS41OC01LjUzLTYuOTEtMS43MS0uODgtMi4yMS0yLjQzLTUuMi0yLjg3LTIuOTgtLjQ0LTMuNjUtMi4xLTUuODYtMi4zOC0yLjA0LS4yOC02LjI1LTIuOTgtNi44NS00LjItLjcyLTEuMjctMi4wNC0yLjk4LTIuMDQtNS41OCwwLTMuNTksMi4yNy01Ljg2LDIuNzYtNi42MywxLjExLTEuNzEsNC40OC0zLjIxLDUuMi0zLjQ4LDMuMDktLjg4LDUuMzYtMS4yNyw3LjEzLTEuMjcsLjc3LDAsMi45OCwuMTcsMy43LC4xNywxLjkzLDAsMy41OSwxLjI3LDUuNjQsMS4yNywuNDQsMCwyLjA0LS42MSwyLjY1LS42MSwuNjEsLjA1LDEuMjIsLjMzLDEuMjIsMS42NiwwLC42MS0uMDUsMS4xNi0uMDUsMS43NywwLC44MywuMDUsMS43NywuMzMsMy4zMiwuMjIsMS4zMywuNzcsMi4xLC43NywzLjQzLDAsLjYxLS4zMywuODgtLjk0LC44OC0xLjE2LDAtMS4yNy0uOTQtMS42Ni0xLjc3LS4zOS0uNzItMS4wNS0xLjYtMS42Ni0yLjY1LS41LTEuMDUtMS4yNy0xLjYtMi4zMi0yLjMyLS45NC0uNjEtMi43Ni0yLjA0LTMuMzctMi4wNC0xLjM4LS4wNi0yLjI3LS45NC0zLjc2LS45NC0xLjM4LDAtMy4yMSwuMjgtNS41OCwxLjY2WiIvPgogICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjE4LjA4LDI4MS43N2MtNS42OS0uMjItOS43OC0xLjI3LTExLjI3LTEuOTktMy4zNy0xLjQ0LTIuNi0xLjY2LTQuNTMtMi41NC0xLjQ5LS43Mi0zLjMyLTIuNzEtNC4zNy00LjQyLTEuNzctMi45OC0yLjEtNC44MS0yLjgyLTcuNDYtLjM5LTEuMjctLjQ0LTIuNzEtLjQ0LTQuMDQsMC0yLjQzLC4yOC00LjY0LC43Mi01LjMxLC43Mi0xLjE2LDEtNC4wOSwxLjcxLTUuMjUsMS43Ny0yLjgyLDIuMzItMy40MywzLjY1LTQuNzUsLjgzLS44MywxLjgyLTEuNzEsMi44Ny0xLjcxLC44MywwLC42Ni0uNTUsLjk0LTEuMTYsLjI4LS42MSwxLjQ0LTEuNDQsMy40OC0yLjI3LDIuMTYtLjgzLDMuNzYtMS40OSw1LjY5LTEuNjYsMS43MS0uMTcsMy41NC0uNTUsNS4yNS0uNTUsNS45NywuMTcsMTAuMDYsMS4yNywxMS41NSwxLjkzLDMuMzcsMS42LDIuNiwxLjcxLDQuNTMsMi42LDEuNDksLjcyLDMuMzIsMi43MSw0LjM3LDQuNDIsMS43NywyLjk4LDIuMSw0LjgxLDIuODIsNy40MSwuMzksMS4yNywuNDQsMi43MSwuNDQsNC4wMywwLDIuNDktLjI4LDQuNy0uNzIsNS4zNi0uNzIsMS4xNi0uOTksNC4wOS0xLjcxLDUuMjUtMS43NywyLjgyLTIuMzIsMy4zNy0zLjY1LDQuNy0uODMsLjgzLTEuODIsMS43Ny0yLjg3LDEuNzctLjgzLDAtLjY2LC41NS0uOTQsMS4xNi0uMjgsLjYxLTEuNDQsMS40NC0zLjQ4LDIuMjctMi4xNiwuODMtMy43NiwxLjQ5LTUuNjksMS42Ni0xLjcxLC4xNy0zLjU0LC41NS01LjI1LC41NWgtLjI4Wm00LjctMy41OWMxLjc3LDAsMy40My0xLjYsNC44MS0yLjM4LC44My0uNjEsMS41NS0yLjEsMi44Mi0zLjcsMS40NC0xLjcxLDIuNDktNS4xNCwyLjQ5LTcuNjgsMC0uNzIsLjYxLTIuMjEsLjYxLTMuMzd2LTIuNzZjMC0xLjQ5LDAtMy4wNC0uMTctMy42NS0uNzItMi44Mi0uNzItNS44LTQuMzEtOS40LTIuODItMi44Ny01LjQyLTMuODctOC42OC0zLjg3LS43MiwwLTEuMjctLjA2LTEuOTMtLjA2LS40NCwwLS45NC0uMDUtMS41NSwuMTEtLjg4LC4yMi0xLjY2LC44My0yLjMyLC44My0xLjYsMC0yLjkzLDEuNjYtNC4yNiwyLjM4LS44MywuNS0yLjEsMi4xLTMuMzcsMy42NS0xLjQ0LDEuNzctMi40OSw1LjE0LTIuNDksNy43NCwwLC43Mi0uNjEsMi4xLS42MSwzLjM3LDAsMS4wNSwuMjIsNC4yLC41LDUuMjUsLjY2LDIuODIsMS41NSw2LjEzLDQuMjYsOS4wNiwyLjQ5LDIuNjUsNy4yOSw1LjIsMTAuNjcsNS4yLC4zOSwwLC42NiwwLC44My0uMDYsLjg4LS4wNSwyLjA0LS42NiwyLjcxLS42NloiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTI5Mi4yNCwyNTMuMzFjMCwuODgsLjExLDEuODIsLjExLDIuNDMsMCwxLjA1LS4yOCwxLjcxLS4yOCwyLjU0LDAsMi45MywuMDUsMy42NSwuMDUsNC41OSwwLDUuNjksLjI4LDExLjIyLC40NCwxNy4xMywwLC42Ni0uMjgsMS44OC0xLjMzLDEuODgtMS40OSwwLTEuODgtLjU1LTIuNzEtMS4wNS0uODgtLjYxLTMuNy0zLjg3LTQuMjYtNC41OS0uODgtMS4xNi0xLjcxLTEuMzMtMi42LTIuNDktMS44Mi0yLjI3LTQuMDMtNC43LTUuNTgtNi42OS0xLjkzLTIuMzgtNC4yNi00LjQ4LTUuMTQtNS45Ny0xLjExLTIuMDQtMS42Ni0yLjQ5LTIuMjctMy4xNS0uNjEtLjgzLTEuOTktMi43MS0zLjA0LTMuODdsLTMuMjYtMy42NWMtLjgzLS45NC0xLjg4LTEuNjYtMi43Ni0yLjcxLDAsMS41NSwuMTEsMy4wOSwuMTEsNC44MXY1LjU4YzAsMi44MiwuMjIsMi40OSwuMjIsNC4zMSwwLC42MS0uNzIsMS0uNzIsMi4wNCwwLDEsLjU1LC44OCwuNTUsMi4xLDAsLjk0LC4yOCwyLjc2LC4yOCwzLjcsMCwyLjA0LC4yMiwyLjgyLC43Miw0LjM3LC44MywyLjQzLDIuMjcsMy40Myw0LjUzLDMuODEsLjgzLC4xNywxLjY2LC4yMiwxLjY2LDEuNDksMCwuNjYtLjQ0LC43Ny0xLjI3LC43Ny0uNjEsMC0xLjIyLS4wNi0xLjkzLS4wNi0uODMsMC0xLjU1LC4wNi0yLjI3LC4wNi0yLjQzLDAtMi40My0uNDQtMy44MS0uNDQtMS4wNSwwLTEuNjYsLjMzLTIuNzEsLjM5LTEuMDUsLjE3LTEuODgsLjMzLTIuNTQsLjMzLS4zMywwLS42MS0uMDYtLjgzLS4xNy0uMjgtLjE3LS40NC0uMzMtLjQ0LS42MSwwLS4zOSwuMjItLjY2LC43Mi0uOTQsLjcyLS4zOSwxLjg4LS43MiwyLjgyLTEuNTUsMS42Ni0xLjMzLDEuMjItMi44MiwxLjY2LTMuNywuMzktLjk0LC4zOS0xLjc3LC41NS0yLjgyLDAtLjgzLS4wNi0xLjY2LS4xMS0yLjZ2LTQuNzVjMC0uODMsLjA1LTIuMSwuMDUtMy4xNSwwLTEuOTMsLjM5LTIuOTgsLjM5LTMuMzcsMC0xLjMzLS40NC0yLjMyLS40NC0zLjQzLDAtMS4xNi0uMTEtMy41NC0uMTEtNi44LDAtLjgzLS4xMS0uMTEtLjExLTEuOTksMC0uNS0uMTEtMS4zOC0xLjA1LTIuNDMtMS44Mi0xLjkzLTMuNDMtMS44Mi0zLjQzLTIuMzgsMC0uNzIsLjMzLTEuMDUsMS4wNS0xLjA1LC40NCwwLC42NiwuMDYsLjg4LC4wNiwuNjEsMCwxLjIyLS4xMSwxLjgyLS4xMSwuMzMsMCwuNTUsMCwuNzIsLjA1LC42MS0uMTcsMS4zOC0uMjIsMi4yMS0uMjIsMS41NSwwLDMuMjEsLjIyLDQuNDgsLjIyLC43MiwwLDMuMzIsMy40OCwzLjkyLDQuNDIsMS4xNiwyLjA0LDIuMzgsMi42LDIuOTksMy4wOSwuNjEsLjUsLjI4LDEuNiwxLjMzLDIuNTQsLjk0LC45NCwyLjgyLDIuOTMsMy41OSwzLjk4LC44MywxLjA1LDIuMjcsMi4yMSwyLjQ5LDMuMDQsLjE3LC44MywxLjQ0LDEuODIsMi4xNiwyLjcxLC42NiwuODgsLjUsMS4zMywxLjExLDEuOTMsLjcyLC41NSwzLjU0LDIuOTMsMy44NywzLjg3LC40NCwuODgsMS4wNSwxLjYsMi4xLDIuNTQsLjgzLC45NCwxLjY2LDIuMjcsMi40OSwyLjI3LC4yOCwwLC4zOS0uMTcsLjM5LS41NSwwLTEuOTMtLjIyLTMuNzYtLjIyLTYuMjUsMC0xLjcxLC4xNy0zLjA5LC4xNy00LjU5LDAtMS4zOC0uMTEtMS43MS0uMTEtMi4xLDAtLjgzLC4xMS0xLjI3LC4xMS0yLjU0LS4xNy0xLjIyLS4zMy0xLS4zMy0zLjkyLDAtMi4wNC0uMzMtMS44OC0uNzctMy41NC0uNS0xLjQ5LS42Ni0yLjEtMS40OS0zLjIxLS43Mi0xLjA1LTEuODgtMS42LTIuODItMS42LS44MywwLTEuODgsMC0xLjg4LTEuMzMsMC0uNjYsLjYxLS44MywxLjQ5LS44MywuNSwwLDEuMTEsLjA1LDEuNzcsLjA1LC42MSwwLDEuMTYtLjA1LDEuNi0uMDUsMy4zMiwwLDIuOTksLjUsNC40MiwuNSwxLjA1LDAsMS43MS0uMjgsMi43Ni0uNDQsLjk0LS4wNSwxLjc3LS4yOCwyLjQ5LS4yOCwuNjEsMCwxLjM4LC4xMSwxLjM4LC45NCwwLC40NC0uMjgsLjcyLS43NywuNzctLjk0LC4wNS0yLjQ5LC45NC0zLjM3LDEuODJzLS43MiwyLjQ5LTEuMTEsMy40M2MtLjM5LC44OC0uNTUsMS44Mi0uNTUsMi43NiwwLDEuMTEtLjIyLDMuOTItLjIyLDQuNTlaIi8+CiAgPC9nPgogIDxnPgogICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNODcuNDYsMzAxLjM0Yy0uNTcsMC0uOTksLjMxLTEuNjEsLjMxLS41NywwLTEuMDktLjE2LTEuNzctLjE2LTEuMzUsMC0xLjg4LC44My0yLjg2LC44My0xLjUxLDAtMi4yNCwxLjU2LTMuNDksMi4yNC0uNzgsLjQ3LTEuOTgsMS45OC0zLjE4LDMuNDQtMS4zNSwxLjY3LTIuMzQsNC44NC0yLjM0LDcuMjksMCwuNjgtLjU3LDEuOTgtLjU3LDMuMTgsMCwuOTksLjIxLDMuOTYsLjQ3LDQuOTUsLjU3LDIuNjYsMS4wOSw2LjA5LDQuMDEsOC40NCwxLjUxLDEuMjUsMy4zMywzLjE4LDYuMiw0LjE3LDEuNDEsLjQ3LDMuMzMsLjg4LDUuMDUsLjk0LDEuMiwwLDMuOC0uNTcsNC44NC0uODMsMS4yNS0uMjYsMy43NS0xLjkzLDQuNDgtMi41LC43OC0uNjgsMS42Ny0xLjIsMi40NS0xLjk4LC43OC0uNjgsLjczLTEuMDQsMS4yLTIuMDMsLjM3LS41NywuNjgtMS41NiwxLjUxLTEuNTYsLjY4LDAsMS4yNSwuODksMS4yNSwxLjMsMCwuNDctLjc4LDIuMTktMS41NiwyLjk3LS45NCwxLjA5LTMuNDksNC4xNy01LjMxLDQuNzQtMS4yLC40Mi0zLjA3LDEuMy01LDEuNjctMS43MiwuMzYtMy40NCwuODMtNS45OSwuODNoLS42OGMtNS4zNi0uMjEtOS4yMi0xLjItMTAuNjItMS44OC0zLjE4LTEuMzUtMi40NS0xLjU2LTQuMjctMi40LTEuNDEtLjY4LTMuMTItMi41NS00LjExLTQuMTctMS42Ny0yLjgxLTEuOTgtNC41My0yLjY2LTcuMDMtLjM2LTEuMi0uNDItMi41NS0uNDItMy44LDAtMi4yOSwuMjYtNC4zOCwuNjgtNSwuNjgtMS4wOSwuOTQtMy44NSwxLjYxLTQuOTUsMS42Ny0yLjY2LDIuMTktMy4yMywzLjQ0LTQuNDgsLjc4LS43OCwxLjcyLTEuNjIsMi43MS0xLjYyLC43OCwwLC42Mi0uNTIsLjg4LTEuMDksLjI2LS41NywxLjM1LTEuMzUsMy4yOC0yLjE0LDIuMDMtLjc4LDMuNTQtMS40MSw1LjM2LTEuNTYsMS41MS0uMTYsNC43NC0uNTcsNi40Ni0uNTcsLjg4LC4wNSwxLjU2LC4xLDIuMTksLjEsMi45MiwuMjYsMy4xOCwuNjgsMy45MSwuODMsLjYyLC4wNSwxLjY3LC4zNiwyLjAzLC4zNiwuNDIsMCwxLjk4LS41NywyLjUtLjU3LC42MiwuMDUsMS4wNCwuMjYsMS4yNSwyLjA4LC4xNiwxLjcyLC41MiwyLjQ1LC42OCwzLjdzLjk0LDMuMTgsLjk0LDQuNDNjMCwuNTctLjMxLC44My0uODksLjgzLTEuMDksMC0xLjItLjg5LTEuNTYtMS42N3MtMS4wNC0xLjYxLTEuNTEtMi41Yy0uNDctLjk5LTEuNDYtMi4wOC0yLjE0LTIuNjYtLjY4LS41Mi0zLjIzLTEuODgtMy44NS0xLjg4LTEuMDktLjA1LTEuOTgtLjYyLTIuOTctLjYyWiIvPgogICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTIzLjEzLDI5OS4zNmMuMzcsMCwuNTcsLjA1LC43MywuMDUsLjc4LC4xNiwxLjg4LS4wNSwyLjQ1LC4zMSwuMTYsLjEsLjI2LC4zNiwuMjYsLjc4LDAsLjM2LS4zNiwuNTItLjYyLC41Ny0xLjA0LC4xNi0xLjQ2LS4yMS0yLjQ1LC43OC0uNzgsLjc4LS44OSwxLjE1LTEuMDQsMi40LC4wNSwxLjYyLC4xNiwyLjc2LC4xNiwzLjc1LDAsLjQyLDAsLjc4LS4wNSwxLjE1LS4xNiwuNDItLjE2LDEuMDQtLjE2LDEuNjcsMCwxLjI1LS4xLDEuNDEtLjEsMy4yMywwLC45OSwwLDMuMzMsLjI2LDMuNTksLjE2LC4zMSwuMjYsLjM2LDMuNywuMzYsMi4wMywwLDMuNDktLjA1LDQuOTUtLjA1LC43OCwwLDEuNDEsLjE2LDEuODIsLjMxLC41NywuMDUsMS4wOSwuMTYsMS41MSwuMTYsLjk5LDAsMi4wOC0uODMsMy44LS44MywuNTcsMCwuODMsLjA1LDEuMiwuMSwuNDcsLjE2LDIuMTksLjM2LDIuNjYsLjM2LC4zNywwLDEuMDQtLjA1LDEuMy0uMjEsMS4wNC0uNTcsMS4zLTEuMiwxLjQ2LTEuNjcsLjEtLjM3LC4xNi0xLjQ2LC4xNi0zLjMzLDAtLjQ3LC4xLTIuNTUsLjEtMy40OSwwLTEuNDYtLjE2LTMuMjgtLjE2LTQuNThzLS4wNS0xLjk4LTEuNDYtMy4yM2MtLjY4LS41Mi0xLjgyLS4xNi0yLjQtLjU3LS4xNi0uMS0uMjEtLjMxLS4yMS0uNjhzLjA1LS42MiwuMjEtLjY4Yy4xNi0uMTYsLjU3LS4zMSwxLjA0LS4zMXMuODgsLjE2LDEuMzUsLjE2Yy40Mi0uMDUsMi4wMy0uMTYsMy4wNy0uMTYsLjQyLDAsLjc4LDAsLjk0LC4wNSwuMTYsLjA1LC42MiwuMDUsMS4yNSwuMDUsMS44MiwwLDUuMzYtLjEsNS44OC0uMSwuNzgsMCwxLjQ2LC4xNiwxLjYyLC4yMSwuMDUsLjA1LC4xLC4yNiwuMSwuNTIsMCwuMzYtLjA1LC41Ny0uMTYsLjY4LS4xNiwuMTYtLjM2LC4zMS0xLjIsLjM2LS4zNywwLTEuMiwuMjYtMS41NiwuNjItLjY4LC42OC0uNTcsMS41MS0uNzgsMi4yOS0uMTYsLjU3LS4yNiwxLjItLjI2LDIuMTksMCwuNjIsLjIxLDEuOTMsLjI2LDIuNCwwLDIuMDMtLjQ3LDMuMDctLjQ3LDQuMjcsMCwuMjEsLjEsMS40NiwuMTYsMy4xMiwwLC41Ny0uMTYsMS4wNC0uMTYsMS42MSwwLC44OSwuNDcsMS4zLC40NywyLjE0LDAsLjYyLS4xNiwxLjMtLjE2LDEuOTMsMCwyLjE5LS4xLDYuNDEtLjEsNi45MywwLDIuNSwuMzcsMi44MSwuMzcsNC4zMiwwLC43OC0uMSwxLjQ2LS4xLDIuMDMsMCwxLjIsLjk5LDIuMTMsMS44MiwyLjI5LDEuMywuMjYsMS42NywuMzEsMS44MiwuNDcsLjA1LC4xNiwuMSwuMzEsLjEsLjU3LDAsLjMxLS4wNSwuNDctLjEsLjQ3LS4xNiwuMDUtLjgzLC4yMS0xLjYxLC4yMS0xLjgyLDAtMy41NC0uMS01LjM2LS4xLS41NywwLTEuMiwuMDUtMS43NywuMDUtLjE2LDAtLjUyLC4wNS0uOTksLjA1LS45OSwwLTIuMDMtLjE2LTMuMTItLjE2LS4zNiwwLS43OCwuMTYtMS4yLC4xNi0uNTcsMC0uOTQtLjIxLTEuMDktLjI2LS4xLS4wNS0uMTYtLjIxLS4xNi0uNTIsMC0uMjYsLjA1LS41MiwuMTYtLjY4LC4wNS0uMSwuMzYtLjE2LC45NC0uMTYsLjQ3LDAsLjk0LDAsMS41MS0uMjEsLjQyLS4xNiwuODgtLjk0LC44OC0uOTksLjQ3LTEuMywuNjItMi43NiwuNjItMi45N3YtMy44NWMwLS4zNiwuMzEtLjc4LC4zMS0xLjE1LDAtMS4yLS4yMS0xLjk4LS4yMS0yLjM0LDAtLjgzLS4yNi00Ljg0LS42Mi00Ljk1LTEuMy0uMjYtMy41OS0uNDctNC45LS40Ny0uMzYsMC0xLjQxLDAtMS44MiwuMDUtLjQyLC4wNS0xLjQ2LC4wNS0xLjgyLC4wNS0xLjI1LDAtMi4xOSwuMjEtNC41MywuMjEtMi41LDAtNC45LS4xNi03Ljc2LS4xNi0uNzgsMC0xLjI1LC4wNS0xLjQxLC4xLS4yMSwuMjEtLjI2LC43My0uMjYsMS41MSwwLDEuNDYtLjE2LDcuNzEtLjE2LDguOTYsMCwuNTcsLjQyLDEuMTUsLjQyLDEuNjEsMCwxLjI1LS4wNSwzLjU5LDEuMDQsMy44NSwuNTcsLjE2LDEuMiwuNTIsMS42NywuNTIsLjc4LDAsMS40MSwuNDcsMS40MSwuODMsMCwuOTktLjY4LC45OS0xLjc3LC45OS0uNDIsMC00LjMyLS4xLTUuMTYtLjFoLTIuNjZjLS4yNiwwLTEuMywuMDUtMS44OCwuMDVoLS4yNmMtLjM2LS4wNS0uNjgtLjEtMS4wNC0uMXMtLjc4LC4xNi0xLjIsLjE2Yy0uNDcsMC0xLjUxLS4yMS0xLjY3LS4yNi0uMS0uMDUtLjE2LS4yMS0uMTYtLjUyLDAtLjI2LC4wNS0uNTIsLjE2LS42OCwuMTYtLjE2LDIuMDMtLjQyLDIuNjYtLjc4LDEuMjUtMS4wOSwxLjMtMi41LDEuMzUtMy41OSwuMjYtNC41MywuMzEtNC42OSwuMzEtNC45NSwwLS42Mi0uMS0xLjItLjEtMS44MiwuMDUtMS4wOSwuMTYtMi4wOCwuMTYtMi43NiwwLTEuMDQtLjI2LTQuMzItLjI2LTQuOSwwLTEuMjUsLjA1LTIuNzEsLjA1LTQuMDFsLjUyLTEuODJjMC0uNDItLjUyLS43OC0uNTItMS4xNS0uMTYtMy4zOC0uMTYtNC42My0uMTYtNS45OSwwLS44My0uMDUtMi4xOS0uMjYtMi42Ni0uMjYtLjgzLDAtLjk5LTEuMDktMS41Ni0uMzYtLjE2LS43My0uMzYtMS4wOS0uMzYtLjQ3LDAtLjg4LS4yNi0xLjA0LS4yNi0uMzEsMC0uNDctLjIxLS40Ny0uNTdzLjE2LS42MiwuNDctLjc4Yy4xNiwwLC45OS0uMDUsOC4wNy0uMDUsLjYyLDAsMi41LS4xLDMuNTktLjFaIi8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xOTMuMjMsMzA2LjU1Yy41NywxLjQxLC43OCwyLjUsMS42NywzLjc1LC44MywxLjI1LDEuMiwzLjAyLDEuNzcsNC40MywuNTcsMS42MiwuNjgsMi42LDEuNzIsNC4yNywuNTIsLjY4LDEuNTYsMy41NCwxLjgyLDQuMDYsLjk5LDEuNDEsMS4yNSwyLjY2LDEuODIsMy45MSwuNjIsMS4zLDEuNDYsMi41LDEuNzIsMy43LC40MiwxLjUxLDEuNTYsMy4wMiwyLjQsNC40MywuMzcsLjc4LC42OCwxLjQxLDIuMzQsMS45OCwuNzgsLjIxLDEuNDEsLjEsMS43NywuNDcsLjA1LC4wNSwuMSwuMzEsLjEsLjczLS4wNSwuMzYtLjQ3LC41Ny0uNjgsLjYyLS4yMSwuMTYtLjk0LC4xNi0xLjgyLC4xNi0uNzgsMC0xLjU2LS4xLTIuMTktLjE2LS41Ny0uMDUtMS4wOS0uMDUtMS43Ny0uMDUtMS4zLDAtMi44MSwuMDUtNC4yNywuMDUtLjQ3LDAtMS44OCwwLTIuMDMtLjE2LS41NywwLTEuMDksLjEtMi4wOCwuMS0uNjgsMC0xLjI1LS4xLTEuMjUtLjQ3LDAtLjU3LC4xLS44OCwuODgtLjg4LC41MiwwLDEuODgtLjYyLDEuODgtMS4wNCwuMDUtLjEsLjA1LS4yNiwuMDUtLjQ3LDAtLjk5LS40Ny0xLjU2LS44My0yLjY2LS40Mi0uOTktMS40Ni00LjQ4LTIuNC01LjE2LS4yMS0uMTYtLjQ3LS4yNi0uNzgtLjI2LS4zNiwwLS42MiwuMS0uOTksLjEtMS40MSwwLTQuMTctLjE2LTQuNzktLjE2LS4zNy0uMDUtLjU3LS4wNS0xLjE1LS4wNS0xLjIsMC0yLjg2LC4yMS00LjY5LC4yMS0uOTksMC0xLjQ2LS4xLTIuMTQtLjEtLjc4LDAtLjgzLS4yNi0xLjItLjI2LS4xNiwwLS40MiwuMS0uNzgsLjM2LS40MiwuMjYtMS4zLDIuMTQtMS43MiwzLjctLjE2LC42Mi0uMzYsMi4zNC0uMzYsMy4xOCwwLC45OSwuNTIsMS4zLC45NCwxLjg4LC4yNiwuMjEsMS4wOSwuNjgsMS4yNSwuNjgsLjQyLDAsLjc4LC4xLDEuMDQsLjE2LC40MiwuMTYsLjQ3LC40NywuNDcsLjgzLS4wNSwuMjEtLjIxLC41Mi0uNjgsLjUyLS4yNiwwLS40NywuMDUtLjk0LC4wNS0uMjYsMC0uNTIsMC0uOTQtLjA1LS44OSwwLTQuNjktLjE2LTcuMjQtLjE2LTIuODEsMC0xLjg3LC4xLTMuMDcsLjEtLjY4LDAtLjk5LS4xNi0uOTktLjQ3LDAtLjQ3LC4xLTEuMDQsLjg4LTEuMDQsMS40NiwwLDIuOTctLjY4LDMuNTktMi4yOSwuODMtMi4wOCwxLjUxLTIuMzQsMS45My0zLjU5LC4xNi0uNDcsMi4xOS00Ljc0LDIuNi01LjUyLC40Mi0uNTIsMS41Ni0zLjA3LDEuOTgtNC4xMSwuNzgtMi4yOSwyLjEzLTQuMjcsMy4xOC02LjcyLC40Mi0uOTksMS4yNS0uNjIsMS41MS0yLjEzLC4yNi0xLjIsLjA1LTEuNzIsLjYyLTIuODFsMS43Mi0zLjhjLjE2LS40MiwxLjE1LTEuNTEsMS43Mi0zLjEyLC40Mi0xLjUxLC44OS0zLjEyLDEuNTEtMy45MSwuNTctLjgzLC44OC0xLjQ2LDEuOTgtMS40NiwuODksMCwxLjY3LDEuMjUsMi43NiwzLjM5LC41MiwuOTQsMS43Miw0LjAxLDIuMTQsNS4yNlptLTEwLDYuNTFjLS4zNiwuMzYtLjUyLC42Mi0uNTIsLjc4cy4wNSwuMjEsLjA1LC4zNmMwLC4yNi0uMSwuNTItLjI2LC43OC0xLjA5LDEuODItMS44NywzLjkxLTIuODYsNS45NC0uNjgsMS40MS0xLjIsMy4wMi0xLjI1LDQuMTEsMCwuMjYsLjIxLC4zNywuNjIsLjM3LC4zNywwLC43OC0uMDUsMS40MS0uMDUsLjQyLDAsLjk5LC4yMSwxLjc3LC4yMSwxLjQxLDAsMi4yNC0uMzEsMy40OS0uMzEsMS44MiwwLDIuNzYsLjI2LDQuMzgsLjI2LC4yNiwwLDIuMTMtLjE2LDIuNC0uNTcsLjEtLjE2LC4xNi0uMzEsLjE2LS40NywwLS40Mi0uMzEtLjgzLS41Mi0xLjUxLS4zNy0uODMtMS40MS0yLjc2LTEuNjctNC4zNy0uMjEtMS4yLTEuNjEtMy4zMy0yLjQtNS44My0uNTctMS42Ny0xLjY3LTQuMDEtMi40LTQuMDEtLjc4LDAtMS40MSwzLjMzLTIuNCw0LjMyWiIvPgogICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjI5LjY5LDI5OS40N2MxLjIsMCwyLjM0LS4xLDMuNzUtLjEsLjM3LDAsLjY4LC4xLDEuMTUsLjEsLjM3LDAsLjMxLS4xLC44OS0uMSwuMjEsMCwuMzYsLjI2LC4zNiwuNjIsMCwuNDItLjE2LC42OC0uNDIsLjc4LS40NywuMjEtMS45MywuMjYtMi43MSwuNzMtLjQyLC4zNi0uNDcsMS4zLS43MywyLjUsMCwuMjYtLjA1LDIuNDUtLjIxLDMuNjUsMCwxLjI1LC4xNiwyLjE5LC4xNiwzLjIzLDAsLjQyLS40MiwuNzgtLjQyLDEuNDYsLjI2LDEuMDQsLjM2LDIuMjksLjM2LDMuMzksMCwuODMtLjIxLDEuNDYtLjIxLDIuMDMsMCwuODMsLjQyLDEuODgsLjQyLDIuOTIsMCwxLjY3LS41NywyLjc2LS41NywzLjc1LDAsMS4yNSwuNDIsMS41NiwuNDIsNC4wNiwwLDUuNDIsMCw2LjYxLC4xNiw3LjQ1LC4xLC42MiwuNTIsMS4wNCwxLjMsMS4yNSwuNzgsLjI2LDEuNzcsLjI2LDIuMTksLjQ3LC4xLC4xLC4xNiwuMjYsLjE2LC40MiwwLC4yNi0uMSwuNDctLjE2LC42Mi0uMjEsLjE2LS44OSwuMzEtMS4yNSwuMzctLjQyLC4wNS0uODMsLjA1LTEuMjUsLjA1LS44OSwwLTEuODItLjA1LTIuODEtLjA1LS4zNiwwLTEuNzctLjEtNS41Mi0uMS0uMjYsMC0xLjY3LC4xLTIuNzYsLjEtLjc4LDAtMS4yLS4wNS0xLjMtLjE2cy0uMTYtLjMxLS4xNi0uNjJjMC0uMjYsLjA1LS40NywuMTYtLjU3LC4xNi0uMDUsMS4wNC0uMTYsMS41MS0uMjEsLjYyLS4wNSwxLjItLjU3LDEuNDEtLjgzLC40Ny0uNDcsLjY4LTEuNzIsLjczLTIuMDgsLjE2LS40MiwuMS0yLjEzLC4xLTQuMTcsMC00LjIyLS4xLTUuMS0uMS0xMC41NywwLS44OSwuNDctMS40MSwuNDctMS44OC0uMjYtLjgzLS4zNy0xLjA5LS41Mi0zLjc1LS4wNS0yLjEzLS4xNi0zLjU5LS4xNi01LDAtMy40OS0uMS01LjI2LS4xNi01LjYyLS4zNy0xLjA5LS4zMS0xLjc3LS42OC0yLjAzLS4yNi0uMjEtMS4wOS0uNDItMS41MS0uNDItLjQ3LDAtMS4xNS0uMS0xLjMtLjE2LS4yMS0uMDUtLjMxLS4zMS0uMzEtLjY4cy4xNi0uNjIsLjQyLS43OGMuMTYtLjE2LC42OC0uMSwxLjQ2LS4xLDEuMDQsMCwyLjM0LC4wNSwyLjU1LC4wNWg1LjFaIi8+CiAgPC9nPgogIDxnPgogICAgPGc+CiAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTIzMy41MywyMjMuMDZjLTIuMTQsMC00LjIzLS44OS01LjcxLTIuNTVsLTgyLjE4LTkxLjYyYy0yLjgzLTMuMTUtMi41Ny04LC41OS0xMC44MywzLjE1LTIuODMsOC0yLjU3LDEwLjgzLC41OWw2OC44LDc2LjdWMTA0Ljc3bC0xOC43OSwyNy40NWMtMi4zOSwzLjUtNy4xNyw0LjM5LTEwLjY2LDItMy41LTIuMzktNC4zOS03LjE3LTItMTAuNjZsMzIuNzktNDcuOWMxLjktMi43OCw1LjM5LTMuOTksOC42LTIuOTksMy4yMSwuOTksNS40LDMuOTcsNS40LDcuMzNWMjE1LjM5YzAsMy4xOC0xLjk2LDYuMDMtNC45Myw3LjE2LS44OSwuMzQtMS44MiwuNTEtMi43NCwuNTFaIi8+CiAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTY3Ljk5LDIyMy4wNmMtLjc0LDAtMS40OS0uMTEtMi4yMy0uMzMtMy4yMy0uOTgtNS40NC0zLjk2LTUuNDQtNy4zNFY3OWMwLTMuMTgsMS45Ni02LjAzLDQuOTMtNy4xNiwyLjk3LTEuMTQsNi4zMy0uMzIsOC40NSwyLjA0bDgyLjE4LDkxLjYyYzIuODMsMy4xNSwyLjU3LDgtLjU5LDEwLjgzLTMuMTUsMi44My04LDIuNTctMTAuODMtLjU5TDc1LjY3LDk5LjA0djkxLjE0bDE4Ljc1LTI3Ljk1YzIuMzYtMy41Miw3LjEzLTQuNDYsMTAuNjQtMi4xLDMuNTIsMi4zNiw0LjQ2LDcuMTMsMi4xLDEwLjY0bC0zMi43OSw0OC44OWMtMS40NSwyLjE2LTMuODYsMy40LTYuMzcsMy40WiIvPgogICAgPC9nPgogICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNzguMDQsNjAuMTdjLTEuNDQsMC0yLjktLjM3LTQuMjMtMS4xNC00LjAzLTIuMzQtNS40LTcuNS0zLjA2LTExLjUzLDguMDEtMTMuNzksMTkuNTEtMjUuMzUsMzMuMjUtMzMuNDQsMTQuMTctOC4zNCwzMC4zOS0xMi43NCw0Ni45Mi0xMi43NHMzMi41Miw0LjM1LDQ2LjYyLDEyLjU3YzEzLjY3LDcuOTcsMjUuMTUsMTkuMzksMzMuMiwzMy4wMSwyLjM3LDQuMDEsMS4wNCw5LjE5LTIuOTcsMTEuNTYtNC4wMSwyLjM3LTkuMTksMS4wNC0xMS41Ni0yLjk3LTYuNTktMTEuMTUtMTUuOTktMjAuNDktMjcuMTctMjcuMDItMTEuNTItNi43Mi0yNC43LTEwLjI3LTM4LjExLTEwLjI3cy0yNi43OCwzLjYtMzguMzYsMTAuNDFjLTExLjI1LDYuNjItMjAuNjYsMTYuMDgtMjcuMjEsMjcuMzctMS41NywyLjctNC40LDQuMi03LjMsNC4yWiIvPgogICAgPGc+CiAgICAgIDxnPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTE1MS42NSw5Ni43MmMtLjA3LC4wNi0uMTQsLjExLS4yMiwuMTUsLjMsMi4wMywuNjQsMy4yNywuNjQsMy4yNyw1MC4xNiwwLDM3LjcyLTM5LjIsMzcuNzItMzkuMi04LjgzLDAtMTUuNywxLjI5LTIxLjAzLDMuNCIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTEzMi4yNSw2NC4xNWMtNS4yNS0yLTExLjk3LTMuMjEtMjAuNTItMy4yMSwwLDAtMTIuNDUsMzkuMiwzNy43MiwzOS4yLDAsMCwuMzItMS4xNSwuNjEtMy4wNy0uMjYtLjA3LS41LS4xOC0uNzEtLjM1Ii8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTY4Ljc3LDY0LjM0Yy0uMDItLjE5LS4wNC0uMzgtLjA2LS41Ni0uODEtNi45Mi0zLjU5LTEyLjU3LTguNjEtMTguNDgtMy43Ni00LjQzLTgtNy42OC05LjA2LTkuMDQtLjI3LS4zNC0uODEtLjM0LTEuMDgsMC0xLjA2LDEuMzYtNC45Nyw0LjYxLTguNzMsOS4wNC01LjAyLDUuOTEtOC4xMywxMS41Ni04Ljk0LDE4LjQ4LS4wMSwuMTItLjAzLC4yNC0uMDQsLjM3LDE5LjUxLDcuNDEsMTguOSwyNS42NSwxNy44LDMyLjkzLC4xNSwuMDQsLjI5LC4wNiwuNDUsLjA2LC4zMywwLC42Ni0uMDksLjk0LS4yNi0xLjA3LTcuMzQtMS40OS0yNS4wNywxNy4zMy0zMi41M1oiLz4KICAgICAgPC9nPgogICAgICA8bGluZSBjbGFzcz0iY2xzLTIiIHgxPSIxNTAuNTEiIHkxPSIzNiIgeDI9IjE1MC41MSIgeTI9Ijk4LjcxIi8+CiAgICAgIDxsaW5lIGNsYXNzPSJjbHMtMiIgeDE9IjE2My40OSIgeTE9IjQ5Ljc3IiB4Mj0iMTUwLjc2IiB5Mj0iNjIuMzIiLz4KICAgICAgPGxpbmUgY2xhc3M9ImNscy0yIiB4MT0iMTExLjczIiB5MT0iNjAuOTQiIHgyPSIxNDkuNDQiIHkyPSIxMDAuMTQiLz4KICAgICAgPGxpbmUgY2xhc3M9ImNscy0yIiB4MT0iMTg5Ljc5IiB5MT0iNjAuOTQiIHgyPSIxNTIuMDgiIHkyPSIxMDAuMTQiLz4KICAgICAgPGxpbmUgY2xhc3M9ImNscy0yIiB4MT0iMTI5LjMyIiB5MT0iNjMuMTYiIHgyPSIxMjkuMzIiIHkyPSI3OC40NSIvPgogICAgICA8bGluZSBjbGFzcz0iY2xzLTIiIHgxPSIxNDAuNDEiIHkxPSI2OC42NCIgeDI9IjE0MC40MSIgeTI9IjkwLjExIi8+CiAgICAgIDxsaW5lIGNsYXNzPSJjbHMtMiIgeDE9IjE3NC4zMSIgeTE9Ijc3LjU1IiB4Mj0iMTkwLjYzIiB5Mj0iNzcuNTUiLz4KICAgICAgPGxpbmUgY2xhc3M9ImNscy0yIiB4MT0iMTYyLjc4IiB5MT0iODguNzEiIHgyPSIxODUuMjkiIHkyPSI4OC43MSIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+" alt="Maison Chai" style="height:36px;width:auto;display:block;"></a>
+  <ul class="nav-links">
+    <li><a href="#products">Our Teas</a></li>
+    <li><a href="#order">Order</a></li>
+    <li><a href="#trade">Trade</a></li>
+    <li><a href="https://maisonchaiglobal.com" target="_blank">Our Website</a></li>
+  </ul>
+  <button class="nav-basket" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">
+    Your Selection <span class="basket-count" id="navCount">0</span>
+  </button>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Official Maison Chai Shop · UK & Worldwide</p>
+    <h1 class="hero-title">From Leaf<br><em>to Luxury</em></h1>
+    <p class="hero-sub">Every Maison Chai tea is traceable to the women who grew it — from our farms in Nyeri and the Rift Valley to your cup. This is the official Maison Chai e-commerce page for the UK and rest of the world.</p>
+    <div class="dispatch-tag"><span class="dispatch-dot"></span> Worldwide dispatch · UK & International shipping available</div>
+    <a href="#products" class="hero-btn">Choose Your Tea →</a>
+    <div class="hero-origins">
+      <div class="hero-origin-card">
+        <p class="origin-card-title">✦ Rift Valley · 2,000 – 2,200m</p>
+        <p class="origin-card-text">Our Rift Valley gardens sit at altitude in the Great Rift escarpment — rich volcanic soils, afternoon mist, and wide day-night temperature swings. The result is a fuller, maltier cup with deep body and a warm, rounded finish. Rift Valley black teas are exceptional for boiling with milk; the greens and purples carry an earthy intensity that lingers.</p>
+      </div>
+      <div class="hero-origin-card">
+        <p class="origin-card-title">✦ Aberdares · 2,200 – 2,500m</p>
+        <p class="origin-card-text">High in the Aberdare Range above Nyeri, our mountain-garden teas benefit from cool temperatures, high rainfall, and bright equatorial light at elevation. These conditions slow leaf growth and concentrate flavour — producing a brighter, crisper, more aromatic cup with a clean, lingering sweetness. Ideal for steeping without milk; the greens and whites here are exceptional.</p>
+      </div>
+      <div class="hero-origin-card hero-origin-card--witeva">
+        <p class="origin-card-title">✦ Every sale supports WITEVA</p>
+        <p class="origin-card-text">A percentage of every sale goes directly to the Women in Tea Value Chain Association (WITEVA) — supporting training, leadership pathways, and economic inclusion for the women who grow your tea. From field to factory board, WITEVA is changing who holds power in Kenya's tea industry.</p>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="impact-main">
+      <p class="impact-eyebrow">Women in our supply chain</p>
+      <div class="impact-num">1,000+</div>
+      <p class="impact-text">Women trained through the Women in Tea Value Chain Association — from field workers to factory board representatives.</p>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-cell">
+        <div class="impact-cell-num">130+</div>
+        <p class="impact-cell-label">Young Tea Growers supported</p>
+      </div>
+      <div class="impact-cell">
+        <div class="impact-cell-num">2%</div>
+        <p class="impact-cell-label">Kenya's share of a £12bn chain — we're changing that</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pull-quote">
+  <blockquote>"Every woman who tends the tea should also benefit from the cup."</blockquote>
+  <cite>— Wangu Mureithi, Founder & CEO, Maison Chai</cite>
+</div>
+
+<section class="products-section" id="products">
+  <p class="section-eyebrow">The Maison Chai Tea Index · 25 Teas</p>
+  <h2 class="section-title">Choose Your <em>Tea</em></h2>
+  <p class="section-intro">Welcome to the official Maison Chai shop for the UK and rest of the world. This is not an International Women's Day promotion — this is our permanent e-commerce page. Click any tea to add it to your order, select your preferred origin, adjust quantities, then submit.</p>
+
+  <div class="category">
+    <div class="cat-header">
+      <span class="cat-name">Breakfast Collection</span>
+      <span class="cat-sub">Built on Black CTC · Bold blends made for the pot and milk · 500g · £10</span>
+    </div>
+    <p class="cat-intro">All breakfast blends are available in 500g at £10. Choose your origin — Rift Valley produces a fuller, maltier cup; Aberdares (Mount Kenya) is brighter and brisker.</p>
+    <div class="products-grid">
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Black CTC · Classic</p>
+          <h3 class="p-name">Breakfast Tea</h3>
+          <p class="p-desc">Our foundational breakfast blend — bold Kenyan black CTC, built for boiling with milk. Pure, unfussy, and deeply satisfying.</p>
+          <p class="p-method">✦ Best for boiling</p>
+          <div class="price-row">
+            <span class="price-main">£10 <span class="price-size">/ 500g</span></span>
+          </div>
+          <div class="origin-row">
+            <span class="origin-label">Origin</span>
+            <button class="origin-btn active" onclick="setOrigin(event,this,'Rift Valley')">Rift Valley</button>
+            <button class="origin-btn" onclick="setOrigin(event,this,'Aberdares')">Aberdares</button>
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 500g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Black CTC · Ginger</p>
+          <h3 class="p-name">Ginger Breakfast Tea</h3>
+          <p class="p-desc">Kenyan black CTC tea with real ginger root. Warming, invigorating, and made for the pot. Simmered with milk, it is extraordinary.</p>
+          <p class="p-method">✦ Best for boiling</p>
+          <div class="price-row">
+            <span class="price-main">£10 <span class="price-size">/ 500g</span></span>
+          </div>
+          <div class="origin-row">
+            <span class="origin-label">Origin</span>
+            <button class="origin-btn active" onclick="setOrigin(event,this,'Rift Valley')">Rift Valley</button>
+            <button class="origin-btn" onclick="setOrigin(event,this,'Aberdares')">Aberdares</button>
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 500g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Black CTC · Masala</p>
+          <h3 class="p-name">Masala Breakfast Tea</h3>
+          <p class="p-desc">Black CTC tea with Ginger, Black Pepper, Cloves, and Cinnamon. Cardamom-forward, richly spiced, and built for milk.</p>
+          <p class="p-method">✦ Best for boiling</p>
+          <div class="price-row">
+            <span class="price-main">£10 <span class="price-size">/ 500g</span></span>
+          </div>
+          <div class="origin-row">
+            <span class="origin-label">Origin</span>
+            <button class="origin-btn active" onclick="setOrigin(event,this,'Rift Valley')">Rift Valley</button>
+            <button class="origin-btn" onclick="setOrigin(event,this,'Aberdares')">Aberdares</button>
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 500g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Black CTC · Karak</p>
+          <h3 class="p-name">Karak Breakfast Tea</h3>
+          <p class="p-desc">Black CTC tea with Green Cardamom and Cinnamon — a Gulf-inspired breakfast blend with a distinctly Kenyan character.</p>
+          <p class="p-method">✦ Best for boiling</p>
+          <div class="price-row">
+            <span class="price-main">£10 <span class="price-size">/ 500g</span></span>
+          </div>
+          <div class="origin-row">
+            <span class="origin-label">Origin</span>
+            <button class="origin-btn active" onclick="setOrigin(event,this,'Rift Valley')">Rift Valley</button>
+            <button class="origin-btn" onclick="setOrigin(event,this,'Aberdares')">Aberdares</button>
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 500g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Black CTC · Signature</p>
+          <h3 class="p-name">Signature Breakfast Tea</h3>
+          <p class="p-desc">Black CTC tea with Lemongrass, Ginger, and Rosemary. Our most distinctive blend — herbal, aromatic, and unmistakably Maison Chai.</p>
+          <p class="p-method">✦ Best for boiling</p>
+          <div class="price-row">
+            <span class="price-main">£10 <span class="price-size">/ 500g</span></span>
+          </div>
+          <div class="origin-row">
+            <span class="origin-label">Origin</span>
+            <button class="origin-btn active" onclick="setOrigin(event,this,'Rift Valley')">Rift Valley</button>
+            <button class="origin-btn" onclick="setOrigin(event,this,'Aberdares')">Aberdares</button>
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 500g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="cat-header">
+      <span class="cat-name">Fleur Collection</span>
+      <span class="cat-sub">Built on Black Orthodox FOP · Whole leaf black tea · 125g · £12.50</span>
+    </div>
+    <div class="products-grid">
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Black Orthodox · Pure</p>
+          <h3 class="p-name">Fleur</h3>
+          <p class="p-desc">Our signature whole-leaf black tea — Black Orthodox FOP served pure. Bright, clean, and beautifully balanced.</p>
+          <p class="p-method">✦ Best for steeping</p>
+          <div class="price-row">
+            <span class="price-main">£12.50 <span class="price-size">/ 125g</span></span>
+          </div>
+          <div class="origin-row">
+            <span class="origin-label">Origin</span>
+            <button class="origin-btn active" onclick="setOrigin(event,this,'Rift Valley')">Rift Valley</button>
+            <button class="origin-btn" onclick="setOrigin(event,this,'Aberdares')">Aberdares</button>
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 125g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Black Orthodox · Lemongrass</p>
+          <h3 class="p-name">Lemon Fleur</h3>
+          <p class="p-desc">Whole leaf black tea with Lemongrass — citrus brightness lifting a rich Kenyan black. Fresh, clean, endlessly drinkable.</p>
+          <p class="p-method">✦ Best for steeping</p>
+          <div class="price-row">
+            <span class="price-main">£12.50 <span class="price-size">/ 125g</span></span>
+          </div>
+          <div class="origin-row">
+            <span class="origin-label">Origin</span>
+            <button class="origin-btn active" onclick="setOrigin(event,this,'Rift Valley')">Rift Valley</button>
+            <button class="origin-btn" onclick="setOrigin(event,this,'Aberdares')">Aberdares</button>
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 125g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Black Orthodox · Masala</p>
+          <h3 class="p-name">Masala Fleur</h3>
+          <p class="p-desc">Whole leaf black tea with Ginger, Black Pepper, Cloves, and Cinnamon. All the warmth of our masala blend in an elegant steeping format.</p>
+          <p class="p-method">✦ Best for steeping</p>
+          <div class="price-row">
+            <span class="price-main">£12.50 <span class="price-size">/ 125g</span></span>
+          </div>
+          <div class="origin-row">
+            <span class="origin-label">Origin</span>
+            <button class="origin-btn active" onclick="setOrigin(event,this,'Rift Valley')">Rift Valley</button>
+            <button class="origin-btn" onclick="setOrigin(event,this,'Aberdares')">Aberdares</button>
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 125g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Black Orthodox · Karak</p>
+          <h3 class="p-name">Karak Fleur</h3>
+          <p class="p-desc">Whole leaf black tea with Green Cardamom and Cinnamon. Aromatic and warming — the sophistication of karak in a whole-leaf steep.</p>
+          <p class="p-method">✦ Best for steeping</p>
+          <div class="price-row">
+            <span class="price-main">£12.50 <span class="price-size">/ 125g</span></span>
+          </div>
+          <div class="origin-row">
+            <span class="origin-label">Origin</span>
+            <button class="origin-btn active" onclick="setOrigin(event,this,'Rift Valley')">Rift Valley</button>
+            <button class="origin-btn" onclick="setOrigin(event,this,'Aberdares')">Aberdares</button>
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 125g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Black Orthodox · Bergamot</p>
+          <h3 class="p-name">Earl Grey</h3>
+          <p class="p-desc">Whole leaf Kenyan black tea with Bergamot. A classic reimagined — citrus bergamot against our distinctive highland character.</p>
+          <p class="p-method">✦ Best for steeping</p>
+          <div class="price-row">
+            <span class="price-main">£12.50 <span class="price-size">/ 125g</span></span>
+          </div>
+          <div class="origin-row">
+            <span class="origin-label">Origin</span>
+            <button class="origin-btn active" onclick="setOrigin(event,this,'Rift Valley')">Rift Valley</button>
+            <button class="origin-btn" onclick="setOrigin(event,this,'Aberdares')">Aberdares</button>
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 125g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="cat-header">
+      <span class="cat-name">Vert Collection</span>
+      <span class="cat-sub">Whole leaf Fine Pluck green tea · 125g · £12.50</span>
+    </div>
+    <div class="products-grid">
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Green FP · Pure</p>
+          <h3 class="p-name">Vert</h3>
+          <p class="p-desc">Whole leaf Fine Pluck Kenyan green tea — pure and unblended. Light, fresh, and clean with a brightness unique to East African altitude.</p>
+          <p class="p-method">✦ Best for steeping</p>
+          <div class="price-row">
+            <span class="price-main">£12.50 <span class="price-size">/ 125g</span></span>
+          </div>
+          <div class="origin-row">
+            <span class="origin-label">Origin</span>
+            <button class="origin-btn active" onclick="setOrigin(event,this,'Rift Valley')">Rift Valley</button>
+            <button class="origin-btn" onclick="setOrigin(event,this,'Aberdares')">Aberdares</button>
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 125g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Green FP · Mint</p>
+          <h3 class="p-name">Vert Mint</h3>
+          <p class="p-desc">Whole leaf green tea with Spearmint and Peppermint — cooling, refreshing, and beautifully balanced.</p>
+          <p class="p-method">✦ Best for steeping</p>
+          <div class="price-row">
+            <span class="price-main">£12.50 <span class="price-size">/ 125g</span></span>
+          </div>
+          <div class="origin-row">
+            <span class="origin-label">Origin</span>
+            <button class="origin-btn active" onclick="setOrigin(event,this,'Rift Valley')">Rift Valley</button>
+            <button class="origin-btn" onclick="setOrigin(event,this,'Aberdares')">Aberdares</button>
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 125g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Green FP · Lemongrass</p>
+          <h3 class="p-name">Vert Lemongrass</h3>
+          <p class="p-desc">Whole leaf green tea with Lemongrass — bright, citrus-lifted, and unmistakably East African.</p>
+          <p class="p-method">✦ Best for steeping</p>
+          <div class="price-row">
+            <span class="price-main">£12.50 <span class="price-size">/ 125g</span></span>
+          </div>
+          <div class="origin-row">
+            <span class="origin-label">Origin</span>
+            <button class="origin-btn active" onclick="setOrigin(event,this,'Rift Valley')">Rift Valley</button>
+            <button class="origin-btn" onclick="setOrigin(event,this,'Aberdares')">Aberdares</button>
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 125g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Green FP · Wellness</p>
+          <h3 class="p-name">Vert Moringa</h3>
+          <p class="p-desc">Whole leaf green tea with Moringa — Kenya's own superfood leaf paired with our finest green. Earthy, nutritious, and grounding.</p>
+          <p class="p-method">✦ Best for steeping</p>
+          <div class="price-row">
+            <span class="price-main">£12.50 <span class="price-size">/ 125g</span></span>
+          </div>
+          <div class="origin-row">
+            <span class="origin-label">Origin</span>
+            <button class="origin-btn active" onclick="setOrigin(event,this,'Rift Valley')">Rift Valley</button>
+            <button class="origin-btn" onclick="setOrigin(event,this,'Aberdares')">Aberdares</button>
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 125g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Green FP · Chamomile</p>
+          <h3 class="p-name">Vert Relax</h3>
+          <p class="p-desc">Whole leaf green tea with Chamomile — a calming, floral blend for evenings. Green tea softened by Kenya-grown chamomile.</p>
+          <p class="p-method">✦ Best for steeping</p>
+          <div class="price-row">
+            <span class="price-main">£12.50 <span class="price-size">/ 125g</span></span>
+          </div>
+          <div class="origin-row">
+            <span class="origin-label">Origin</span>
+            <button class="origin-btn active" onclick="setOrigin(event,this,'Rift Valley')">Rift Valley</button>
+            <button class="origin-btn" onclick="setOrigin(event,this,'Aberdares')">Aberdares</button>
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 125g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="cat-header">
+      <span class="cat-name">Violet Collection</span>
+      <span class="cat-sub">Whole leaf Fine Pluck purple tea · Kenya's most distinctive varietal · 125g · £12.50</span>
+    </div>
+    <div class="products-grid">
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Purple FP · Pure</p>
+          <h3 class="p-name">Violet</h3>
+          <p class="p-desc">Whole leaf Fine Pluck purple tea — Kenya's rarest varietal, pure. Rich in anthocyanins, colour-shifting, and unlike any tea grown anywhere else.</p>
+          <p class="p-method">✦ Best for steeping</p>
+          <div class="price-row">
+            <span class="price-main">£12.50 <span class="price-size">/ 125g</span></span>
+          </div>
+          <div class="origin-row">
+            <span class="origin-label">Origin</span>
+            <button class="origin-btn active" onclick="setOrigin(event,this,'Rift Valley')">Rift Valley</button>
+            <button class="origin-btn" onclick="setOrigin(event,this,'Aberdares')">Aberdares</button>
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 125g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Purple FP · Hibiscus</p>
+          <h3 class="p-name">Violet Bloom</h3>
+          <p class="p-desc">Whole leaf purple tea with Hibiscus — vivid in colour, tart, and floral. Kenya's most beautiful cup.</p>
+          <p class="p-method">✦ Best for steeping</p>
+          <div class="price-row">
+            <span class="price-main">£12.50 <span class="price-size">/ 125g</span></span>
+          </div>
+          <div class="origin-row">
+            <span class="origin-label">Origin</span>
+            <button class="origin-btn active" onclick="setOrigin(event,this,'Rift Valley')">Rift Valley</button>
+            <button class="origin-btn" onclick="setOrigin(event,this,'Aberdares')">Aberdares</button>
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 125g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Purple FP · Lemongrass</p>
+          <h3 class="p-name">Violet Lemongrass</h3>
+          <p class="p-desc">Whole leaf purple tea with Lemongrass — the extraordinary character of Kenyan purple tea lifted with citrus brightness.</p>
+          <p class="p-method">✦ Best for steeping</p>
+          <div class="price-row">
+            <span class="price-main">£12.50 <span class="price-size">/ 125g</span></span>
+          </div>
+          <div class="origin-row">
+            <span class="origin-label">Origin</span>
+            <button class="origin-btn active" onclick="setOrigin(event,this,'Rift Valley')">Rift Valley</button>
+            <button class="origin-btn" onclick="setOrigin(event,this,'Aberdares')">Aberdares</button>
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 125g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Purple FP · Wellness</p>
+          <h3 class="p-name">Violet Moringa</h3>
+          <p class="p-desc">Whole leaf purple tea with Moringa — two of Kenya's most exceptional botanicals in one deeply nourishing blend.</p>
+          <p class="p-method">✦ Best for steeping</p>
+          <div class="price-row">
+            <span class="price-main">£12.50 <span class="price-size">/ 125g</span></span>
+          </div>
+          <div class="origin-row">
+            <span class="origin-label">Origin</span>
+            <button class="origin-btn active" onclick="setOrigin(event,this,'Rift Valley')">Rift Valley</button>
+            <button class="origin-btn" onclick="setOrigin(event,this,'Aberdares')">Aberdares</button>
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 125g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Purple FP · Chamomile</p>
+          <h3 class="p-name">Violet Relax</h3>
+          <p class="p-desc">Whole leaf purple tea with Chamomile — the drama of Kenyan purple tea gentled by floral chamomile. A beautiful evening blend.</p>
+          <p class="p-method">✦ Best for steeping</p>
+          <div class="price-row">
+            <span class="price-main">£12.50 <span class="price-size">/ 125g</span></span>
+          </div>
+          <div class="origin-row">
+            <span class="origin-label">Origin</span>
+            <button class="origin-btn active" onclick="setOrigin(event,this,'Rift Valley')">Rift Valley</button>
+            <button class="origin-btn" onclick="setOrigin(event,this,'Aberdares')">Aberdares</button>
+          </div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 125g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="cat-header">
+      <span class="cat-name">Rare & Exceptional</span>
+      <span class="cat-sub">White, Yellow & Oolong · Single origin · 75g · £15</span>
+    </div>
+    <p class="cat-intro">Our rarest teas — available in 75g at £15 each. The most labour-intensive and extraordinary teas we produce, each from a specific single origin.</p>
+    <div class="products-grid">
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">White · Artisan</p>
+          <h3 class="p-name">White Tea</h3>
+          <p class="p-desc">Pure Kenyan white tea — delicate, floral, and honeyed. 30,000 hand-selected buds per kilogram, plucked by Mama Rachel on our Nyeri farm.</p>
+          <p class="p-method">✦ Best for steeping</p>
+          <div class="price-row">
+            <span class="price-rare">£15 <span class="price-size">/ 75g</span></span>
+          </div>
+          <div class="origin-row">
+            <span class="origin-label">Origin</span>
+            <button class="origin-btn active" onclick="setOrigin(event,this,'Rift Valley')">Rift Valley</button>
+            <button class="origin-btn" onclick="setOrigin(event,this,'Aberdares — plucked by Mama Rachel')">Aberdares</button>
+          </div>
+          <p class="mama-rachel-note">✦ The Aberdares white tea is hand-plucked by Mama Rachel — our master plucker on the Nyeri farm, with us since 2016.</p>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 75g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">White · Floral · Rift Valley</p>
+          <h3 class="p-name">White Tea & Rosebuds</h3>
+          <p class="p-desc">Rift Valley white tea with Rosebuds — honey-floral character lifted by the perfume of rose. Our most delicate and romantic blend.</p>
+          <p class="p-method">✦ Best for steeping</p>
+          <div class="price-row">
+            <span class="price-rare">£15 <span class="price-size">/ 75g</span></span>
+          </div>
+          <div class="origin-fixed">✦ Single origin · Rift Valley</div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 75g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Yellow · Exceptional · Rift Valley</p>
+          <h3 class="p-name">Yellow Tea</h3>
+          <p class="p-desc">One of the world's rarest tea styles, from our Rift Valley farms. Mellow, smooth, and slightly sweet — a slow-oxidised process producing something entirely unique.</p>
+          <p class="p-method">✦ Best for steeping</p>
+          <div class="price-row">
+            <span class="price-rare">£15 <span class="price-size">/ 75g</span></span>
+          </div>
+          <div class="origin-fixed">✦ Single origin · Rift Valley</div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 75g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Yellow · Citrus · Rift Valley</p>
+          <h3 class="p-name">Yellow Tea & Lemongrass</h3>
+          <p class="p-desc">Rift Valley yellow tea with Lemongrass — mellow sweetness brightened with East African citrus botanicals.</p>
+          <p class="p-method">✦ Best for steeping</p>
+          <div class="price-row">
+            <span class="price-rare">£15 <span class="price-size">/ 75g</span></span>
+          </div>
+          <div class="origin-fixed">✦ Single origin · Rift Valley</div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 75g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+
+      <div class="p-card" onclick="toggleCard(this)">
+        <div class="p-accent"></div>
+        <div class="p-body">
+          <p class="p-tag">Oolong · Semi-oxidised · Rift Valley</p>
+          <h3 class="p-name">Oolong</h3>
+          <p class="p-desc">A Kenyan oolong from the Rift Valley — partially oxidised to sit between green and black. Floral, layered, and endlessly complex.</p>
+          <p class="p-method">✦ Best for steeping</p>
+          <div class="price-row">
+            <span class="price-rare">£15 <span class="price-size">/ 75g</span></span>
+          </div>
+          <div class="origin-fixed">✦ Single origin · Rift Valley</div>
+          <div class="qty-row">
+            <span class="qty-label">Qty</span>
+            <button class="qty-btn" onclick="changeQty(event,-1,this)">−</button>
+            <div class="qty-num">1</div>
+            <button class="qty-btn" onclick="changeQty(event,1,this)">+</button>
+          </div>
+        </div>
+        <div class="p-card-footer">
+          <span class="p-size">Loose Leaf · 75g</span>
+          <button class="p-select"><span class="p-select-icon">+</span><span class="p-select-text">Add</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER -->
+<section class="order-section" id="order">
+  <div>
+    <p class="basket-eyebrow">Your Selection</p>
+    <h2 class="basket-title">Your<br><em>Order</em></h2>
+    <div id="basketEmpty" class="basket-empty">
+      No teas added yet.<br><br>
+      <a href="#products" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'});return false;">Browse the range above</a> and click any card to add it here.
+    </div>
+    <div id="basketItems" class="basket-items" style="display:none"></div>
+    <div id="basketTotal" class="basket-total" style="display:none">
+      <span class="bt-label">Total selected</span>
+      <span class="bt-count"><span id="totalQty">0</span> <span>bags · 125g each</span></span>
+    </div>
+  </div>
+
+  <div>
+    <p class="form-note">Your selections appear on the left. Fill in your details and we'll follow up within 48 hours with confirmation, pricing, and dispatch details. Payment is processed securely at checkout.</p>
+    <div style="background:rgba(197,164,89,.1);border:1px solid rgba(197,164,89,.3);padding:14px 18px;margin-bottom:24px;font-size:12px;color:rgba(245,240,232,.8);line-height:1.8;"><strong style="color:var(--gold);letter-spacing:1px;font-size:10px;text-transform:uppercase;">Shipping Information</strong><br><strong style="color:var(--gold)">UK:</strong> Shipped via Royal Mail · <strong style="color:var(--gold)">International:</strong> Shipped via DHL<br>All orders placed on this site will be dispatched from <strong>23rd May 2026</strong>. Tracking details sent by email upon dispatch.</div>
+    <form onsubmit="submitOrder(event)" action="https://formspree.io/f/mqeyqrnb" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First Name</label>
+          <input class="form-input" type="text" placeholder="First name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input class="form-input" type="text" placeholder="Last name" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input class="form-input" type="email" placeholder="your@email.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Country</label>
+        <input class="form-input" type="text" placeholder="Where shall we ship to?">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your selected teas</label>
+        <div class="order-summary-field" id="summaryField">Your tea selection will appear here automatically once you've chosen from the menu above.</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message / questions</label>
+        <textarea class="form-textarea" placeholder="Gifting, special occasions, dietary questions, or just a hello — we'd love to hear from you."></textarea>
+      </div>
+      <button type="submit" class="form-submit" id="submitBtn">Place Order & Pay →</button>
+      <p class="form-fine">Payment processed securely via Stripe. UK orders ship via Royal Mail; international orders via DHL. All orders dispatched from 23rd May 2026.</p>
+      <div class="success-msg" id="orderSuccess">
+        <h4>✦ Order received</h4>
+        <p>Thank you — your payment has been processed. We'll confirm your order and dispatch timeline by email.<br><br><em>Every cup you drink supports the women who grew it.</em></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- TRADE -->
+<section class="trade-section" id="trade">
+  <div>
+    <p class="trade-eyebrow">For Retailers & Buyers</p>
+    <h2 class="trade-title">Let's Talk<br><em>Trade</em></h2>
+    <p class="trade-desc">We are visiting London later this year and are open to establishing trade relationships. Our team covers the full conversation — from product and origin story to logistics to on-the-ground impact.</p>
+    <div class="trade-team">
+      <div class="trade-person">
+        <span class="t-icon">🌿</span>
+        <div><div class="t-name">Wangu Mureithi</div><div class="t-role">I talk tea — origin, terroir, product story</div></div>
+      </div>
+      <div class="trade-person">
+        <span class="t-icon">📦</span>
+        <div><div class="t-name">Edwin Kemei</div><div class="t-role">Logistics, supply chain, minimum orders</div></div>
+      </div>
+      <div class="trade-person">
+        <span class="t-icon">🤝</span>
+        <div><div class="t-name">Beatrice Tonui</div><div class="t-role">Co-Chair, WITEVA — talks impact</div></div>
+      </div>
+    </div>
+  </div>
+
+  <form class="trade-form" onsubmit="submitTrade(event)" action="https://formspree.io/f/mqeyqrnb" method="POST">
+    <p class="trade-eyebrow">Trade Enquiry</p>
+    <div class="form-group">
+      <label class="form-label">Name</label>
+      <input class="form-input" type="text" placeholder="Your name" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Organisation</label>
+      <input class="form-input" type="text" placeholder="Company / retailer / institution">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Email</label>
+      <input class="form-input" type="email" placeholder="your@email.com" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Type of partnership</label>
+      <select class="form-select">
+        <option value="">Select one...</option>
+        <option>Retail stockist</option>
+        <option>Hospitality / restaurant / hotel</option>
+        <option>Corporate gifting</option>
+        <option>ESG / impact partnership</option>
+        <option>Wholesale / distributor</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Tell us more</label>
+      <textarea class="form-textarea" placeholder="Volume, timeline, what you're looking for..."></textarea>
+    </div>
+    <button type="submit" class="trade-submit">Send Enquiry →</button>
+    <div class="trade-success" id="tradeSuccess">✦ Thank you for your enquiry — we'll be in touch shortly.</div>
+  </form>
+</section>
+
+<footer>
+  <div class="footer-brand"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0idGV4dCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTM1Mi43OCA2MTEuNjUiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIHN0cm9rZS1saW5lY2FwOiByb3VuZDsKICAgICAgfQoKICAgICAgLmNscy0xLCAuY2xzLTIgewogICAgICAgIGZpbGw6IG5vbmU7CiAgICAgICAgc3Ryb2tlOiAjYzVhNDU5OwogICAgICAgIHN0cm9rZS1taXRlcmxpbWl0OiAxMDsKICAgICAgICBzdHJva2Utd2lkdGg6IDQuNTVweDsKICAgICAgfQoKICAgICAgLmNscy0zIHsKICAgICAgICBmaWxsOiAjYzVhNDU5OwogICAgICB9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KICA8Zz4KICAgIDxnPgogICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik04MTMuNDgsMzc0LjY3Yy0zLjU5LDAtNy4xLTEuNS05LjU5LTQuMjhsLTEzOC4wMS0xNTMuODdjLTQuNzUtNS4zLTQuMzEtMTMuNDQsLjk5LTE4LjE5LDUuMy00Ljc1LDEzLjQ0LTQuMzEsMTguMTksLjk5bDExNS41NCwxMjguODFWMTc2LjAzbC0zMS41Niw0Ni4wOWMtNC4wMiw1Ljg3LTEyLjA0LDcuMzctMTcuOTEsMy4zNS01Ljg3LTQuMDItNy4zNy0xMi4wNC0zLjM1LTE3LjkxbDU1LjA3LTgwLjQ0YzMuMTktNC42Niw5LjA0LTYuNywxNC40NC01LjAzLDUuNCwxLjY3LDkuMDcsNi42Niw5LjA3LDEyLjMxdjIyNy4zOWMwLDUuMzQtMy4yOSwxMC4xMi04LjI4LDEyLjAzLTEuNSwuNTctMy4wNiwuODUtNC42LC44NVoiLz4KICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNTM1LjQ5LDM3NC42N2MtMS4yNSwwLTIuNTEtLjE4LTMuNzUtLjU2LTUuNDItMS42NS05LjEzLTYuNjUtOS4xMy0xMi4zMlYxMzIuNzVjMC01LjM0LDMuMjktMTAuMTIsOC4yOC0xMi4wMyw0Ljk5LTEuOTEsMTAuNjMtLjU0LDE0LjIsMy40M2wxMzguMDEsMTUzLjg3YzQuNzUsNS4zLDQuMzEsMTMuNDQtLjk5LDE4LjE5LTUuMyw0Ljc1LTEzLjQ0LDQuMzEtMTguMTktLjk5bC0xMTUuNTQtMTI4LjgxdjE1My4wNmwzMS40OS00Ni45NGMzLjk2LTUuOTEsMTEuOTctNy40OSwxNy44OC0zLjUyLDUuOTEsMy45Niw3LjQ5LDExLjk3LDMuNTIsMTcuODhsLTU1LjA3LDgyLjFjLTIuNDQsMy42My02LjQ5LDUuNzEtMTAuNyw1LjcxWiIvPgogICAgPC9nPgogICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNTUyLjM3LDEwMS4xMmMtMi40MiwwLTQuODYtLjYyLTcuMS0xLjkyLTYuNzctMy45My05LjA3LTEyLjYtNS4xNC0xOS4zNywxMy40NS0yMy4xNiwzMi43Ni00Mi41Nyw1NS44NC01Ni4xNSwyMy43OS0xNCw1MS4wNC0yMS40LDc4Ljc5LTIxLjRzNTQuNjEsNy4zLDc4LjI4LDIxLjFjMjIuOTUsMTMuMzksNDIuMjMsMzIuNTYsNTUuNzUsNTUuNDQsMy45OCw2Ljc0LDEuNzUsMTUuNDMtNC45OSwxOS40MS02Ljc0LDMuOTgtMTUuNDMsMS43NS0xOS40MS00Ljk5LTExLjA3LTE4LjczLTI2Ljg0LTM0LjQyLTQ1LjYzLTQ1LjM4LTE5LjM0LTExLjI4LTQxLjQ3LTE3LjI0LTY0LTE3LjI0cy00NC45Nyw2LjA1LTY0LjQyLDE3LjQ4Yy0xOC44OSwxMS4xMS0zNC43LDI3LjAxLTQ1LjcsNDUuOTYtMi42Myw0LjUzLTcuMzgsNy4wNi0xMi4yNyw3LjA2WiIvPgogICAgPGc+CiAgICAgIDxnPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTY3NS45OCwxNjIuNDljLS4xMSwuMS0uMjQsLjE4LS4zNiwuMjYsLjUsMy40MSwxLjA4LDUuNDksMS4wOCw1LjQ5LDg0LjI0LDAsNjMuMzQtNjUuODMsNjMuMzQtNjUuODMtMTQuODMsMC0yNi4zNiwyLjE3LTM1LjMxLDUuNzIiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik02NDMuNCwxMDcuOGMtOC44Mi0zLjM1LTIwLjEtNS4zOS0zNC40Ny01LjM5LDAsMC0yMC45MSw2NS44Myw2My4zNCw2NS44MywwLDAsLjU0LTEuOTQsMS4wMy01LjE1LS40NC0uMTEtLjg1LS4zMS0xLjE5LS41OSIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTcwNC43MywxMDguMTJjLS4wMy0uMzItLjA2LS42NC0uMS0uOTUtMS4zNi0xMS42Mi02LjAzLTIxLjExLTE0LjQ1LTMxLjAzLTYuMzEtNy40My0xMy40My0xMi45LTE1LjIyLTE1LjE4LS40NS0uNTgtMS4zNy0uNTgtMS44MiwwLTEuNzksMi4yOC04LjM1LDcuNzQtMTQuNjYsMTUuMTgtOC40Miw5LjkyLTEzLjY1LDE5LjQyLTE1LjAxLDMxLjAzLS4wMiwuMi0uMDUsLjQxLS4wNywuNjIsMzIuNzYsMTIuNDUsMzEuNzQsNDMuMDgsMjkuOSw1NS4yOSwuMjQsLjA2LC40OSwuMSwuNzUsLjEsLjU2LDAsMS4xMS0uMTYsMS41Ny0uNDQtMS43OS0xMi4zMy0yLjUtNDIuMDksMjkuMTEtNTQuNjNaIi8+CiAgICAgIDwvZz4KICAgICAgPGxpbmUgY2xhc3M9ImNscy0yIiB4MT0iNjc0LjA2IiB5MT0iNjAuNTMiIHgyPSI2NzQuMDYiIHkyPSIxNjUuODQiLz4KICAgICAgPGxpbmUgY2xhc3M9ImNscy0yIiB4MT0iNjk1Ljg2IiB5MT0iODMuNjUiIHgyPSI2NzQuNDgiIHkyPSIxMDQuNzMiLz4KICAgICAgPGxpbmUgY2xhc3M9ImNscy0yIiB4MT0iNjA4LjkzIiB5MT0iMTAyLjQxIiB4Mj0iNjcyLjI3IiB5Mj0iMTY4LjI0Ii8+CiAgICAgIDxsaW5lIGNsYXNzPSJjbHMtMiIgeDE9Ijc0MC4wMyIgeTE9IjEwMi40MSIgeDI9IjY3Ni43IiB5Mj0iMTY4LjI0Ii8+CiAgICAgIDxsaW5lIGNsYXNzPSJjbHMtMiIgeDE9IjYzOC40NyIgeTE9IjEwNi4xNCIgeDI9IjYzOC40NyIgeTI9IjEzMS44MSIvPgogICAgICA8bGluZSBjbGFzcz0iY2xzLTIiIHgxPSI2NTcuMSIgeTE9IjExNS4zNSIgeDI9IjY1Ny4xIiB5Mj0iMTUxLjM5Ii8+CiAgICAgIDxsaW5lIGNsYXNzPSJjbHMtMiIgeDE9IjcxNC4wMyIgeTE9IjEzMC4zIiB4Mj0iNzQxLjQ0IiB5Mj0iMTMwLjMiLz4KICAgICAgPGxpbmUgY2xhc3M9ImNscy0yIiB4MT0iNjk0LjY2IiB5MT0iMTQ5LjA0IiB4Mj0iNzMyLjQ3IiB5Mj0iMTQ5LjA0Ii8+CiAgICA8L2c+CiAgPC9nPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTg2Ny41NCwzNDguMDZoMzY4Ljc0YzE4LjIxLDAsMzIuOTcsMTQuNzYsMzIuOTcsMzIuOTd2MTI4LjMyYzAsMTguMjEtMTQuNzYsMzIuOTctMzIuOTcsMzIuOTdIMTE3LjYxYy0xOC4yMSwwLTMyLjk3LTE0Ljc2LTMyLjk3LTMyLjk3di0xMjguMzJjMC0xOC4yMSwxNC43Ni0zMi45NywzMi45Ny0zMi45N0g0ODQuMDYiLz4KICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik04NjcuNCwzMjQuOTRzLTE2Ljg0LTYwLjIyLDU3Ljk0LTYwLjIyYzAsMCwxOS4xMiw2MC4yMi01Ny45NCw2MC4yMloiLz4KICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xMjkwLjQ2LDQ2Ni4yMXMtMTYuODQtNjAuMjIsNTcuOTQtNjAuMjJjMCwwLDE5LjEyLDYwLjIyLTU3Ljk0LDYwLjIyWiIvPgogIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTEyMzQuMjQsNjA5LjM4cy0xNi44NC02MC4yMiw1Ny45NC02MC4yMmMwLDAsMTkuMTIsNjAuMjItNTcuOTQsNjAuMjJaIi8+CiAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNDgzLjM4LDMyNC45NHMxNi44NC02MC4yMi01Ny45NC02MC4yMmMwLDAtMTkuMTIsNjAuMjIsNTcuOTQsNjAuMjJaIi8+CiAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTM0OC4yNyw1NDIuMzFzMTYuODQtNjAuMjItNTcuOTQtNjAuMjJjMCwwLTE5LjEyLDYwLjIyLDU3Ljk0LDYwLjIyWiIvPgogIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTYyLjMyLDQ2Ni4yMXMxNi44NC02MC4yMi01Ny45NC02MC4yMmMwLDAtMTkuMTIsNjAuMjIsNTcuOTQsNjAuMjJaIi8+CiAgPGc+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0yMjEuMDEsNDEwLjg1YzIsMCw4LjYyLC41MywxMC4zLC41MywyLjEsMCw3LjE1LS44NCw4LjUyLS44NCwxLjA1LDAsMS41OCwuNTMsMS41OCwxLjQ3LDAsMS42OC0uNDIsMi4xLTIuNDIsMi4xLS41MywwLTIuODQsLjg0LTMuNTgsMS41OC0uNzQsMS4xNi0xLjI2LDIuNTItMS4yNiw0LjIxLDAsMS4xNiwuNzQsOS4xNSwxLjI2LDE0LjUxLDAsMS43OS0uODQsMy4xNS0uODQsNC45NCwwLDIuOTQsMi4yMSwzLjU3LDIuMjEsOC42MiwwLC44NC0uMTEsMS43OS0uMjEsMy4wNSwwLDIuMSwxLjE2LDMuNzksMS4xNiw1Ljk5LDAsMS4xNi0uMTEsMi40Mi0uMTEsNCwwLDEuMzcsLjc0LDcuNDcsMS4wNSwxMC4yLDAsNi4yLC4xLDcuNjgsLjYzLDkuMjUsLjg0LDIuNTIsLjc0LDMuMTUsMiw0LjczLC45NSwuOTUsNC40MiwxLjg5LDUuMTUsMS44OSwxLjI2LDAsMS4zNywuMjEsMS40NywxLjM3di40MmMwLDEuMDUtLjYzLDEuNTgtMS44OSwxLjU4LTEuNDcsMC0xMC44My0uNTMtMTQuMi0uNTMtMS42OCwwLTkuOTksLjIxLTExLjQ2LC41My0uMzIsMC0uNjMsLjExLTEuMDUsLjExLTEuMTYsMC0yLjQyLS40Mi0yLjQyLTIsMC0xLjE2LDItMS4xNiwyLjczLTEuMTYsMS4xNiwwLDEuNzktLjk1LDIuOTQtMS43OSwxLjE2LS43NCwxLjQ3LTIuMzEsMS40Ny0zLjY4LDAtMy44OS0xLjI2LTguMi0xLjY4LTExLjY3bC4yMS01LjM2YzAtLjMyLC45NS0xLjY4LC45NS0yLS4zMi0xLjU4LTEuNDctMi40Mi0xLjQ3LTMuNTgtLjMyLTQuMS0uNTMtOC4xLS41My0xMi4zLDAtMS4yNi0uNzQtNy4xNS0uNzQtOS4zNiwwLTEuNDctMS4wNS0xMS44OC0xLjU4LTEyLjItLjUzLDEuNjgtLjk1LDMuMjYtMS40Nyw0LjYzLS44NCwyLjQyLTEuNjgsNS4xNS0yLjQyLDYuMzEtMS41OCwyLjUyLTIuMSw1LjM2LTIuOTQsNy4zNi0xLjE2LDEuNzktMi44NCw0LjMxLTMuNzksNi4xLS43NCwxLjU4LS45NSwzLjc5LTIuNTIsNS4xNS0xLjU4LDEuNTgtMS41OCw0LTIuOTQsNy4yNS0yLDQuNTItNC43MywxMy4yNS01Ljc4LDE0LjYyLS45NSwxLjI2LTIuMSwyLjUyLTMuMjYsNS4zNi0xLjM3LDMuMTUtMS4wNSwzLjQ3LTMuMDUsNS45OS0xLjE2LDEuNTgtMS4zNywyLjUyLTQuMzEsMi41MnMtNi41Mi0xLjY4LTYuNTItMmMtLjUzLS44NC0yLjEtMy4wNS0yLjUyLTUuMDUtLjc0LTEuNjgtMS44OS00LjMxLTIuMzEtNy4yNS0uNjMtMi45NC0yLjUyLTIuNzMtMy4zNi01LjI2LS44NC0yLjQyLTIuNzMtNS40Ny0zLjA1LTcuNjgtLjMyLTIuMS0uMzItMy4zNi0xLjI2LTUuMTUtMS42OC0xLjY4LTEuMDUtMi0xLjg5LTQtLjg0LTIuMjEtMy4zNi00LjEtMy40Ny02LjUyLS40Mi0yLS44NC0yLjk0LTIuMS01Ljc4LS42My0yLjEtMS41OC0uMTEtMi40Mi0zLjM3LS44NC0zLjA1LTIuMS02LjEtMi45NC03LjY4LS4zMi0xLjI2LS45NS0zLjQ3LTEuNDctMy40Ny0uNDIsMC0xLjI2LDQtMS4yNiw0LjUyLS4zMiwzLjY4LTEuMDUsNi41Mi0xLjA1LDEwLjQxLS4zMiwxLjY4LS4xMSwzLjE1LS40Miw3LjA0LDAsNC41Mi0xLjM3LDUuMjYtMS4zNyw2LjczLS4xMSwxLjE2LS4xMSwyLS4xMSwyLjczLDAsMy4yNiwuNjMsNC40MiwuNjMsNi44MywwLDIuODQtMS4yNiw2LjQxLTEuMzcsMTEuNzgsMCw0LjEsLjYzLDguNjIsNS4yNiw5LjQ2LDEuNTgsLjMyLDIuMjEsLjc0LDIuMjEsMi4zMSwwLC42My0uNTMsLjk1LTEuNjgsLjk1cy01LjQ3LS4zMi03LjE1LS4zMmgtNy4yNWMtMi40MiwwLTQuODQtLjMyLTQuOTQtMS4yNiwwLTEuMTYsLjIxLTIuMjEsMS4zNy0yLjIxaC41M2MxLjE2LDAsMi43My0uNzQsMy44OS0xLjU4LDIuOTQtMi40MiwzLjA1LTUuNTcsMy4wNS05Ljg4LC4zMi0zLjY4LC45NS03LjI1LDEuMzctMTAuMDlsLjMyLTguODNjLjMyLTMuNDcsMS4zNy0xMC40MSwxLjM3LTEzLjU2LDAtNS4zNiwuNjMtOS4wNCwuOTUtMTMuMjUsLjMyLTIuMjEsLjUzLTYuMzEsLjg0LTguMzEsMC0yLS45NS0yLjMxLTIuMS0zLjY4LS41My0uOTUtMy41Ny0yLjQyLTUuMTUtMi43My0xLjI2LS4yMS0xLjg5LS42My0xLjg5LTEuMzcsLjExLTEuMTYsLjMyLTIuNDIsMS40Ny0yLjQyaDEuMjZjMS4yNiwwLDMuMTUtLjEsNC43My0uMSwuOTUsMCwxLjc5LC4xLDIuNTIsLjIxLDEuMzcsLjMyLDIuNTIsLjIxLDUuNzgsLjIxLDEuMzcsMCw0LjIxLS4zMiw2LjQxLS4zMiwxLjc5LDAsMy4yNiwuMTEsMy41OCwuODQsLjIxLC4yMSwuOTUsNS42OCwxLjI2LDUuOTksLjUzLDMuMzcsMiwzLjc5LDIuOTQsNS44OSwxLjU4LDIuODQsMy4xNSw2LjgzLDQuNDIsMTAuNTEsLjg0LDIuNzMsMy44OSw3LjI1LDQuMjEsOS43OCwwLDEuNjgsMS43OSwzLjI2LDIuNjMsNS4wNSwuNjMsMS40NywxLjY4LDUuNDcsMi41Miw2LjUyLC45NSwxLjE2LDQsNy4xNSw0LDguODMsMCwxLjE2LDEuNTgsMi44NCwyLjEsNC4yMSwuNzQsMy4yNiwyLjEsNS4wNSwyLjUyLDUuMDUsLjUzLDAsMS4zNy0yLjUyLDIuNjMtNS4zNiwxLjE2LTIuNTIsNC4zMS00LDQuMzEtNi44MywwLTEuNjgsMi01LjM2LDIuODQtNy4xNSwxLjU4LTIuODQsMi02LjEsMi43My03Ljg5LC42My0xLjg5LDMuMTUtMS4xNiwzLjQ3LTQuMzEsLjExLTIuOTQsLjg0LTUuMDUsMi4xLTcuNDYsMS41OC0yLjEsMi0zLjY4LDMuMzYtNi45NCwxLjI2LTMuMDUsMS43OS00LjMxLDIuNTItNy4yNSwuODQtMi42MywxLjY4LTkuMTUsNC44NC05LjQ2aC40MlptLTY2Ljk4LDEwLjJjMS41OCwyLjUyLDIuMSw0Ljg0LDMuNDcsNi41MiwxLjM3LDEuNjgsLjc0LDIuNDIsMi42Myw1LjY4LDIuMjEsMy42OCw0LDYuNTIsNCw4LjUydi43NGMwLDIsMi40MiwzLjU3LDMuMzcsNi4xLC44NCwyLjYzLDMuNzksOS43OCw0Ljk0LDEzLjE0LC45NSwzLjM2LDIuMjEsNS41NywzLjc5LDcuNTdzMS44OSw0LjQyLDMuNDcsNi42MmMxLjM3LDIuMSwxLjc5LDkuNTcsMi45NCwxMC43MywuNDIsLjUzLDEuMjYsLjg0LDIuNDIsLjg0LDEuNTgsMCwyLjk0LS41MywyLjk0LTEuNDcsMC0xLjc5LTYuNDEtMTYuMTktOC4zMS0yMC4yOS0yLTQuODQtNS4yNi0xMC44My02LjEtMTIuNTEtLjk1LTEuNjgtLjg0LTMuNTgtMi40Mi02LjgzLTEuNjgtMy4xNi01LjE1LTEwLjA5LTYuODMtMTQuNjItMS43OS00LjUyLTQuNDItOC44My01LjM2LTEwLjUxcy0uODQtNC4xLTIuNTItNS4zNmMtLjg0LS43NC0yLjYzLTEuMjYtNS40Ny0xLjI2LTEuMzcsMC0yLjEsLjIxLTIuMSwuNzQsMCwxLjI2LDMuNzksMy4yNiw1LjE1LDUuNjhabTY4Ljc3LTQuNTJjMCwzLjA1LC4zMiw3Ljc4LC4zMiwxMC42MiwwLDIuNDIsLjg0LDQuMjEsLjg0LDguODMsMCwyLjQyLDEuMzcsNC4zMSwxLjM3LDYuODMsMCwxLjY4LS4zMiwzLjg5LS4zMiw2LjUyLDAsNS4zNiwxLjY4LDEwLjYyLDEuNjgsMTYuNjEsMCwuOTUsMCwxLjc5LS4xMSwyLjk0LS4zMiwyLjk0LS40Miw0LjUyLS40Miw2LjUyLDAsMi41MiwuNzQsNC44NCwuNzQsNy42OCwwLC45NS0uMSwxLjc5LS41MywyLjUyLS4xMSwuMTEtLjExLC4yMS0uMTEsLjMyLDAsLjMyLC4zMiwuNDIsLjk1LC40MiwuOTUsMCwyLjQyLS4yMSwzLjE2LS41MywuMzItLjEsLjUzLS45NSwuNTMtMi41MiwwLTIuOTQtLjUzLTcuNjgtLjUzLTEwLjcyLDAtNS44OS0uNjMtMTAuOTQtLjk1LTE0LjItLjMyLTMuMTUtMS4xNi0yLjg0LTEuMTYtMTcuNjcsMC0zLjY4LS4yMS04LjQxLS45NS0xMS42Ny0uMzItMS41OC0uNTMtMy4yNi0uNTMtNy43OCwwLTIuNjMsLjk1LTQuNzMsMS40Ny02LjgzLDAtLjc0LS45NS0xLjA1LTIuMS0xLjA1LTEuNTgsMC0zLjE1LC41My0zLjI2LDEuMjYsMCwuNTMtLjExLDEuMTYtLjExLDEuODlaIi8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0zMjYuMjYsNDI0LjczYzEuMTYsMi44NCwxLjQ3LDUuMDUsMy40Nyw3LjU3LDEuNjgsMi41MiwyLjczLDYuMSwzLjg5LDguOTQsMS4yNiwzLjI2LDEuNDcsNS4yNiwzLjY4LDguNjIsMS4xNiwxLjQ3LDMuMjYsNy4xNSwzLjc5LDguMiwyLDIuODQsMi42Myw1LjM2LDMuODksNy44OSwxLjI2LDIuNjMsMi44NCw1LjA1LDMuNTgsNy40NywuODQsMy4wNSwzLjI2LDYuMSw0Ljk0LDguOTQsLjc0LDEuNTgsMS44OSwzLjM3LDUuMjYsNC41MiwuMzIsLjExLDEuMDUsLjExLDIuMjEsLjExLC40MiwwLC43NCwuMTEsLjk1LC4zMiwuMTEsLjExLC4yMSwuNjMsLjIxLDEuNDcsMCwuNTMtLjIxLC43NC0uNTMsLjg0LS41MywuMzItMy42OCwuNTMtNi4zMSwuNTMtLjk1LDAtMS43OSwwLTIuNTItLjExLS44NC0uMS0xLjc5LS4xLTIuNzMtLjEtMS41OCwwLTguNjIsLjEtOS43OCwuMS0uOTUsMC0zLjc5LDAtNC4xLS4zMi0xLjE2LDAtMi4yMSwuMjEtMy44OSwuMjEtMS4yNiwwLTEuODktLjMyLTEuODktLjk1LDAtMS4xNiwuMjEtMS43OSwxLjc5LTEuNzksMS4xNiwwLDIuNDItLjUzLDIuNTItMS40NywwLS40MiwuMTEtLjUzLC4xMS0uODQsMC0uNzQtLjIxLS42My0uMjEtMS43OSwwLTEuNTgtLjk1LTIuNzMtMS4zNy00LjMxLS44NC0yLTMuMTYtOS4wNC01LjA1LTEwLjQxLS40Mi0uMzItLjk1LS41My0xLjU4LS41My0uNzQsMC0xLjI2LC4yMS0yLC4yMS0yLjg0LDAtOC40MS0uMzItOS42Ny0uMzItLjc0LS4xMS0xLjE2LS4xMS0yLjMxLS4xMS0yLjQyLDAtNS43OCwuNDItOS40NiwuNDItMi0uMzItMi45NC0uMjEtNC4zMS0uMjEtMS41OCwwLTIuMzEtLjUzLTMuMTUtLjUzLS41MywwLTEuMTYsLjIxLTEuODksLjc0LS44NCwuNDItLjc0LDMuMjYtMS41OCw2LjMxLS4xMSwuMjEtLjExLC42My0uMTEsMS4zNywwLDEuNTgsLjIxLDQsLjIxLDQuOTQsMCwyLjEsLjg0LDQuMSwxLjY4LDUuMzYsLjUzLC40MiwyLjEsMS4wNSwyLjQyLDEuMDUsLjg0LDAsMS41OCwuMjEsMi4xLC4zMiwuODQsLjMyLC45NSwuOTUsLjk1LDEuNjgsMCwuNDItLjMyLDEuMDUtMS4yNiwxLjA1LS41MywwLTEuMzcsLjExLTIuNjMsLjExLS43NCwwLTEuMzcsMC0yLjIxLS4xMS0xLjc5LDAtOS40Ni0uMzItMTQuNjItLjMyLTIuMSwwLTMuNjgsMC00LjQyLC4xMS0uNzQsLjEtMS4yNiwuMS0xLjc5LC4xLTEuMzcsMC0yLjEtLjMyLTIuMS0uOTUsMC0uOTUsLjIxLTIuMSwxLjc5LTIuMSwyLjk0LDAsNS45OS0xLjM3LDcuMjUtNC42MywxLjU4LTQuMSwzLjE1LTQuNzMsMy42OC03LjI1LC4zMi0uODQsMy41OC03Ljg5LDQuNzMtMTAuNTFsLjMyLS42M2MuODQtMS4wNSwzLjE1LTYuMiw0LTguMzEsMS41OC00LjYzLDQtOC42Miw1Ljk5LTEzLjU2LC45NS0yLjEsMi41Mi0xLjI2LDMuMDUtNC4zMSwuMzItMS42OCwuNTMtMy42OCwxLjY4LTUuNjgsMS4xNi0yLjg0LDIuNjMtNC42MywzLjU4LTcuMTUsLjMyLS44NCwyLjQyLTQuNzMsMy4yNi03Ljg5LC44NC0zLjA1LDEuMzctNC42MywyLjYzLTYuMiwxLjE2LTEuNjgsMi4yMS0zLjE1LDQuNDItMy4xNSwxLjc5LDAsMi43MywzLjA1LDUuMTUsNy4zNiwxLjE2LDIsMy4xNSw3LjE1LDQuMzEsOS42N1ptLTQyLjU4LDU3LjFjLS43NCwxLjU4LTIuMSwyLjczLTIuNTIsNC41MiwwLC41MywuNjMsLjg0LDIsLjg0LC43NCwwLDEuNjgtLjEsMi41Mi0uMSwyLjEsMCwzLjY4LS4zMiwzLjY4LS42MywwLS44NC0xLjQ3LTItMS43OS0zLjI2LS4zMi0uOTUtLjIxLTEuNTgtLjIxLTIuMzEsMC0uODQsLjEtMS41OCwuMjEtMi41MiwuMTEtLjIxLC4xMS0uNDIsLjExLS42MywwLS41My0uMTEtLjc0LS40Mi0uNzQtLjUzLDAtLjk1LC40Mi0xLjM3LDEuMTYtLjg0LDEuNTgtMS4zNywyLjEtMi4yMSwzLjY4Wm0yMi41LTQzLjk1Yy0uNzQsLjc0LTEuMDUsMS4yNi0xLjA1LDEuNThzLjExLC40MiwuMTEsLjc0YzAsLjQyLS4yMSwuOTUtLjUzLDEuNTgtMi4xLDMuNjgtNC4xLDcuNDctNS43OCwxMS41Ny0xLjI2LDIuODQtMy4xNiw2LjUyLTMuMTYsOC43MywwLC41MywuNjMsLjc0LDEuNzksLjc0LC45NSwwLDIuMS0uMSwzLjM2LS4xLC44NCwwLDIsLjQyLDMuNTgsLjQyLC44NCwwLDIuMzEtLjc0LDIuNDItLjc0LDIsMCwyLjk0LC4xLDQuNjMsLjEsMy42OCwwLDUuNTcsLjUzLDguODMsLjUzLC41MywwLDQuMzEtLjMyLDQuODQtMS4xNiwuMS0uMjEsLjIxLS41MywuMjEtLjk1LDAtMi00LTcuOTktNC41Mi0xMS44OC0uNjMtMi4zMS0zLjI2LTQuNjMtNC45NC05LjY3LTEuMTYtMy4zNy0zLjg5LTEwLjItNS4xNS0xMC4yLTEuNDcsMC0yLjYzLDYuNzMtNC42Myw4LjczWm03LjA0LTE1LjQ2YzAsLjQyLC4xMSwuODQsLjIxLDEuMzcsLjc0LDEuNjgsMy4wNSw1LjE1LDQuNDIsOC41MiwxLjM3LDMuNDcsMy4yNiw1LjA1LDQuMSw3Ljg5LC44NCwyLjczLDEuNzksNi42MiwyLjczLDYuODMsMS4xNiwuMzIsMS41OCwuNzQsMS41OCwyLjg0LDAsMi4yMSwyLjIxLDUuNDcsMy4wNSw4LjMxLC44NCwyLjg0LDEuNjgsMS43OSwyLjIxLDQuOTQsLjc0LDIuOTQsMS44OSw0LDIuNDIsNS45OSwuNzQsMiwxLjc5LDMuNDcsMy4xNSw2LjUyLDEuMzcsMy4wNSwxLjI2LDMuNjgsMi4xLDUuODksLjg0LDIuNDIsLjg0LDQuNjMsMi40Miw1LjE1LC41MywuMjEsLjk1LC4zMiwxLjI2LC4zMiwuODQsMCwxLjQ3LS40MiwzLjA1LS40MiwuNTMsMCwuNzQtLjMyLC43NC0uOTUsMC0xLjc5LTIuMjEtNS43OC0zLjU4LTguMzEtMi0yLjk0LTIuODQtNi4xLTMuNjgtNy4yNS0uODQtMS4xNi0xLjI2LTQuODQtMi4xLTUuMzYtLjg0LS41My0yLjEtMy4yNi0yLjQyLTQuMjEtMi01Ljg5LTQuODQtMTEuMzYtNy4yNS0xNy4xNC0yLjIxLTUuMzYtNC4yMS0xMC44My03LjI1LTE1Ljk4LTEuNjgtMi44NC0xLjQ3LTQuNjMtMi42My02LjItLjg0LTEuNjgtLjk1LTUuNzgtMi01Ljc4LTEuMjYsMC0xLjI2LDItMS42OCwzLjU4LS40MiwxLjI2LS44NCwyLjMxLS44NCwzLjQ3WiIvPgogICAgPHBhdGggY2xhc3M9ImNscy0zIiBkPSJNNDA2LjcsNDEwLjMyYzEuNTgsMCwyLjk0LC4xMSw0LjUyLC4xMSwyLjQyLDAsNC43My0uMjEsNy4xNS0uMjEsLjc0LDAsMS4zNywuMjEsMi4zMSwuMjEsLjc0LDAsLjYzLS4yMSwxLjc5LS4yMSwuNDIsMCwuNzQsLjUzLC43NCwxLjI2LDAsLjg0LS4zMiwxLjM3LS44NCwxLjU4LS45NSwuNDItMy44OSwuNTMtNS40NywxLjQ3LS44NCwuNzQtLjk1LDIuNjMtMS40Nyw1LjA1LDAsLjUzLS4xMSw0Ljk0LS40Miw3LjM2LDAsMi41MiwuMzIsNC40MiwuMzIsNi41MiwwLC44NC0uODQsMS41OC0uODQsMi45NCwuNTMsMi4xLC43NCw0LjYzLC43NCw2LjgzLDAsMS42OC0uNDIsMi45NC0uNDIsNC4xLDAsMS42OCwuODQsMy43OSwuODQsNS44OSwwLDMuMzctMS4xNiw1LjU3LTEuMTYsNy41NywwLDIuNTIsLjg0LDMuMTUsLjg0LDguMiwwLDEwLjk0LDAsMTMuMzUsLjMyLDE1LjA0LC4yMSwxLjI2LDEuMDUsMi4xLDIuNjMsMi41MiwxLjU4LC41MywzLjU4LC41Myw0LjQyLC45NSwuMjEsLjIxLC4zMiwuNTMsLjMyLC44NCwwLC41My0uMjEsLjk1LS4zMiwxLjI2LS40MiwuMzItMS4xNiwuNDItMi41MiwuNzQtLjQyLC4xMS0xLjE2LC4xMS0yLjMxLC4xMS01LjQ3LDAtMTAuOTQtLjMyLTE4LjA5LS4zMi0uNTMsMC0zLjM2LC4yMS01LjU3LC4yMS0xLjU4LDAtMi40Mi0uMS0yLjYzLS4zMi0uMjEtLjIxLS4zMi0uNjMtLjMyLTEuMjYsMC0uNTMsLjExLS45NSwuMzItMS4xNiwuMzItLjExLDIuMS0uMzIsMy4wNS0uNDIsMS4yNi0uMSwyLjQyLTEuMTYsMi44NC0xLjY4LC45NS0uOTUsMS4zNy0zLjQ3LDEuNDctNC4yMSwuMzItLjg0LC4yMS00LjMxLC4yMS04LjQxLDAtOC40MS0uMjEtMTAuMy0uMjEtMTIuM3YtOS4wNGMwLTEuNzksLjk1LTIuODQsLjk1LTMuNzktLjUzLTEuNjgtLjc0LTIuMjEtMS4wNS03LjU3LS4xLTQuMzEtLjMyLTcuMjUtLjMyLTEwLjA5LDAtNy4wNC0uMjEtMTAuNjItLjMyLTExLjM2LS43NC0yLjIxLS42My0zLjU4LTEuMzctNC4xLS41My0uNDItMi4yMS0uODQtMy4wNS0uODQtLjk1LDAtMi4zMS0uMjEtMi42My0uMzItLjQyLS4xLS42My0uNjMtLjYzLTEuMzdzLjMyLTEuMjYsLjg0LTEuNThjLjMyLS4zMiwxLjM3LS4yMSwyLjk0LS4yMSwyLjEsMCw0LjczLC4xMSw1LjE1LC4xMSwyLjQyLDAsNC44NC0uMTEsNy4yNi0uMTFabS0zLjg5LDMuMDVjLTEuMjYsMC0yLjczLDAtMi43MywuNzQsMCwxLjA1LDIuNjMsMS4yNiwyLjYzLDEwLjczLDAsMS41OCwuNTMsMi45NCwuNTMsNC45NCwwLDEuNTgtLjQyLDIuODQtLjQyLDQuODRzLjIxLDMuNzksLjIxLDYuMmMtLjEsLjc0LS4xLDEuMzctLjEsMi4yMSwwLDUuNzgsLjUzLDExLjM2LC41MywxNy4zNSwwLDIuMjEtLjYzLDIuMjEtLjYzLDQsMCwyLjUyLC42Myw0Ljg0LC42Myw3LjY4LDAsMi40Mi0uMzIsNC44NC0uMzIsNy43OCwwLDEuMTYtLjMyLDIuNjMtMS4yNiw0LjIxLS44NCwxLjM3LTEuNzksMS41OC0xLjc5LDIuMzEsMCwuMzIsLjQyLC40MiwxLjM3LC40MnMyLjEtLjExLDIuODQtLjIxYzEuNzktLjMyLDMuODktLjExLDQuMjEtMS4wNSwuMTEtLjMyLC4xMS0uNzQsLjExLTEuMzcsMC0xLjU4LS4zMi0zLjQ3LS4zMi01LjQ3LDAtMi42My0uMTEtNC41Mi0uNDItNS42OC0uMS0uMzItLjEtLjk1LS4xLTEuODksMC0xLjY4LC4xLTQsLjEtNi4yLDAtMy4zNy0uNTMtMy42OC0uNTMtOC4zMSwwLTYuNDEsLjIxLTExLjg4LC4yMS0xNy42NywwLTItLjMyLTMuNTgtLjMyLTQuODQsMC0xLjU4LC42My0xLjQ3LC42My00LjIxLDAtMS42OC0uMjEtMy43OS0uMzItNS43OHYtNi44M2MwLTMuODktMi4zMS0zLjg5LTMuNDctMy44OWgtMS4yNloiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTQ3My4xNSw0MTYuNDJjLTIuNTIsMS41OC0zLjU4LDMuMTUtNCw2LjgzLS4xMSwuNzQtLjIxLDEuMzctLjIxLDIuMjFzLjIxLDEuNjgsLjUzLDIuNDJjLjUzLDEuMjYsMy4xNSw0LjUyLDUuMTUsNS4zNiwyLjEsMS4yNiw1LjA1LDIuODQsNy4yNSw0LjQybC40MiwuMzJjMi4yMSwxLjM3LDMuMTUsMiw1LjE1LDIsMy4yNiwuMSw1LjA1LDEuNjgsNy40NiwyLjQyLDMuMDUsLjg0LDYuNzMsNCw5Ljc4LDUuNTcsNi40MSwzLjM2LDkuNzgsOS42Nyw5Ljc4LDEzLjk4djUuODljMCwzLjM2LTEuMzcsNi42Mi0xLjc5LDguMzEtMiw0LjUyLTQuMjEsNi40MS03LjE1LDguODNsLS40MiwuMzJjLTIsMS4zNy02LjUyLDMuMDUtNy45OSwzLjA1LS43NC0uMTEtMS4zNy0uMTEtMS44OS0uMTEtMS4xNiwwLTIsLjMyLTIuNDIsLjk1LTEuMzcsMS4zNy01LjI2LDEuMzctNy42OCwxLjY4LS4yMSwuMS0uNjMsLjEtMS4xNiwuMS0yLDAtNS4wNS0uNTMtOS4yNS0uOTUtNC45NC0uNDItOC4xLTEuMzctMTEuNDYtMi41MmwtLjUzLS4yMWMtNS41Ny0xLjc5LTcuNzgtMy4yNi04LjEtNi42MnYtMS43OWMwLTIuODQsLjExLTcuNTcsLjUzLTExLjM2di0uNTNjMC0xLjE2LS4yMS0yLjg0LS4yMS00LjEsMC0xLjU4LC41My0yLjk0LDIuMS0yLjk0LC43NCwwLDEuNDcsLjIxLDEuNzksMS4zNywuODQsMi4yMSwxLjY4LDQuOTQsMy42OCw5LjA0LDIsNC4yMSw0Ljk0LDUuODksNy4wNCw3Ljc4LDIsMi4yMSwzLjY4LDQuOTQsNi43Myw1LjI2LDIuNTIsLjMyLDYuMSwyLjIxLDguNjIsMi4yMSwuNDIsMCwuNzQsMCwuOTUtLjExbDMuMzYtLjMyYy44NCwwLDQuMS0uNDIsNC43My0uNzQsMi4yMS0xLjU4LDMuNzktMS41OCw1LjE1LTMuNzksMS4zNy0yLDIuOTQtMy4wNSwzLjI2LTYuODMsMC0uNDIsLjExLS44NCwuMTEtMS4yNiwwLTYuNTItNS40Ny0xMC4wOS0xMC41MS0xMi42Mi0zLjI2LTEuNjgtNC4yMS00LjYzLTkuODgtNS40Ny01LjY4LS44NC02Ljk0LTQtMTEuMTUtNC41Mi0zLjg5LS41My0xMS44OC01LjY4LTEzLjA0LTcuOTlsLS4zMi0uNDJjLTEuMzctMi40Mi0zLjU4LTYuMS0zLjU4LTEwLjczLDAtNi44Myw0LjMxLTExLjE1LDUuMjYtMTIuNjIsMi4xLTMuMjYsOC41Mi02LjEsOS44OC02LjYyLDUuODktMS42OCwxMC4yLTIuNDIsMTMuNTYtMi40MiwxLjQ3LDAsNS42OCwuMzIsNy4wNCwuMzIsMy42OCwwLDUuNzgsMi40Miw5LjY3LDIuNDIsLjg0LDAsMy44OS0xLjE2LDUuMDUtMS4xNiwxLjE2LC4xLDIsLjUzLDIuNDIsNC4yMSwuMzIsMy4zNiwuNzQsMy43OSwxLjA1LDYuMzFzMS44OSw2LjMxLDEuODksOC44M2MwLDEuMTYtLjYzLDEuNjgtMS43OSwxLjY4LTIuMjEsMC0yLjQyLTEuNzktMy4xNS0zLjM2LS43NC0xLjM3LTItMy4wNS0zLjE1LTUuMDUtLjk1LTItMi4zMS0yLjk0LTMuODktNC4xbC0uNTMtLjMyYy0xLjc5LTEuMTYtNS4yNi0zLjg5LTYuNDEtMy44OS0yLjYzLS4xLTQuMzEtMS43OS03LjE1LTEuNzktMi42MywwLTYuMSwuNTMtMTAuNjIsMy4xNVptLTE1Ljg4LDU3LjgzYzAsMS4zNywuMSwyLjg0LC40MiwzLjU3LC43NCwyLDEuMTYsMy42OCwyLjczLDQuMjEsMS41OCwuNDIsMy4zNiwxLjQ3LDYuNjIsMS44OSwuNzQsLjExLDEuMDUsLjExLDEuMzcsLjExLC40MiwwLC42My0uMTEsLjYzLS4yMSwwLS4zMi0uNzQtMS4xNi0yLjIxLTIuNTItMi41Mi0yLjUyLTQuMjEtMi41Mi01LjY4LTYuMzEtMS40Ny0zLjc5LTEuMDUtNS40Ny0yLjYzLTUuNDctLjg0LDAtMS4yNiwyLjMxLTEuMjYsNC43M1ptMi43My01Mi4wNWMtMS41OCwzLjA1LTEuNTgsNC41Mi0xLjU4LDcuNTcsMCw0LjIxLC4yMSw2Ljk0LDMuNjgsOS43OCwzLjM2LDMuMDUsMTAuMDksNi44MywxMS45OSw3LjE1LDIsLjMyLDQuMjEsLjQyLDUuMzYsMi4xLDEuMjYsMS42OCwyLjQyLDEuMzcsNC4xLDEuODlzOC4zMSwzLjg5LDEyLjcyLDYuNDFjNC41MiwyLjUyLDcuMDQsNC4yMSw3Ljk5LDcuMDQsLjg0LDIuMSwyLDQuNDIsMiw3LjI1LDAsLjg0LS4xMSwxLjU4LS4zMiwyLjMxLS41MywxLjc5LS44NCwzLjA1LTEuMTYsMy44OWwtLjUzLDEuMjZjLjc0LS43NCwxLjM3LTEuNDcsMi0yLjQyLDEuMTYtMS41OCwyLjIxLTMuNjgsMi43My02LjIsLjIxLTEuMDUsLjMyLTIuMSwuMzItMy4xNSwwLTQuMS0xLjQ3LTcuOTktNC41Mi05Ljk5LTMuODktMi40Mi03LjU3LTUuMjYtOS42Ny01Ljk5LTIuMjEtLjc0LTQuNzMtMS4zNy01LjE1LTIuMS0uNjMtLjYzLTguMzEtNC40Mi0xMC45NC00Ljczcy01Ljc4LTIuNzMtOC42Mi00LjQyYy0yLjk0LTEuNjgtNS40Ny00LjIxLTcuMDQtNi40MS0uOTUtMS4xNi0xLjM3LTMuMTUtMS4zNy01LjE1LDAtMS41OCwuMzItMy4xNSwuNjMtNC41MiwuODQtMi44NCw0LjMxLTUuODksNC4zMS03LjM2LDAtLjMyLS4yMS0uNDItLjYzLS40Mi0xLjc5LDAtNC44NCwzLjI2LTYuMzEsNi4yWiIvPgogICAgPHBhdGggY2xhc3M9ImNscy0zIiBkPSJNNTg3LjY1LDQ5Mi4wMmMtMTAuODMtLjQyLTE4LjYxLTIuNDItMjEuNDUtMy43OS02LjQxLTIuODQtNC45NC0zLjc5LTguNjItNS40Ny0yLjg0LTEuMzctNi4zMS01LjE1LTguMzEtOC40MS0zLjM3LTUuNjgtNC05LjE1LTUuMzYtMTQuMTktLjc0LTIuNDItLjg0LTUuMTUtLjg0LTcuNjgsMC00LjYzLC41My04LjgzLDEuMzctMTAuMDksMS4zNy0yLjIxLDEuODktNy43OCwzLjI2LTkuOTksMy4zNi01LjM2LDQuNDItNi41Miw2Ljk0LTkuMDQsMS41OC0xLjU4LDMuNDctMy4yNiw1LjQ3LTMuMjYsMS41OCwwLDEuMjYtMS4wNSwxLjc5LTIuMjEsLjUzLTEuMTYsMi0yLjg0LDUuODktNC40Miw0LjEtMS41OCw3Ljg5LTMuNzksMTEuNTctNC4xLDMuMjYtLjMyLDYuNzMtMS4wNSw5Ljk5LTEuMDVoLjUzYzEwLjgzLC4zMiwxOC42MSwyLjQyLDIxLjQ1LDMuNjgsNi40MSwzLjA1LDQuOTQsNC4zMSw4LjYyLDUuOTksMi44NCwxLjM3LDYuMzEsNS4xNSw4LjMxLDguNDEsMy4zNyw1LjY4LDQsOS4xNSw1LjM2LDE0LjA5LC43NCwyLjQyLC44NCw1LjE1LC44NCw3LjY4LDAsNC43My0uNTMsOC45NC0xLjM3LDEwLjItMS4zNywyLjIxLTEuODksNy43OC0zLjI2LDkuOTktMy4zNiw1LjM2LTQuNDIsNi40MS02Ljk0LDguOTQtMS41OCwxLjU4LTMuNDcsMy4zNy01LjQ3LDMuMzctMS41OCwwLTEuMjYsMS4wNS0xLjc5LDIuMjEtLjUzLDEuMTYtMi43MywzLjM2LTYuNjIsNC45NC00LjEsMS41OC03LjE1LDIuODQtMTAuODMsMy4xNS0zLjI2LC4zMi02LjczLDEuMDUtOS45OSwxLjA1aC0uNTNabS0yNy42NS02OC4wM2MtMiwuNzQtMy42OCwzLjM3LTQuODQsNC43My0xLjI2LDEuMjYtMi42Myw0LTQuMjEsOC4yLTEuMzcsNC4xLTIuMjEsOC41Mi0yLjIxLDExLjE1djEuMTZjMCwxLjU4LS4yMSwyLjUyLS4yMSw0LjEsMCwuNzQtLjExLDEuNDcsLjIxLDIuMzEsLjUzLDIuODQsLjk1LDcuODksMiwxMC4zLC45NSwyLjUyLDMuMjYsNi41Miw0Ljk0LDcuNzgsMS42OCwxLjM3LDQuMzEsNC45NCw1LjY4LDUuOTksMS40NywxLjE2LDQuODQsMy43OSw3LjA0LDQuNjMsMiwuNTMsNC45NCwyLDYuMiwyLC4yMSwwLC4zMiwwLC40Mi0uMTEsLjExLS4xMSwuMjEtLjMyLC4yMS0uNjMsMC0uOTUtMS44OS0yLjEtNC43My0zLjQ3bC0uNzQtLjMyYy00LjIxLTIuMjEtNi4xLTUuMzYtNy42OC02LjUyLTEuMzctMS4xNi02LjUyLTkuOTktNi44My0xMy4xNC0uNDItMy4yNi0uNTMtNS41Ny0uNTMtNy4zNiwwLTEuNTgtLjUzLTQuNTItLjUzLTYuOTQsMC0uNzQsMC0xLjM3LC4xMS0xLjY4LC4zMi0yLjQyLDEuMzctNS40NywxLjc5LTcuMTUsLjMyLTEuNjgsMS4xNi01LjY4LDItNy40NiwuNzQtMS41OCwxLjY4LTIuNTIsMy4yNi00LjFsLjUzLS41M2MxLjc5LTIuMSwyLjg0LTMuNTgsNC00Ljk0LDEuMTYtMS41OCwzLjI2LTIuODQsMy4zNi0zLjU4LDAtLjMyLS4yMS0uNDItLjYzLS40Mi0uNzQsMC0yLjEsLjUzLTMuMDUsMS40Ny0xLjU4LDEuNTgtMy41OCw0LjEtNS41Nyw0LjUyWm0zNi41OSw2MC41N2MzLjE1LDAsNS40Ny0zLjA1LDguMS00LjUyLDEuNTgtMS4xNiwyLjk0LTQsNS4zNi03LjA1LDIuNzMtMy4yNiw0LjczLTkuNzgsNC43My0xNC42MiwwLTEuMzcsMS4xNi00LjIxLDEuMTYtNi40MSwwLTItLjQyLTcuODktLjk1LTkuOTktMS40Ny01LjU3LTQuNzMtMTUuODgtOC40MS0xOS4wMy0zLjA1LTIuNTItOC41Mi04LjQxLTE0LjYyLTguNDEtMS4zNywwLTIuNDItLjExLTMuNjgtLjExLS44NCwwLTEuNzktLjEtMi45NCwuMjEtMS42OCwuNDItMy4xNSwxLjU4LTQuNDIsMS41OC0zLjA1LDAtNS41NywzLjE1LTguMSw0LjUyLTEuNTgsLjk1LTIuOTQsNC01LjM2LDYuOTQtMi43MywzLjM2LTQuNzMsOS43OC00LjczLDE0LjcyLDAsMS4zNy0xLjE2LDQtMS4xNiw2LjQxLDAsMiwuNDIsNy45OSwuOTUsOS45OSwxLjE2LDUuMzYsMi4yMSwxMi4zLDguMSwxNy4wMywzLjA1LDIuNTIsNS43OCw2LjMxLDExLjQ2LDguMzEsMi40MiwuODQsNC45NCwxLjc5LDcuNzgsMS43OSwuNzQsMCwxLjI2LDAsMS41OC0uMTEsMS42OC0uMSwzLjg5LTEuMjYsNS4xNS0xLjI2Wm0xOS43Ny03LjY4YzEuNTgtMS4zNywzLjQ3LTQuMSw0LjczLTUuMzYsMS4xNi0xLjI2LDEuNjgtMy4xNSwyLjg0LTYuODNsLjMyLS44NGMxLjM3LTQuMSwyLjIxLTguNTIsMi4yMS0xMS4xNXYtMS4xNmMwLTEuNTgsLjIxLTIuNDIsLjIxLTQsMC0uNzQsLjExLTEuNTgtLjIxLTIuNDItLjc0LTIuOTQtLjk1LTcuNzgtMS44OS0xMC4zLS43NC0yLjMxLTQtNy44OS01LjU3LTkuMTUtMi40Mi0yLjQyLTMuMTUtMy42OC00LjUyLTQuOTQtMS4zNy0xLjE2LTIuNjMtMy40Ny00Ljg0LTQuMzEtMS43OS0uNzQtNC43My0yLTUuOTktMi0uMzIsMC0uNDIsMC0uNTMsLjExLS4yMSwuMjEtLjMyLC40Mi0uMzIsLjYzLDAsLjg0LDEuNDcsMS42OCwzLjg5LDIuOTRsLjUzLC4zMiwuMzIsLjIxYzQuMSwyLjIxLDYuOTQsOC44Myw4LjMxLDkuODgsMS4yNiwxLjA1LDMuNzksNi45NCw0LjEsMTAuMDksLjQyLDMuMjYsLjUzLDUuNTcsLjUzLDcuMzYsMCwxLjU4LC42Myw0Ljk0LC42Myw3LjM2LDAsLjQyLS4xMSwuODQtLjExLDEuMjYtLjQyLDIuNDItMS40Nyw1LjQ3LTEuODksNy4xNS0uMzIsMS42OC0uMjEsNS4wNS0xLjA1LDYuODMtLjg0LDEuNzktMS4yNiwzLjY4LTMuMDUsNS42OC0yLDItMi42MywyLjczLTMuNzksNC4zMS0xLjE2LDEuNTgtMy4zNiwzLjY4LTMuNDcsNC40MiwwLC4xMSwuMTEsLjIxLC4yMSwuMjEsLjc0LDAsMy4yNi0xLjE2LDQuNDItMi4zMSwxLjM3LTEuNTgsMi0yLjMxLDQtNFoiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTczOC4yMiw0MzcuMjRjMCwxLjY4LC4yMSwzLjQ3LC4yMSw0LjYzLDAsMi0uNTMsMy4yNi0uNTMsNC44NCwwLDEzLjU2LC40MiwyNy4xMywuOTUsNDEuMzIsMCwxLjI2LS41MywzLjU3LTIuNTIsMy41Ny0yLjg0LDAtMy41OC0xLjA1LTUuMTUtMi0xLjY4LTEuMTYtNy4wNC03LjM2LTguMS04LjczLTEuNjgtMi4yMS0zLjI2LTIuNTItNC45NC00LjczLTMuNDctNC4zMS03LjY4LTguOTQtMTAuNjItMTIuNzItMy42OC00LjUyLTguMS04LjUyLTkuNzgtMTEuMzYtMi4xLTMuODktMy4xNi00LjczLTQuMzEtNS45OS0xLjE2LTEuNTgtMy43OS01LjE1LTUuNzgtNy4zNi0uODQtLjg0LTUuMTUtNS41Ny02LjItNi45NC0xLjU4LTEuNzktMy41Ny0zLjE1LTUuMjYtNS4xNSwwLDIuOTQsLjIxLDUuODksLjIxLDkuMTV2MTAuNjJjMCw1LjM2LC40Miw0LjczLC40Miw4LjIsMCwxLjE2LTEuMzcsMS44OS0xLjM3LDMuODksMCwxLjg5LDEuMDUsMS42OCwxLjA1LDQsMCwxLjc5LC41Myw1LjI2LC41Myw3LjA0LDAsNCwuOTUsMi41MiwxLjc5LDUuNDcsLjg0LDIuNjMsMS41OCwzLjI2LDIuOTQsNS4xNSwxLjU4LDIsMy42OCwzLjc5LDQuODQsNC41MiwxLjE2LC44NCwzLjU4LC42MywzLjU4LDMuMjYsMCwxLjI2LS44NCwxLjQ3LTIuNDIsMS40Ny0xLjE2LDAtMi4zMS0uMS0zLjY4LS4xLTEuNTgsMC0yLjk0LC4xLTQuMzEsLjEtNC4zMSwwLTQuNjMtLjg0LTcuMjYtLjg0LTIsMC0zLjE1LC42My01LjE1LC43NC0yLC4zMi0zLjU3LC42My00Ljg0LC42My0uNjMsMC0xLjE2LS4xMS0xLjU4LS4zMi0uNTMtLjMyLS44NC0uNjMtLjg0LTEuMTYsMC0uNzQsLjQyLTEuMjYsMS4zNy0xLjc5LDUuNjgtMi44NCw2LjYyLTUuMjYsOC41Mi05Ljk5LC43NC0yLjEsMS4xNi00LjMxLDEuMTYtNi41MiwwLTEuNTgtLjMyLTIuODQtLjMyLTMuNzksMC0xMC42MiwuMS0xMy4wNCwuMS0xNS4wNCwwLTMuNjgsLjc0LTUuNjgsLjc0LTYuNDEsMC0yLjUyLS44NC00LjQyLS44NC02LjUyLDAtMi4yMS0uMjEtNi43My0uMjEtMTIuOTMsMC0xLjU4LS4yMS0uMjEtLjIxLTMuNzksMC0uOTUtLjIxLTIuNjMtMi00LjYzLTMuNDctMy42OC02LjUyLTMuNDctNi41Mi00LjUyLDAtMS4zNywuNjMtMiwyLTIsLjg0LC4xMSwxLjI2LC4xMSwxLjY4LC4xMSwxLjE2LDAsMi4zMS0uMjEsMy40Ny0uMjEsLjYzLDAsMS4wNSwwLDEuMzcsLjEsMS4xNi0uMzIsMi42My0uNDIsNC4yMS0uNDIsMi45NCwwLDYuMSwuNDIsOC41MiwuNDIsMS4zNywwLDYuMzEsNi42Miw3LjQ3LDguNDEsMi4yMSwzLjg5LDQuNTIsNC45NCw1LjY4LDUuODksMS4xNiwuOTUsLjUzLDMuMDUsMi41Miw0Ljg0LDEuNzksMS43OSw1LjM2LDUuNTcsNi44Myw3LjU3LDEuNTgsMiw0LjMxLDQuMjEsNC43Myw1Ljc4LC4zMiwxLjU4LDIuNzMsMy40Nyw0LjEsNS4xNSwxLjI2LDEuNjgsLjk1LDIuNTIsMi4xLDMuNjgsMS4zNywxLjA1LDYuNzMsNS41Nyw3LjM2LDcuMzYsLjg0LDEuNjgsMiwzLjA1LDQsNC44NCwxLjU4LDEuNzksMy4xNiw0LjMxLDQuNzMsNC4zMSwuNTMsMCwuNzQtLjMyLC43NC0xLjA1cy0uMS0xLjM3LS4xLTIuMjFjLS4zMi00LjUyLS4zMi02LjMxLS4zMi05LjY3cy4zMi01Ljg5LC4zMi04LjczYzAtMi42My0uMjEtMy4yNi0uMjEtNCwwLTEuNTgsLjIxLTIuNDIsLjIxLTQuODQtLjMyLTItLjUzLTIuMS0uNTMtMy4zNiwwLTEuNTgtLjEtMi41Mi0uMS00LjEsMC00LS45NS0yLjMxLTEuNzktNS40Ny0uOTUtMi44NC0xLjY4LTMuMDUtMy4wNS01LjE1LTEuMzctMi0zLjU4LTMuNzktNC43My00LjUyLTEuMjYtLjc0LTMuNjgtLjc0LTMuNjgtMy4yNiwwLTEuMjYsMS4xNi0xLjU4LDIuODQtMS41OCwuOTUsMCwyLjEsLjEsMy4zNywuMSw1LjE1LDAsNy4xNSwuMTEsOS4xNSwuNTMsLjg0LC4yMSwxLjU4LC4zMiwyLjMxLC4zMiwyLDAsMy4yNi0uNTMsNS4yNi0uODQsMS43OS0uMSwzLjM3LS41Myw0LjczLS41MywuODQsMCwyLjUyLC4yMSwyLjUyLDEuNDcsMCwuNzQtLjQyLDEuMzctMS4zNywxLjc5LTEuNTgsLjc0LTMuNjgsMi4yMS01LjM2LDMuODktMS42OCwxLjY4LTIuNDIsNC4zMS0zLjE1LDYuMS0uNzQsMS42OC0xLjA1LDMuNDctMS4wNSw1LjI2LDAsMi4xLS40Miw3LjQ3LS40Miw4LjczWm0tNjcuMTksNDUuOTVjLTEuMzcsMS42OC0zLjE1LDIuODQtMy4xNSwzLjE1LDAsLjEsLjEsLjEsLjMyLC4xLC43NCwwLDItLjc0LDUuMjYtLjg0LDIuMSwuMTEsMy41OCwuNDIsNS4xNSwuNDIsLjMyLDAsMi41MiwuMSwyLjUyLS42MywwLS41My0xLjY4LTEuMjYtMi41Mi0yLjYzLTEuMjYtMi0yLTIuNDItMi4zMS00LS4xMS0uOTUtLjc0LTEuODktMS4yNi0xLjg5LS4zMiwwLS42MywuMzItLjg0LC45NS0uNzQsMi0xLjU4LDMuMzctMy4xNSw1LjM2Wm01LjY4LTYyLjQ2YzIuMzEsMy4xNSw1LjA1LDcuMzYsNy4xNSw4LjEsMi4xLC45NSwxLjU4LDMuNDcsMy44OSw1LjU3LDIuMzEsMi4zMSw3LjA0LDcuNjgsOS41NywxMS4wNCwyLjQyLDMuMzcsMy44OSw2LjEsNi4zMSw4LjMxLDIuNDIsMi4xLDQuOTQsNS45OSw3Ljc4LDkuMjUsMi44NCwzLjE1LDMuMjYsNC45NCw1Ljg5LDYuOTQsMi42MywyLjEsMi44NCwuNDIsNCwyLjg0LC45NSwyLjQyLDIuODQsNC42Myw1LjA1LDcuMDQsMi4yMSwyLjQyLDcuMjYsOC4xLDguMSw4LjEsLjc0LDAsMS4xNi0uNDIsMS4xNi0xLjM3LDAtLjc0LS4xLTEuNDctLjQyLTIuNDItLjUzLTEuODktNi42Mi04LjMxLTkuMTUtMTEuMTUtMi41Mi0yLjczLTcuMTUtNy43OC03Ljk5LTguMzEtLjk1LS43NC0yLjUyLTMuNzktNS41Ny03LjE1LTMuMDUtMy4zNy04LjEtOC43My0xMC41Mi0xMi41MS0uNzQtMS4xNi0zLjE1LTMuMzctNS4xNS01Ljg5LTEuODktMi40Mi01LjI2LTcuNTctNi4zMS04Ljk0LTEuMjYtMS4wNS02LjItNi42Mi03LjU3LTcuOTktMS40Ny0xLjQ3LTQuNTItNi41Mi01LjU3LTcuNTctLjc0LS43NC0zLjM2LTEuMjYtNS4zNi0xLjI2LS45NSwwLTEuNzksMC0yLjEsLjc0LDAsMS4yNiw0LjYzLDMuODksNi44Myw2LjYyWm02MS45My00Yy44NC0xLjE2LDMuMDUtMy4wNSwzLjA1LTMuMDUsMC0uMTEtLjEtLjIxLS4yMS0uMjEtLjUzLDAtMS41OCwuNzQtNS4yNiwuODQtMi4yMS0uMTEtMy43OS0uNDItNS4xNS0uNDItLjc0LDAtMS4xNi0uMTEtMS44OSwuMjEtLjQyLC4xMS0uNjMsLjIxLS42MywuNDIsMCwuNTMsMS42OCwxLjI2LDIuNTIsMi42MywxLjE2LDIsMiwyLjQyLDIuMzEsNCwuMTEsLjk1LC43NCwxLjg5LDEuMjYsMS44OSwuMzIsMCwuNjMtLjMyLC44NC0uOTUsLjc0LTIsMS41OC0zLjM2LDMuMTUtNS4zNloiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTg3Ni45MSw0MTQuMjFjLS41MywwLTEuMDUsLjExLTEuNTgsLjMyLS42MywuMjEtMS4xNiwuMzItMS42OCwuMzItMS4xNiwwLTIuMjEtLjMyLTMuNTgtLjMyLS41MywwLTEuMDUsMC0xLjM3LC4xMS0yLC40Mi0zLjE1LDEuNTgtNC40MiwxLjU4LTMuMDUsMC00LjUyLDMuMTUtNy4wNCw0LjUyLTEuNTgsLjk1LTIuOTQsNC01LjM2LDYuOTQtMi43MywzLjM2LTQuNzMsOS43OC00LjczLDE0LjcyLDAsMS4zNy0xLjE2LDQtMS4xNiw2LjQxLDAsMiwuNDIsNy45OSwuOTUsOS45OSwxLjE2LDUuMzYsMi4yMSwxMi4zLDguMSwxNy4wMywzLjA1LDIuNTIsNS43OCw2LjQxLDExLjQ2LDguNDEsMi44NCwuOTUsNi43MywxLjc5LDEwLjIsMS44OSwyLjQyLDAsNy42OC0xLjE2LDkuNzgtMS42OCwyLjUyLS41Myw3LjU3LTMuODksOS4wNC01LjA1LDEuNTgtMS4zNywzLjM3LTIuNDIsNC45NC00LDEuNTgtMS4zNywxLjQ3LTIuMSwyLjQyLTQuMSwuNzQtMS4xNiwxLjM3LTMuMTUsMy4wNS0zLjE1LDEuMzcsMCwyLjUyLDEuNzksMi41MiwyLjYzLDAsLjk1LTEuNzksNC0zLjE1LDUuOTktMS44OSwyLjczLTcuOTksOC43My0xMC43Myw5LjU3LTIuNDIsLjc0LTYuMiwyLjYzLTEwLjA5LDMuMzYtMy40NywuNzQtNi45NCwxLjY4LTEyLjA5LDEuNjhoLTEuMzdjLTEwLjgzLS40Mi0xOC42MS0yLjQyLTIxLjQ1LTMuNzktNi40MS0yLjczLTQuOTQtMy4xNS04LjYyLTQuODQtMi44NC0xLjM3LTYuMzEtNS4xNS04LjMxLTguNDEtMy4zNy01LjY4LTQtOS4xNS01LjM2LTE0LjE5LS43NC0yLjQyLS44NC01LjE1LS44NC03LjY4LDAtNC42MywuNTMtOC44MywxLjM3LTEwLjA5LDEuMzctMi4yMSwxLjg5LTcuNzgsMy4yNi05Ljk5LDMuMzYtNS4zNiw0LjQyLTYuNTIsNi45NC05LjA0LDEuNTgtMS41OCwzLjQ3LTMuMjYsNS40Ny0zLjI2LDEuNTgsMCwxLjI2LTEuMDUsMS43OS0yLjIxLC41My0xLjE2LDIuNzMtMi43Myw2LjYyLTQuMzEsNC4xLTEuNTgsNy4xNS0yLjg0LDEwLjgzLTMuMTUsMy4wNS0uMzIsOS41Ny0xLjE2LDEzLjA0LTEuMTZoLjUzYzEuMjYsLjExLDIuNjMsLjIxLDMuODksLjIxLDUuODksLjUzLDYuNDEsMS4zNyw3Ljg5LDEuNjgsMS4yNiwuMTEsMy4zNiwuNzQsNC4xLC43NCwuODQsMCw0LTEuMTYsNS4wNS0xLjE2LDEuMjYsLjEsMi4xLC41MywyLjUyLDQuMjEsLjMyLDMuNDcsMS4wNSw0Ljk0LDEuMzcsNy40NnMxLjg5LDYuNDEsMS44OSw4Ljk0YzAsMS4xNi0uNjMsMS42OC0xLjc5LDEuNjgtMi4yMSwwLTIuNDItMS43OS0zLjE1LTMuMzYtLjc0LTEuNTgtMi4xLTMuMjYtMy4wNS01LjA1LS45NS0yLTIuOTQtNC4yMS00LjMxLTUuMzYtMS4zNy0xLjA1LTYuNTItMy43OS03Ljc4LTMuNzktMi4yMS0uMTEtNC0xLjI2LTUuOTktMS4yNlptLTMzLjU0LDkuNzhjLTIsLjc0LTMuNjgsMy4zNy00Ljg0LDQuNzMtMS4yNiwxLjI2LTIuNjMsNC00LjIxLDguMi0xLjM3LDQuMS0yLjIxLDguNTItMi4yMSwxMS4xNXYxLjE2YzAsMS41OC0uMjEsMi41Mi0uMjEsNC4xLDAsLjc0LS4xMSwxLjQ3LC4yMSwyLjMxLC41MywyLjg0LC45NSw3Ljg5LDIsMTAuMywuOTUsMi41MiwzLjI2LDYuNTIsNC45NCw3Ljc4LDEuNjgsMS4zNyw0LjMxLDQuOTQsNS42OCw1Ljk5LDEuNDcsMS4xNiw0Ljg0LDMuNzksNy4wNCw0LjYzLDIsLjUzLDQuOTQsMiw2LjIsMiwuMjEsMCwuMzIsMCwuNDItLjExLC4xMS0uMTEsLjIxLS4zMiwuMjEtLjYzLDAtLjk1LTEuODktMi4xLTQuNzMtMy40N2wtLjc0LS4zMmMtNC4yMS0yLjIxLTYuMS01LjM2LTcuNjgtNi41Mi0xLjM3LTEuMTYtNi41Mi05Ljk5LTYuODMtMTMuMTQtLjQyLTMuMjYtLjUzLTUuNTctLjUzLTcuMzYsMC0xLjU4LS41My00LjUyLS41My02Ljk0LDAtLjc0LDAtMS4zNywuMTEtMS42OCwuMzItMi40MiwxLjM3LTUuNDcsMS43OS03LjE1LC4zMi0xLjY4LDEuMTYtNS42OCwyLTcuNDYsLjc0LTEuNTgsMS42OC0yLjUyLDMuMjYtNC4xbC41My0uNTNjMS43OS0yLjEsMi44NC0zLjU4LDQtNC45NCwxLjE2LTEuNTgsMy4yNi0yLjg0LDMuMzYtMy41OCwwLS4zMi0uMjEtLjQyLS42My0uNDItLjc0LDAtMi4xLC41My0zLjA1LDEuNDctMS41OCwxLjU4LTMuNTgsNC4xLTUuNTcsNC41MloiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTk2Mi44MSw0MTAuMjJjLjc0LDAsMS4xNiwuMTEsMS40NywuMTEsMS41OCwuMzIsMy43OS0uMTEsNC45NCwuNjMsLjMyLC4yMSwuNTMsLjc0LC41MywxLjU4LDAsLjc0LS43NCwxLjA1LTEuMjYsMS4xNi0yLjEsLjMyLTIuOTQtLjQyLTQuOTQsMS41OC0xLjU4LDEuNTgtMS43OSwyLjMxLTIuMSw0Ljg0LC4xLDMuMjYsLjMyLDUuNTcsLjMyLDcuNTcsMCwuODQsMCwxLjU4LS4xMSwyLjMxLS4zMiwyLjYzLS41Myw2LjItLjUzLDkuODgsMCwyLDAsNi43MywuNTMsNy4yNSwuMzIsLjYzLC41MywuNzQsNy40NywuNzQsNC4xLDAsNy4wNC0uMTEsOS45OS0uMTEsMS41OCwwLDIuODQsLjYzLDMuNjgsLjYzLDEuMTYsMCwyLjIxLC4zMiwzLjA1LC4zMiwyLDAsNC4yMS0xLjY4LDcuNjgtMS42OCwyLjUyLDAsNC45NCwuOTUsNy43OCwuOTUsLjc0LDAsMi4xLS4xMSwyLjYzLS40MiwzLjc5LTEuNzksMi45NC01LjI2LDMuMjYtMTAuMDksMC0uOTUsLjIxLTUuMTUsLjIxLTcuMDQsMC0yLjk0LS4zMi02LjYyLS4zMi05LjI1cy0uMS00LTIuOTQtNi41MmMtMS4zNy0xLjA1LTMuNjgtLjMyLTQuODQtMS4xNi0uMzItLjIxLS40Mi0uNjMtLjQyLTEuMzdzLjEtMS4yNiwuNDItMS4zN2MuMzItLjMyLDEuMTYtLjYzLDIuMS0uNjNzMS43OSwuMzIsMi43MywuMzJjLjg0LS4xMSw0LjEtLjMyLDYuMi0uMzIsLjg0LDAsMS41OCwwLDEuODksLjEsLjMyLC4xMSwxLjI2LC4xMSwyLjYzLC4xMSw0LjEsMCwxMS42Ny0uMjEsMTIuODMtLjIxLDEuNTgsMCwyLjk0LC4zMiwzLjI2LC40MiwuMSwuMTEsLjIxLC41MywuMjEsMS4wNSwwLC43NC0uMTEsMS4xNi0uMzIsMS4zNy0xLjM3LDEuMzctMy42OCwuMzItNS41NywyLTEuNDcsMS40Ny0yLjEsNi40MS0yLjEsOS4wNCwwLDEuMjYsLjQyLDMuODksLjUzLDQuODQsMCw0LjEtLjk1LDYuMi0uOTUsOC42MiwwLC40MiwuMjEsMi45NCwuMzIsNi4zMSwwLDEuMTYtLjMyLDIuMS0uMzIsMy4yNiwwLDEuNTgsLjk1LDIuNjMsLjk1LDQuMzEsMCwxLjI2LS4zMiwyLjYzLS4zMiwzLjg5LDAsNC40Mi0uMjEsMTIuOTMtLjIxLDEzLjk4LDAsNC42MywuNzQsNS40NywuNzQsOC43MywwLDEuNTgtLjIxLDIuOTQtLjIxLDQuMSwwLDIuNDIsMiw0LjMxLDMuNjgsNC42MywyLjYzLC41MywzLjM2LC42MywzLjY4LC45NSwuMTEsLjMyLC4xMSwuNzQsLjExLDEuMTYsMCwuNjMsMCwuOTUtLjExLC45NS0uMzIsLjExLTEuNjgsLjQyLTMuMjYsLjQyLTEuMTYsMC04LjczLS4yMS0xMi44My0uMjEtMS4zNywwLTIuMzEsLjEtMi42MywuMS0uMjEsLjExLS44NCwuMTEtMiwuMTEtMiwwLTQuMS0uMzItNi4zMS0uMzItLjc0LDAtMS41OCwuMzItMi40MiwuMzItMS4xNiwwLTEuODktLjQyLTIuMjEtLjUzLS4yMS0uMTEtLjMyLS40Mi0uMzItMS4wNSwwLS41MywuMTEtMS4wNSwuMzItMS4zNywuMTEtLjIxLC43NC0uMzIsMS44OS0uMzIsLjk1LDAsMS44OSwwLDMuMDUtLjQyLC44NC0uMzIsMS43OS0xLjg5LDEuNzktMiwuOTUtMi42MywxLjI2LTUuNTcsMS4yNi01Ljk5di03Ljc4YzAtLjc0LC42My0xLjU4LC42My0yLjMxLDAtMi40Mi0uNDItNC0uNDItNC43MywwLTEuNjgtLjUzLTkuNzgtMS4yNi05Ljk5LTIuNjMtLjUzLTcuMjUtLjk1LTkuODgtLjk1LTIuMSwwLTQuMSwuMjEtNy4zNiwuMjEtMi41MiwwLTQuMSwuNDItOS4xNSwuNDJzLTkuODgtLjMyLTE1LjY3LS4zMmMtMS41OCwwLTIuNTIsLjExLTIuODQsLjIxLS40MiwuNDItLjUzLDEuNDctLjUzLDMuMDUsMCwyLjk0LS4zMiwxNS41Ni0uMzIsMTguMDgsMCwxLjE2LC44NCwyLjMxLC44NCwzLjI2LDAsMi41Mi0uMTEsNy4yNSwyLjEsNy43OCwxLjE2LC4zMiwyLjQyLDEuMDUsMy4zNywxLjA1LDEuNTgsMCwyLjg0LC45NSwyLjg0LDEuNjgsMCwyLTEuMzcsMi0zLjU4LDItLjg0LDAtOC43My0uMjEtMTAuNDEtLjIxaC02LjQxYy0uNTMsMC0yLjczLC4xLTQuMzEsLjEtLjc0LS4xLTEuMzctLjIxLTIuMS0uMjFzLTEuNTgsLjMyLTIuNDIsLjMyYy0uOTUsMC0zLjA1LS40Mi0zLjM3LS41My0uMjEtLjExLS4zMi0uNDItLjMyLTEuMDUsMC0uNTMsLjExLTEuMDUsLjMyLTEuMzcsLjMyLS4zMiw0LjEtLjg0LDUuMzYtMS41OCwyLjUyLTIuMjEsMi42My01LjA1LDIuNzMtNy4yNSwuNTMtOC41MiwuNjMtOS4zNiwuNjMtOS45OSwwLTEuMjYtLjIxLTIuNDItLjIxLTMuNjgsLjEtMi4yMSwuMzItNC4yMSwuMzItNS41NywwLTIuMS0uNTMtOC43My0uNTMtOS44OCwwLTIuNTIsLjExLTUuNDcsLjExLTguMWwxLjA1LTMuNjhjMC0uODQtMS4wNS0xLjU4LTEuMDUtMi4zMS0uMzItNi44My0uMzItOS4zNi0uMzItMTIuMDksMC0xLjY4LS4xMS00LjQyLS41My01LjM2LS41My0xLjY4LDAtMi0yLjIxLTMuMTUtLjc0LS4zMi0xLjQ3LS43NC0yLjIxLS43NC0uOTUsMC0xLjc5LS41My0yLjEtLjUzLS42MywwLS45NS0uNDItLjk1LTEuMTZzLjMyLTEuMjYsLjk1LTEuNThjLjIxLDAsMi4xLS4xLDE3LjM1LS4xLDEuMjYsMCw1LjA1LS4yMSw3LjI1LS4yMVptLTEzLjQ2LDMuMTZjLTEuMTYsMC0yLjYzLDAtMi42MywuNzRzMi42MywxLjY4LDIuNjMsMTAuNzNjMCwxLjU4LC41MywyLjYzLC41Myw0LjYzLDAsMS41OC0uNTMsMy4xNS0uNTMsNS4xNXMuMjEsMy44OSwuMjEsNS40N2MwLDUuNzgsMCwxMS4yNSwuMzIsMTcuNDYsMCwuODQsLjEsMS43OSwuMSwyLjk0LDAsLjc0LDAsMS40Ny0uMzIsMi0uMjEsLjQyLS4zMiwxLjA1LS4zMiwxLjg5LDAsMS42OCwuNDIsMy43OSwuNTMsNS43OCwuMSwuNzQsLjEsMS4yNiwuMSwyLDAsMi40Mi0uMzIsNC44NC0uMzIsNy42OCwwLDEuMTYtLjIxLDIuNjMtMS4xNiw0LjIxLS44NCwxLjM3LTEuODksMS41OC0xLjg5LDIuMzEsMCwuMzIsLjQyLC40MiwxLjM3LC40MnMyLjEtLjExLDIuODQtLjIxYzEuNzktLjMyLDMuODktLjExLDQuMjEtMS4wNSwuMS0uMzIsLjEtLjc0LC4xLTEuNDcsMC0xLjU4LS4zMi0zLjM2LS4zMi01LjM2LDAtMi41Mi0uMS00LjQyLS4zMi01LjY4LS4xLS4zMi0uMS0uOTUtLjEtMS44OSwwLTEuNjgsLjEtNCwuMS02LjIsMC0zLjM3LS42My0zLjY4LS42My04LjMxLDAtNi40MSwuMjEtMTEuODgsLjIxLTE3LjY3LDAtMi0uMzItMy41OC0uMzItNC44NCwwLTEuMzcsLjYzLTIsLjYzLTQuMjEsMC0xLjY4LS4yMS0zLjc5LS4zMi01Ljc4di02LjgzYzAtMy44OS0yLjMxLTMuODktMy40Ny0zLjg5aC0xLjI2Wm02MS42MiwwYy0xLjE2LDAtMi42MywwLTIuNjMsLjc0LDAsMS40NywyLjYzLDEuMjYsMi42MywxMC43MywwLDEuNTgsLjQyLDIuNzMsLjQyLDQuNzMsMCwxLjU4LS40MiwzLjA1LS40Miw1LjA1cy4yMSwzLjg5LC4yMSw1LjQ3YzAsNC45NCwuMjEsOC4zMSwuMjEsOS45OSwwLDMuMzcsLjIxLDkuMjUsLjIxLDEwLjQxLDAsMi40Mi0uNjMsMS42OC0uNjMsMy44OSwwLDIuNDIsLjYzLDQuODQsLjYzLDcuNDcsMCwyLjQyLS4zMiw1LjA1LS4zMiw3Ljk5LDAsMS4xNi0uMjEsMi42My0xLjE2LDQuMjEtLjg0LDEuMzctMS44OSwxLjU4LTEuODksMi4zMSwwLC4zMiwuNDIsLjQyLDEuMzcsLjQyczIuMS0uMTEsMi44NC0uMjFjMS43OS0uMzIsMy44OS0uMTEsNC4yMS0xLjA1LC4xMS0uMzIsLjExLS43NCwuMTEtMS40NywwLTEuNTgtLjMyLTMuMzYtLjMyLTUuMzYsMC0yLjUyLS4xMS00LjQyLS4zMi01LjY4LS4xMS0uMzItLjExLS45NS0uMTEtMS44OSwwLTEuNjgsLjExLTQsLjExLTYuMiwwLTMuMzctLjYzLTMuNjgtLjYzLTguMzEsMC02LjQxLC4yMS0xMS44OCwuMjEtMTcuNjcsMC0yLS4zMi0zLjU4LS4zMi00Ljg0LDAtMS4zNywuNjMtMi41MiwuNjMtNC4yMXMtLjIxLTMuNzktLjMyLTUuNzh2LTYuODNjMC0zLjg5LTIuMzEtMy44OS0zLjQ3LTMuODloLTEuMjZaIi8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0xMTExLjI4LDQyNC43M2MxLjE2LDIuODQsMS40Nyw1LjA1LDMuNDcsNy41NywxLjY4LDIuNTIsMi43Myw2LjEsMy44OSw4Ljk0LDEuMjYsMy4yNiwxLjQ3LDUuMjYsMy42OCw4LjYyLDEuMTYsMS40NywzLjI2LDcuMTUsMy43OSw4LjIsMiwyLjg0LDIuNjMsNS4zNiwzLjg5LDcuODksMS4yNiwyLjYzLDIuODQsNS4wNSwzLjU4LDcuNDcsLjg0LDMuMDUsMy4yNiw2LjEsNC45NCw4Ljk0LC43NCwxLjU4LDEuODksMy4zNyw1LjI2LDQuNTIsLjMyLC4xMSwxLjA1LC4xMSwyLjIxLC4xMSwuNDIsMCwuNzQsLjExLC45NSwuMzIsLjExLC4xMSwuMjEsLjYzLC4yMSwxLjQ3LDAsLjUzLS4yMSwuNzQtLjUzLC44NC0uNTMsLjMyLTMuNjgsLjUzLTYuMzEsLjUzLS45NSwwLTEuNzksMC0yLjUyLS4xMS0uODQtLjEtMS43OS0uMS0yLjczLS4xLTEuNTgsMC04LjYyLC4xLTkuNzgsLjEtLjk1LDAtMy43OSwwLTQuMS0uMzItMS4xNiwwLTIuMjEsLjIxLTMuODksLjIxLTEuMjYsMC0xLjg5LS4zMi0xLjg5LS45NSwwLTEuMTYsLjIxLTEuNzksMS43OS0xLjc5LDEuMTYsMCwyLjQyLS41MywyLjUyLTEuNDcsMC0uNDIsLjExLS41MywuMTEtLjg0LDAtLjc0LS4yMS0uNjMtLjIxLTEuNzksMC0xLjU4LS45NS0yLjczLTEuMzctNC4zMS0uODQtMi0zLjE2LTkuMDQtNS4wNS0xMC40MS0uNDItLjMyLS45NS0uNTMtMS41OC0uNTMtLjc0LDAtMS4yNiwuMjEtMiwuMjEtMi44NCwwLTguNDEtLjMyLTkuNjctLjMyLS43NC0uMTEtMS4xNi0uMTEtMi4zMS0uMTEtMi40MiwwLTUuNzgsLjQyLTkuNDYsLjQyLTItLjMyLTIuOTQtLjIxLTQuMzEtLjIxLTEuNTgsMC0yLjMxLS41My0zLjE1LS41My0uNTMsMC0xLjE2LC4yMS0xLjg5LC43NC0uODQsLjQyLS43NCwzLjI2LTEuNTgsNi4zMS0uMTEsLjIxLS4xMSwuNjMtLjExLDEuMzcsMCwxLjU4LC4yMSw0LC4yMSw0Ljk0LDAsMi4xLC44NCw0LjEsMS42OCw1LjM2LC41MywuNDIsMi4xLDEuMDUsMi40MiwxLjA1LC44NCwwLDEuNTgsLjIxLDIuMSwuMzIsLjg0LC4zMiwuOTUsLjk1LC45NSwxLjY4LDAsLjQyLS4zMiwxLjA1LTEuMjYsMS4wNS0uNTMsMC0xLjM3LC4xMS0yLjYzLC4xMS0uNzQsMC0xLjM3LDAtMi4yMS0uMTEtMS43OSwwLTkuNDYtLjMyLTE0LjYyLS4zMi0yLjEsMC0zLjY4LDAtNC40MiwuMTEtLjc0LC4xLTEuMjYsLjEtMS43OSwuMS0xLjM3LDAtMi4xLS4zMi0yLjEtLjk1LDAtLjk1LC4yMS0yLjEsMS43OS0yLjEsMi45NCwwLDUuOTktMS4zNyw3LjI1LTQuNjMsMS41OC00LjEsMy4xNS00LjczLDMuNjgtNy4yNSwuMzItLjg0LDMuNTgtNy44OSw0LjczLTEwLjUxbC4zMi0uNjNjLjg0LTEuMDUsMy4xNS02LjIsNC04LjMxLDEuNTgtNC42Myw0LTguNjIsNS45OS0xMy41NiwuOTUtMi4xLDIuNTItMS4yNiwzLjA1LTQuMzEsLjMyLTEuNjgsLjUzLTMuNjgsMS42OC01LjY4LDEuMTYtMi44NCwyLjYzLTQuNjMsMy41OC03LjE1LC4zMi0uODQsMi40Mi00LjczLDMuMjYtNy44OSwuODQtMy4wNSwxLjM3LTQuNjMsMi42My02LjIsMS4xNi0xLjY4LDIuMjEtMy4xNSw0LjQyLTMuMTUsMS43OSwwLDIuNzMsMy4wNSw1LjE1LDcuMzYsMS4xNiwyLDMuMTUsNy4xNSw0LjMxLDkuNjdabS00Mi41OCw1Ny4xYy0uNzQsMS41OC0yLjEsMi43My0yLjUyLDQuNTIsMCwuNTMsLjYzLC44NCwyLC44NCwuNzQsMCwxLjY4LS4xLDIuNTItLjEsMi4xLDAsMy42OC0uMzIsMy42OC0uNjMsMC0uODQtMS40Ny0yLTEuNzktMy4yNi0uMzItLjk1LS4yMS0xLjU4LS4yMS0yLjMxLDAtLjg0LC4xLTEuNTgsLjIxLTIuNTIsLjExLS4yMSwuMTEtLjQyLC4xMS0uNjMsMC0uNTMtLjExLS43NC0uNDItLjc0LS41MywwLS45NSwuNDItMS4zNywxLjE2LS44NCwxLjU4LTEuMzcsMi4xLTIuMjEsMy42OFptMjIuNS00My45NWMtLjc0LC43NC0xLjA1LDEuMjYtMS4wNSwxLjU4cy4xMSwuNDIsLjExLC43NGMwLC40Mi0uMjEsLjk1LS41MywxLjU4LTIuMSwzLjY4LTQuMSw3LjQ3LTUuNzgsMTEuNTctMS4yNiwyLjg0LTMuMTYsNi41Mi0zLjE2LDguNzMsMCwuNTMsLjYzLC43NCwxLjc5LC43NCwuOTUsMCwyLjEtLjEsMy4zNi0uMSwuODQsMCwyLC40MiwzLjU4LC40MiwuODQsMCwyLjMxLS43NCwyLjQyLS43NCwyLDAsMi45NCwuMSw0LjYzLC4xLDMuNjgsMCw1LjU3LC41Myw4LjgzLC41MywuNTMsMCw0LjMxLS4zMiw0Ljg0LTEuMTYsLjEtLjIxLC4yMS0uNTMsLjIxLS45NSwwLTItNC03Ljk5LTQuNTItMTEuODgtLjYzLTIuMzEtMy4yNi00LjYzLTQuOTQtOS42Ny0xLjE2LTMuMzctMy44OS0xMC4yLTUuMTUtMTAuMi0xLjQ3LDAtMi42Myw2LjczLTQuNjMsOC43M1ptNy4wNC0xNS40NmMwLC40MiwuMTEsLjg0LC4yMSwxLjM3LC43NCwxLjY4LDMuMDUsNS4xNSw0LjQyLDguNTIsMS4zNywzLjQ3LDMuMjYsNS4wNSw0LjEsNy44OSwuODQsMi43MywxLjc5LDYuNjIsMi43Myw2LjgzLDEuMTYsLjMyLDEuNTgsLjc0LDEuNTgsMi44NCwwLDIuMjEsMi4yMSw1LjQ3LDMuMDUsOC4zMSwuODQsMi44NCwxLjY4LDEuNzksMi4yMSw0Ljk0LC43NCwyLjk0LDEuODksNCwyLjQyLDUuOTksLjc0LDIsMS43OSwzLjQ3LDMuMTYsNi41MiwxLjM3LDMuMDUsMS4yNiwzLjY4LDIuMSw1Ljg5LC44NCwyLjQyLC44NCw0LjYzLDIuNDIsNS4xNSwuNTMsLjIxLC45NSwuMzIsMS4yNiwuMzIsLjg0LDAsMS40Ny0uNDIsMy4wNS0uNDIsLjUzLDAsLjc0LS4zMiwuNzQtLjk1LDAtMS43OS0yLjIxLTUuNzgtMy41OC04LjMxLTItMi45NC0yLjg0LTYuMS0zLjY4LTcuMjUtLjg0LTEuMTYtMS4yNi00Ljg0LTIuMS01LjM2LS44NC0uNTMtMi4xLTMuMjYtMi40Mi00LjIxLTItNS44OS00Ljg0LTExLjM2LTcuMjUtMTcuMTQtMi4yMS01LjM2LTQuMjEtMTAuODMtNy4yNS0xNS45OC0xLjY4LTIuODQtMS40Ny00LjYzLTIuNjMtNi4yLS44NC0xLjY4LS45NS01Ljc4LTItNS43OC0xLjI2LDAtMS4yNiwyLTEuNjgsMy41OC0uNDIsMS4yNi0uODQsMi4zMS0uODQsMy40N1oiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTExOTEuNzIsNDEwLjMyYzEuNTgsMCwyLjk0LC4xMSw0LjUyLC4xMSwyLjQyLDAsNC43My0uMjEsNy4xNS0uMjEsLjc0LDAsMS4zNywuMjEsMi4zMSwuMjEsLjc0LDAsLjYzLS4yMSwxLjc5LS4yMSwuNDIsMCwuNzQsLjUzLC43NCwxLjI2LDAsLjg0LS4zMiwxLjM3LS44NCwxLjU4LS45NSwuNDItMy44OSwuNTMtNS40NywxLjQ3LS44NCwuNzQtLjk1LDIuNjMtMS40Nyw1LjA1LDAsLjUzLS4xMSw0Ljk0LS40Miw3LjM2LDAsMi41MiwuMzIsNC40MiwuMzIsNi41MiwwLC44NC0uODQsMS41OC0uODQsMi45NCwuNTMsMi4xLC43NCw0LjYzLC43NCw2LjgzLDAsMS42OC0uNDIsMi45NC0uNDIsNC4xLDAsMS42OCwuODQsMy43OSwuODQsNS44OSwwLDMuMzctMS4xNiw1LjU3LTEuMTYsNy41NywwLDIuNTIsLjg0LDMuMTUsLjg0LDguMiwwLDEwLjk0LDAsMTMuMzUsLjMyLDE1LjA0LC4yMSwxLjI2LDEuMDUsMi4xLDIuNjMsMi41MiwxLjU4LC41MywzLjU4LC41Myw0LjQyLC45NSwuMjEsLjIxLC4zMiwuNTMsLjMyLC44NCwwLC41My0uMjEsLjk1LS4zMiwxLjI2LS40MiwuMzItMS4xNiwuNDItMi41MiwuNzQtLjQyLC4xMS0xLjE2LC4xMS0yLjMxLC4xMS01LjQ3LDAtMTAuOTQtLjMyLTE4LjA4LS4zMi0uNTMsMC0zLjM3LC4yMS01LjU3LC4yMS0xLjU4LDAtMi40Mi0uMS0yLjYzLS4zMi0uMjEtLjIxLS4zMi0uNjMtLjMyLTEuMjYsMC0uNTMsLjExLS45NSwuMzItMS4xNiwuMzItLjExLDIuMS0uMzIsMy4wNS0uNDIsMS4yNi0uMSwyLjQyLTEuMTYsMi44NC0xLjY4LC45NS0uOTUsMS4zNy0zLjQ3LDEuNDctNC4yMSwuMzItLjg0LC4yMS00LjMxLC4yMS04LjQxLDAtOC40MS0uMjEtMTAuMy0uMjEtMTIuM3YtOS4wNGMwLTEuNzksLjk1LTIuODQsLjk1LTMuNzktLjUzLTEuNjgtLjc0LTIuMjEtMS4wNS03LjU3LS4xLTQuMzEtLjMyLTcuMjUtLjMyLTEwLjA5LDAtNy4wNC0uMjEtMTAuNjItLjMyLTExLjM2LS43NC0yLjIxLS42My0zLjU4LTEuMzctNC4xLS41My0uNDItMi4yMS0uODQtMy4wNS0uODQtLjk1LDAtMi4zMS0uMjEtMi42My0uMzItLjQyLS4xLS42My0uNjMtLjYzLTEuMzdzLjMyLTEuMjYsLjg0LTEuNThjLjMyLS4zMiwxLjM3LS4yMSwyLjk0LS4yMSwyLjEsMCw0LjczLC4xMSw1LjE1LC4xMSwyLjQyLDAsNC44NC0uMTEsNy4yNi0uMTFabS0zLjg5LDMuMDVjLTEuMjYsMC0yLjczLDAtMi43MywuNzQsMCwxLjA1LDIuNjMsMS4yNiwyLjYzLDEwLjczLDAsMS41OCwuNTMsMi45NCwuNTMsNC45NCwwLDEuNTgtLjQyLDIuODQtLjQyLDQuODRzLjIxLDMuNzksLjIxLDYuMmMtLjEsLjc0LS4xLDEuMzctLjEsMi4yMSwwLDUuNzgsLjUzLDExLjM2LC41MywxNy4zNSwwLDIuMjEtLjYzLDIuMjEtLjYzLDQsMCwyLjUyLC42Myw0Ljg0LC42Myw3LjY4LDAsMi40Mi0uMzIsNC44NC0uMzIsNy43OCwwLDEuMTYtLjMyLDIuNjMtMS4yNiw0LjIxLS44NCwxLjM3LTEuNzksMS41OC0xLjc5LDIuMzEsMCwuMzIsLjQyLC40MiwxLjM3LC40MnMyLjEtLjExLDIuODQtLjIxYzEuNzktLjMyLDMuODktLjExLDQuMjEtMS4wNSwuMTEtLjMyLC4xMS0uNzQsLjExLTEuMzcsMC0xLjU4LS4zMi0zLjQ3LS4zMi01LjQ3LDAtMi42My0uMTEtNC41Mi0uNDItNS42OC0uMS0uMzItLjEtLjk1LS4xLTEuODksMC0xLjY4LC4xLTQsLjEtNi4yLDAtMy4zNy0uNTMtMy42OC0uNTMtOC4zMSwwLTYuNDEsLjIxLTExLjg4LC4yMS0xNy42NywwLTItLjMyLTMuNTgtLjMyLTQuODQsMC0xLjU4LC42My0xLjQ3LC42My00LjIxLDAtMS42OC0uMjEtMy43OS0uMzItNS43OHYtNi44M2MwLTMuODktMi4zMS0zLjg5LTMuNDctMy44OWgtMS4yNloiLz4KICA8L2c+Cjwvc3ZnPg==" alt="Maison Chai" style="height:28px;width:auto;display:block;filter:brightness(1)"></div>
+  <div class="footer-social">@wanguwamajani · @maisonchailtd · #GiveToGain</div>
+  <div class="footer-copy">© 2026 Maison Chai · UK & Worldwide · maisonchaiglobal.com</div>
+</footer>
+
+<div class="sticky-bar" id="stickyBar">
+  <span class="sticky-bar-text"><strong id="stickyCount">0</strong> teas selected — ready to order?</span>
+  <a href="#order" class="sticky-bar-btn" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'});return false;">Complete Your Order →</a>
+</div>
+
+<script>
+const basket = {};
+
+function getCardName(card) {
+  return card.querySelector('.p-name').textContent.trim();
+}
+
+function getCardOrigin(card) {
+  const fixed = card.querySelector('.origin-fixed');
+  if (fixed) {
+    const t = fixed.textContent.replace('✦ Single origin · ', '').trim();
+    return t;
+  }
+  const active = card.querySelector('.origin-btn.active');
+  return active ? active.textContent.trim() : null;
+}
+
+function setOrigin(e, btn, label) {
+  e.stopPropagation();
+  const row = btn.closest('.origin-row');
+  row.querySelectorAll('.origin-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const card = btn.closest('.p-card');
+  const name = getCardName(card);
+  if (basket[name] !== undefined) {
+    basket[name].origin = label;
+    updateUI();
+  }
+}
+
+function toggleCard(card) {
+  const name = getCardName(card);
+  if (basket[name] !== undefined) {
+    delete basket[name];
+    card.classList.remove('selected');
+    card.querySelector('.p-select-icon').textContent = '+';
+    card.querySelector('.p-select-text').textContent = 'Add';
+    card.querySelector('.qty-num').textContent = '1';
+  } else {
+    const qty = parseInt(card.querySelector('.qty-num').textContent) || 1;
+    const origin = getCardOrigin(card);
+    basket[name] = { qty, origin };
+    card.classList.add('selected');
+    card.querySelector('.p-select-icon').textContent = '✓';
+    card.querySelector('.p-select-text').textContent = 'Added';
+  }
+  updateUI();
+}
+
+function changeQty(e, delta, btn) {
+  e.stopPropagation();
+  const card = btn.closest('.p-card');
+  const qtyEl = btn.parentElement.querySelector('.qty-num');
+  let qty = parseInt(qtyEl.textContent) + delta;
+  if (qty < 1) qty = 1;
+  if (qty > 20) qty = 20;
+  qtyEl.textContent = qty;
+  const name = getCardName(card);
+  if (basket[name] !== undefined) { basket[name].qty = qty; updateUI(); }
+}
+
+function updateUI() {
+  const names = Object.keys(basket);
+  const total = names.reduce((s,n) => s + basket[n].qty, 0);
+
+  document.getElementById('navCount').textContent = total;
+  document.getElementById('stickyCount').textContent = total;
+  document.getElementById('stickyBar').classList.toggle('visible', total > 0);
+
+  const emptyEl = document.getElementById('basketEmpty');
+  const itemsEl = document.getElementById('basketItems');
+  const totalEl = document.getElementById('basketTotal');
+  const summaryEl = document.getElementById('summaryField');
+
+  if (names.length === 0) {
+    emptyEl.style.display = '';
+    itemsEl.style.display = 'none';
+    totalEl.style.display = 'none';
+    summaryEl.textContent = "Your tea selection will appear here automatically once you've chosen from the menu above.";
+    summaryEl.classList.remove('populated');
+  } else {
+    emptyEl.style.display = 'none';
+    itemsEl.style.display = 'flex';
+    totalEl.style.display = 'flex';
+    itemsEl.innerHTML = names.map(n => `
+      <div class="basket-item">
+        <span class="b-name">${n}</span>
+        <span class="b-qty">${basket[n]} <span>× 125g</span></span>
+        <button class="b-remove" onclick="removeItem(event,'${n.replace(/'/g,"\\'")}')" title="Remove">×</button>
+      </div>`).join('');
+    document.getElementById('totalQty').textContent = total;
+    summaryEl.textContent = names.map(n => { const o = basket[n].origin ? ` (${basket[n].origin})` : ''; return `${basket[n].qty}× ${n}${o}`; }).join('\n');
+    summaryEl.classList.add('populated');
+  }
+}
+
+function removeItem(e, name) {
+  e.stopPropagation();
+  delete basket[name];
+  document.querySelectorAll('.p-card').forEach(card => {
+    if (getCardName(card) === name) {
+      card.classList.remove('selected');
+      card.querySelector('.p-select-icon').textContent = '+';
+      card.querySelector('.p-select-text').textContent = 'Add';
+      card.querySelector('.qty-num').textContent = '1';
+    }
+  });
+  updateUI();
+}
+
+async function submitOrder(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.innerHTML = 'Sending…';
+  btn.disabled = true;
+  const data = new FormData(e.target);
+  try {
+    const res = await fetch('https://formspree.io/f/mqeyqrnb', {
+      method: 'POST', body: data, headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      btn.innerHTML = '✓ Order Received';
+      btn.style.background = 'var(--sage)';
+      document.getElementById('orderSuccess').style.display = 'block';
+      document.getElementById('orderSuccess').scrollIntoView({behavior:'smooth', block:'nearest'});
+    } else {
+      btn.innerHTML = 'Try Again';
+      btn.disabled = false;
+      alert('Something went wrong — please try again or email us directly.');
+    }
+  } catch {
+    btn.innerHTML = 'Try Again';
+    btn.disabled = false;
+    alert('Something went wrong — please try again or email us directly.');
+  }
+}
+
+async function submitTrade(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.trade-submit');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  const data = new FormData(e.target);
+  try {
+    const res = await fetch('https://formspree.io/f/mqeyqrnb', {
+      method: 'POST', body: data, headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      btn.textContent = '✓ Enquiry Sent';
+      btn.style.background = 'var(--sage)';
+      document.getElementById('tradeSuccess').style.display = 'block';
+    } else {
+      btn.textContent = 'Try Again';
+      btn.disabled = false;
+      alert('Something went wrong — please try again or email us directly.');
+    }
+  } catch {
+    btn.textContent = 'Try Again';
+    btn.disabled = false;
+    alert('Something went wrong — please try again or email us directly.');
+  }
+}
+</script>
+</body>
+</html>
