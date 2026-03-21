@@ -1464,6 +1464,132 @@ if (checkoutBtn) {
       alert('An error occurred. Please try again later.');
     }
   });
+}<script>
+window.basket = {};
+
+function getCardName(card) {
+  return card.querySelector('.p-name').textContent.trim();
 }
-</script></body>
+
+function getCardOrigin(card) {
+  const fixed = card.querySelector('.origin-fixed');
+  if (fixed) {
+    const t = fixed.textContent.replace('✦ Single origin · ', '').trim();
+    return t;
+  }
+  const active = card.querySelector('.origin-btn.active');
+  return active ? active.textContent.trim() : null;
+}
+
+window.setOrigin = function(e, btn, label) {
+  e.stopPropagation();
+  const row = btn.closest('.origin-row');
+  row.querySelectorAll('.origin-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const card = btn.closest('.p-card');
+  const name = getCardName(card);
+  if (window.basket[name] !== undefined) {
+    window.basket[name].origin = label;
+    updateUI();
+  }
+};
+
+function toggleCard(card) {
+  const name = getCardName(card);
+  if (window.basket[name] !== undefined) {
+    delete window.basket[name];
+    card.classList.remove('selected');
+    card.querySelector('.p-select-icon').textContent = '+';
+    card.querySelector('.p-select-text').textContent = 'Add';
+    card.querySelector('.qty-num').textContent = '1';
+  } else {
+    const qty = parseInt(card.querySelector('.qty-num').textContent) || 1;
+    const origin = getCardOrigin(card);
+    window.basket[name] = { qty, origin };
+    card.classList.add('selected');
+    card.querySelector('.p-select-icon').textContent = '✓';
+    card.querySelector('.p-select-text').textContent = 'Added';
+  }
+  updateUI();
+}
+
+function changeQty(e, delta, btn) {
+  e.stopPropagation();
+  const card = btn.closest('.p-card');
+  const qtyEl = btn.parentElement.querySelector('.qty-num');
+  let qty = parseInt(qtyEl.textContent) + delta;
+  if (qty < 1) qty = 1;
+  if (qty > 20) qty = 20;
+  qtyEl.textContent = qty;
+  const name = getCardName(card);
+  if (window.basket[name] !== undefined) { window.basket[name].qty = qty; updateUI(); }
+}
+
+function updateUI() {
+  const names = Object.keys(window.basket);
+  const total = names.reduce((s,n) => s + window.basket[n].qty, 0);
+
+  document.getElementById('navCount').textContent = total;
+  document.getElementById('stickyCount').textContent = total;
+  document.getElementById('stickyBar').classList.toggle('visible', total > 0);
+
+  const emptyEl = document.getElementById('basketEmpty');
+  const itemsEl = document.getElementById('basketItems');
+  const totalEl = document.getElementById('basketTotal');
+  const summaryEl = document.getElementById('summaryField');
+
+  if (names.length === 0) {
+    emptyEl.style.display = '';
+    itemsEl.style.display = 'none';
+    totalEl.style.display = 'none';
+    summaryEl.textContent = "Your tea selection will appear here automatically once you've chosen from the menu above.";
+    summaryEl.classList.remove('populated');
+  } else {
+    emptyEl.style.display = 'none';
+    itemsEl.style.display = 'flex';
+    totalEl.style.display = 'flex';
+    itemsEl.innerHTML = names.map(n => `
+      <div class="basket-item">
+        <span class="b-name">${n}</span>
+        <span class="b-qty">${window.basket[n].qty} <span>× bag</span></span>
+        <button class="b-remove" onclick="removeItem(event,'${n.replace(/'/g,"\\'")}')" title="Remove">×</button>
+      </div>`).join('');
+    document.getElementById('totalQty').textContent = total;
+    summaryEl.textContent = names.map(n => { const o = window.basket[n].origin ? ` (${window.basket[n].origin})` : ''; return `${window.basket[n].qty}× ${n}${o}`; }).join('\n');
+    summaryEl.classList.add('populated');
+  }
+}
+
+window.removeItem = function(e, name) {
+  e.stopPropagation();
+  delete window.basket[name];
+  document.querySelectorAll('.p-card').forEach(card => {
+    if (getCardName(card) === name) {
+      card.classList.remove('selected');
+      card.querySelector('.p-select-icon').textContent = '+';
+      card.querySelector('.p-select-text').textContent = 'Add';
+      card.querySelector('.qty-num').textContent = '1';
+    }
+  });
+  updateUI();
+};
+
+function attachCardEvents() {
+  const cards = document.querySelectorAll('.p-card');
+  cards.forEach(card => {
+    card.removeAttribute('onclick');
+    card.addEventListener('click', function(e) {
+      if (e.target.closest('.origin-btn, .qty-btn, .b-remove')) {{
+        return;
+      }
+      toggleCard(this);
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  attachCardEvents();
+  updateUI();
+});
+</script</body>
 </html>
