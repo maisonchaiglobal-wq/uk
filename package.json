@@ -1,6 +1,5 @@
 {
   "name": "maisonchai-uk",
-  "version": "1.0.0",
   "dependencies": {
     "stripe": "^17.0.0"
   }
