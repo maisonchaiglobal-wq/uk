@@ -1232,7 +1232,7 @@ footer { background:var(--forest-deep); padding:44px 80px; display:flex; align-i
 </div>
 
 <script>
-const basket = {};
+window basket = {};
 
 function getCardName(card) {
   return card.querySelector('.p-name').textContent.trim();
@@ -1394,5 +1394,76 @@ async function submitTrade(e) {
   }
 }
 </script>
-</body>
+<script>
+// Ensure basket is accessible globally (if not already)
+if (typeof window.basket === 'undefined') {
+  window.basket = window.basket || {};
+}
+
+// Price mapping (make sure tea names exactly match what's in your HTML)
+const priceMap = {
+  'Breakfast Tea': 6,
+  'Ginger Breakfast Tea': 10,
+  'Masala Breakfast Tea': 10,
+  'Karak Breakfast Tea': 10,
+  'Signature Breakfast Tea': 10,
+  'Fleur': 12.50,
+  'Lemon Fleur': 12.50,
+  'Masala Fleur': 12.50,
+  'Karak Fleur': 12.50,
+  'Earl Grey': 12.50,
+  'Vert': 12.50,
+  'Vert Mint': 12.50,
+  'Vert Lemongrass': 12.50,
+  'Vert Moringa': 12.50,
+  'Vert Relax': 12.50,
+  'Violet': 12.50,
+  'Violet Bloom': 12.50,
+  'Violet Lemongrass': 12.50,
+  'Violet Moringa': 12.50,
+  'Violet Relax': 12.50,
+  'White Tea': 15,
+  'White Tea & Rosebuds': 15,
+  'Yellow Tea': 15,
+  'Yellow Tea & Lemongrass': 15,
+  'Oolong': 15
+};
+
+// Get the "Complete Order" button – make sure it has id="checkout-button"
+const checkoutBtn = document.getElementById('checkout-button');
+if (checkoutBtn) {
+  checkoutBtn.addEventListener('click', async function(e) {
+    e.preventDefault();
+
+    // Calculate total from basket
+    let total = 0;
+    for (let [name, details] of Object.entries(window.basket)) {
+      const price = priceMap[name];
+      if (price) total += details.qty * price;
+    }
+
+    if (total === 0) {
+      alert('Please add at least one tea to your order.');
+      return;
+    }
+
+    try {
+      const response = await fetch('/.netlify/functions/create-checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ total })
+      });
+      const data = await response.json();
+      if (data.url) {
+        window.location.href = data.url; // Redirect to Stripe Checkout
+      } else {
+        alert('Could not start checkout: ' + (data.error || 'Unknown error'));
+      }
+    } catch (err) {
+      console.error(err);
+      alert('An error occurred. Please try again later.');
+    }
+  });
+}
+</script></body>
 </html>
