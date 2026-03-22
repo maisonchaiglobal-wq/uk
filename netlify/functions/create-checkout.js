@@ -8,14 +8,16 @@ exports.handler = async (event) => {
     const { total } = JSON.parse(event.body);
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
-      line_items: [{
-        price_data: {
-          currency: 'gbp',
-          product_data: { name: 'Maison Chai Pre-order' },
-          unit_amount: Math.round(total * 100),
+      line_items: [
+        {
+          price_data: {
+            currency: 'gbp',
+            product_data: { name: 'Maison Chai Pre-order' },
+            unit_amount: Math.round(total * 100),
+          },
+          quantity: 1,
         },
-        quantity: 1,
-      }],
+      ],
       mode: 'payment',
       success_url: 'https://uk.maisonchaiglobal.com/success.html',
       cancel_url: 'https://uk.maisonchaiglobal.com/',
