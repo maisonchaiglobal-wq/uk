@@ -1228,7 +1228,7 @@ if (checkoutBtn) {
     console.log('Total to send to Stripe:', total);
 
     try {
-     const response = await fetch('https://stripe-checkout.maisonchaiglobal.workers.dev', {
+     const response = await fetch('https://wild-water-5416.maisonchaiglobal.workers.dev', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ total })
